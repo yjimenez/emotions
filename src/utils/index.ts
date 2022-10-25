@@ -1,3 +1,9 @@
+export const delay = async (ms: number) => {
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms);
+  });
+};
+
 export const formatDate: (input: Date | string) => string | null = (input) => {
   if (!input) {
     return null;

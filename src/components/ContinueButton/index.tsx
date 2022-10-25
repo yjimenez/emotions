@@ -1,16 +1,30 @@
 import React from "react";
-import { TouchableOpacity, Text } from "react-native";
+import { View, Pressable, Text } from "react-native";
 import styles from "./styles";
+import * as backgroundColors from "../../utils/backgroundColors";
 
-export default function ContinueButton(props) {
-  const { label, onPress, customStyle, customTextStyle } = props;
+interface Props {
+  label: string;
+  onPress: () => {};
+  customStyle?: {};
+  customTextStyle?: {};
+  sectionColor?: string;
+}
+
+export default function ContinueButton(props: Props) {
+  const { label, onPress, customStyle, customTextStyle, sectionColor } = props;
+
+  const color = sectionColor
+    ? backgroundColors[sectionColor][4]
+    : styles.textStyle.color;
 
   return (
-    <TouchableOpacity
-      onPress={onPress}
-      style={[styles.buttonStyle, customStyle]}
-    >
-      <Text style={[styles.textStyle, customTextStyle]}>{label}</Text>
-    </TouchableOpacity>
+    <View>
+      <Pressable onPress={onPress} style={[styles.buttonStyle, customStyle]}>
+        <Text style={[styles.textStyle, customTextStyle, { color }]}>
+          {label}
+        </Text>
+      </Pressable>
+    </View>
   );
 }

@@ -1,14 +1,14 @@
 import { Text } from "react-native";
-import { useFonts } from "expo-font";
+import React from "react";
+import styles from "./styles";
 
-export default function PVText(props) {
-  const [fontsLoaded] = useFonts({
-    robotoRegular: require("../../../assets/fonts/Roboto/Roboto-Regular.ttf"),
-  });
+interface Props {
+  children: React.ReactNode;
+  style?: {} | any;
+  fontType?: string | any;
+}
 
-  if (!fontsLoaded) {
-    return null;
-  }
-
-  return <Text style={{ ...props.style }}>{props.children}</Text>;
+export default function PVText(props: Props) {
+  const { fontType } = props;
+  return <Text style={[styles[fontType], props.style]}>{props.children}</Text>;
 }

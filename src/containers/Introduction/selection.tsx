@@ -1,34 +1,58 @@
 import * as React from "react";
-import { View } from "react-native";
+import { Pressable, View } from "react-native";
 import Background from "../../components/Background";
-import ContinueButton from "../../components/ContinueButton";
+import * as text from "../../text/introduction";
 import PVText from "../../components/PVText";
 import styles from "./styles";
 
-export default function Introduction({ navigation }) {
+export default function Introduction({ navigation }: { navigation: any }) {
+  const sectionColor = "fear";
+
+  const elementBox = (emotion: string, label: string) => (
+    <Pressable
+      onPress={() =>
+        navigation.navigate("MainFlow", {
+          screen: "StartImage",
+          params: { emotion, label },
+        })
+      }
+      style={styles.selectionElement}
+    >
+      <PVText fontType={"normalText"}>{label}</PVText>
+    </Pressable>
+  );
+
   return (
-    <Background gradientName={navigation.getId()}>
+    <Background containsBottomTab gradientName={sectionColor}>
       <View style={styles.wrapper}>
-        <PVText style={styles.headlineH1}>Selection</PVText>
+        <View style={styles.headerSelector}>
+          <PVText style={styles.headerTextAlign} fontType={"headlineH2"}>
+            {text.selectionHeader}
+          </PVText>
+        </View>
 
-        <ContinueButton
-          label="SORPRESA"
-          onPress={() =>
-            navigation.navigate("Surprise", { screen: "Surprise" })
-          }
-        />
+        <View style={styles.cardsBody}>
+          <View style={styles.selectionRow}>
+            {elementBox("surprise", `SORPRESA`)}
+          </View>
 
-        <ContinueButton
-          label="ALEGRIA"
-          onPress={() =>
-            navigation.navigate("Happiness", { screen: "Happiness" })
-          }
-        />
+          <View style={styles.selectionRow}>
+            {elementBox("happiness", `ALEGRIA`)}
+            {elementBox("sadness", `TRISTEZA`)}
+          </View>
 
-        <ContinueButton
-          label="INITIAL SCREEN"
-          onPress={() => navigation.navigate("Initial")}
-        />
+          <View style={styles.selectionRow}>
+            {elementBox("anger", `ENOJO`)}
+            {elementBox("fear", `MIEDO`)}
+          </View>
+
+          <View style={styles.selectionRow}>
+            {elementBox("repulsion", `REPULSION`)}
+            {elementBox("shame", `VERGUENZA`)}
+          </View>
+
+          <View style={styles.selectionRow}>{elementBox("love", `AMOR`)}</View>
+        </View>
       </View>
     </Background>
   );

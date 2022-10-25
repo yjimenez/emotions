@@ -10,11 +10,18 @@ const styles = StyleSheet.create({
     borderRadius: 50,
   },
   textStyle: {
-    fontSize: 18,
-    fontFamily: "Gill Sans",
+    fontSize: width * 0.05,
+    fontFamily: "montserrat-semibold",
     textAlign: "center",
     color: "red",
     backgroundColor: "transparent",
+  },
+  buttonContainer: {
+    alignItems: "center",
+    width: "100%",
+    borderWidth: 1,
+    paddingTop: 15,
+    paddingBottom: 15,
   },
 });
 

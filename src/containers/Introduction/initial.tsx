@@ -1,19 +1,35 @@
 import * as React from "react";
-import { View } from "react-native";
+import { View, Image } from "react-native";
 import Background from "../../components/Background";
 import ContinueButton from "../../components/ContinueButton";
 import PVText from "../../components/PVText";
 import styles from "./styles";
 
-export default function Initial({ navigation, route }) {
+export default function Initial({
+  navigation,
+  route,
+}: {
+  navigation: any;
+  route: any;
+}) {
+  const sectionColor = "fear";
   return (
-    <Background gradientName={navigation.getId()}>
+    <Background gradientName={sectionColor}>
       <View style={styles.wrapper}>
-        <PVText style={styles.headlineH1}>Introducion</PVText>
-        <ContinueButton
-          label="SIGUIENTE"
-          onPress={() => navigation.navigate("Summary")}
-        />
+        <View style={styles.header}>
+          <PVText fontType={"headlineH1"}>APP EMOCIONES</PVText>
+          <PVText fontType={"normalText"}>Te damos la bienvenida</PVText>
+        </View>
+        <View style={styles.body}>
+          <Image source={require("../../../assets/images/logo_paty.png")} />
+        </View>
+        <View style={styles.bottom}>
+          <ContinueButton
+            sectionColor={sectionColor}
+            label="SIGUIENTE"
+            onPress={() => navigation.navigate("Summary")}
+          />
+        </View>
       </View>
     </Background>
   );
