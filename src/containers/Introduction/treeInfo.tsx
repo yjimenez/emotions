@@ -9,7 +9,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import styles from "./styles";
 
 export default function Introduction({ navigation }: { navigation: any }) {
-  const sectionColor = "fear";
+  const sectionColor = "miedo";
 
   const boxElm = (
     classStyle: {},
@@ -42,17 +42,17 @@ export default function Introduction({ navigation }: { navigation: any }) {
             text.summaryTex1.icon,
             text.summaryTex1.text
           )}
-          {boxElm("", 2500, 500, text.summaryTex2.icon, text.summaryTex2.text)}
+          {boxElm("", 1000, 500, text.summaryTex2.icon, text.summaryTex2.text)}
           {boxElm(
             styles.bodyTextBoxRadiusBottom,
-            5000,
+            2000,
             500,
             text.summaryTex3.icon,
             text.summaryTex3.text
           )}
         </View>
         <View style={styles.bottom}>
-          <FadeInView delay={7500} duration={500}>
+          <FadeInView delay={3000} duration={500}>
             <ContinueButton
               sectionColor={sectionColor}
               label="COMENZAR"

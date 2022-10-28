@@ -6,7 +6,7 @@ const Stack = createNativeStackNavigator();
 export default function HappinessScreen() {
   return (
     <Stack.Navigator
-      id="happiness"
+      id="alegria"
       initialRouteName="InitialHappiness"
       screenOptions={{
         headerShown: false,

@@ -1,8 +1,9 @@
 import * as React from "react";
-import { View } from "react-native";
+import { View, Image } from "react-native";
 import Background from "../../components/Background";
 import ContinueButton from "../../components/ContinueButton";
 import PVText from "../../components/PVText";
+import { getMonsterImage } from "../../text/mainFlow";
 import styles from "./styles";
 
 export default function StartImage({
@@ -12,21 +13,26 @@ export default function StartImage({
   navigation: any;
   route: any;
 }) {
-  const { emotion, label } = route.params;
+  const { emotion, value } = route.params;
   const sectionColor = emotion;
-
+  const { image, text } = getMonsterImage(emotion, value);
   return (
     <Background containsBottomTab gradientName={sectionColor}>
       <View style={styles.wrapper}>
-        <PVText style={styles.headlineH1}>{label}</PVText>
+        <Image source={image} />
+        <PVText style={styles.imageText} fontType={"headlineH2"}>
+          {text}
+        </PVText>
       </View>
-      <ContinueButton
-        sectionColor={sectionColor}
-        label="SELECT EMOTION"
-        onPress={() =>
-          navigation.navigate("Introduction", { screen: "Selection" })
-        }
-      />
+      <View style={styles.bottom}>
+        <ContinueButton
+          sectionColor={sectionColor}
+          label="CONTINUAR"
+          onPress={() =>
+            navigation.navigate("FeelingQuestion", { emotion, value })
+          }
+        />
+      </View>
     </Background>
   );
 }

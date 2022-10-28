@@ -6,7 +6,7 @@ import PVText from "../../components/PVText";
 import styles from "./styles";
 
 export default function Contact({ navigation }: { navigation: any }) {
-  const sectionColor = "fear";
+  const sectionColor = "miedo";
   return (
     <Background containsBottomTab gradientName={sectionColor}>
       <View style={styles.wrapper}>

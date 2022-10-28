@@ -7,7 +7,7 @@ import PVText from "../../components/PVText";
 import styles from "./styles";
 
 export default function Introduction({ navigation }: { navigation: any }) {
-  const sectionColor = "fear";
+  const sectionColor = "miedo";
   return (
     <Background gradientName={sectionColor}>
       <View style={styles.wrapper}>
@@ -24,7 +24,7 @@ export default function Introduction({ navigation }: { navigation: any }) {
         <View style={styles.bottom}>
           <ContinueButton
             sectionColor={sectionColor}
-            label="CONTINUE"
+            label="CONTINUAR"
             onPress={() => navigation.navigate("TreeInfo")}
           />
         </View>

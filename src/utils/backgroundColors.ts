@@ -1,4 +1,4 @@
-export const fear = [
+export const miedo = [
   "#311B92",
   "#4527A0",
   "#512DA8",
@@ -7,7 +7,7 @@ export const fear = [
   "#7E57C2",
 ];
 
-export const surprise = [
+export const sorpresa = [
   "#1B5E20",
   "#2E7D32",
   "#388E3C",
@@ -16,7 +16,7 @@ export const surprise = [
   "#66BB6A",
 ];
 
-export const happiness = [
+export const alegria = [
   "#FFD400",
   "#FFD819",
   "#FFDD33",
@@ -25,7 +25,7 @@ export const happiness = [
   "#FFEA80",
 ];
 
-export const sadness = [
+export const tristeza = [
   "#E65100",
   "#EF6C00",
   "#F57C00",
@@ -34,7 +34,7 @@ export const sadness = [
   "#FFA726",
 ];
 
-export const anger = [
+export const enojo = [
   "#B71C1C",
   "#C62828",
   "#D32F2F",
@@ -52,7 +52,7 @@ export const repulsion = [
   "#BDBDBD",
 ];
 
-export const shame = [
+export const verguenza = [
   "#0D47A1",
   "#1565C0",
   "#1976D2",
@@ -61,7 +61,7 @@ export const shame = [
   "#42A5F5",
 ];
 
-export const love = [
+export const amor = [
   "#FFFFFF",
   "#FFC9DE",
   "#FFE4E1",

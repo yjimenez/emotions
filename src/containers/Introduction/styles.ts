@@ -47,6 +47,9 @@ const styles = StyleSheet.create({
     paddingLeft: screenWidth * 0.1,
     paddingRight: screenWidth * 0.1,
   },
+  headerSelectionTextAlign: {
+    textAlign: "center",
+  },
   bodyTextAlign: {
     paddingLeft: screenWidth * 0.01,
     paddingRight: screenWidth * 0.01,

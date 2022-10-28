@@ -6,7 +6,7 @@ const Stack = createNativeStackNavigator();
 export default function SurpriseScreen() {
   return (
     <Stack.Navigator
-      id="surprise"
+      id="sorpresa"
       initialRouteName="Surprise"
       screenOptions={{
         headerShown: false,

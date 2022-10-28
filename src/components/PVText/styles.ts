@@ -13,6 +13,16 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontSize: screenWidth * 0.06,
   },
+  headlineH3: {
+    fontFamily: "montserrat-semibold",
+    color: "#fff",
+    fontSize: screenWidth * 0.05,
+  },
+  headlineH4: {
+    fontFamily: "montserrat-semibold",
+    color: "#fff",
+    fontSize: screenWidth * 0.04,
+  },
   normalText: {
     fontFamily: "montserrat-regular",
     color: "#fff",

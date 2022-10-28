@@ -15,7 +15,7 @@ export default function ContinueButton(props: Props) {
   const { label, onPress, customStyle, customTextStyle, sectionColor } = props;
 
   const color = sectionColor
-    ? backgroundColors[sectionColor][4]
+    ? backgroundColors[sectionColor][1]
     : styles.textStyle.color;
 
   return (

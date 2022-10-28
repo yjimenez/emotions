@@ -12,7 +12,7 @@ export default function Initial({
   navigation: any;
   route: any;
 }) {
-  const sectionColor = "fear";
+  const sectionColor = "miedo";
   return (
     <Background gradientName={sectionColor}>
       <View style={styles.wrapper}>

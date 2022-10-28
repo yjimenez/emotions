@@ -8,7 +8,19 @@ export const headlineH1 = {
 };
 
 export const headlineH2 = {
-  fontFamily: "montserrat-regular",
+  fontFamily: "montserrat-bold",
   color: "#fff",
   fontSize: width * 0.08,
+};
+
+export const headlineH3 = {
+  fontFamily: "montserrat-bold",
+  color: "#fff",
+  fontSize: width * 0.06,
+};
+
+export const headlineH4 = {
+  fontFamily: "montserrat-bold",
+  color: "#fff",
+  fontSize: width * 0.05,
 };
