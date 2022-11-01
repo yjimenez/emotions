@@ -25,6 +25,7 @@ export default function EmotionScale({
       const value = i + 1;
       return (
         <Pressable
+          key={i}
           onPress={() => onPress(value)}
           style={styles.numberContainer}
         >
