@@ -34,7 +34,10 @@ export default function FeelingModal({
 
   const onPressContinue = () => {
     onPressClose();
-    navigation.navigate("FeelingQuestions", { emotion });
+    navigation.navigate("FeelingQuestions", {
+      emotion,
+      feeling: modalContent.feeling,
+    });
   };
 
   useEffect(() => {
