@@ -25,20 +25,28 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   bodyInfoText: {
-    minHeight: screenHeight * 0.1,
+    minHeight: screenHeight * 0.08,
     flex: 3,
     justifyContent: "center",
     padding: screenHeight * 0.02,
   },
   bodyImages: {
-    minHeight: screenHeight * 0.1,
-    borderWidth: 1,
+    minHeight: screenHeight * 0.4,
+    width: "100%",
+    flexDirection: "row",
   },
   imageLogo: {
-    borderWidth: 1,
+    flex: 1,
+    width: "100%",
+    justifyContent: "center",
+  },
+  imageLogoSource: {
+    width: screenWidth * 0.45,
+    resizeMode: "stretch",
   },
   imageFace: {
-    borderWidth: 1,
+    flex: 1,
+    justifyContent: "center",
   },
   headlineH1,
   text1,

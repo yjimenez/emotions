@@ -3,6 +3,7 @@ import { View, Image } from "react-native";
 import Background from "../../components/Background";
 import ContinueButton from "../../components/ContinueButton";
 import PVText from "../../components/PVText";
+import { getImage } from "../../utils/getImages";
 import styles from "./styles";
 
 export default function Initial({
@@ -21,7 +22,7 @@ export default function Initial({
           <PVText fontType={"normalText"}>Te damos la bienvenida</PVText>
         </View>
         <View style={styles.body}>
-          <Image source={require("../../../assets/images/logo_paty.png")} />
+          <Image source={getImage().patyLogo} />
         </View>
         <View style={styles.bottom}>
           <ContinueButton

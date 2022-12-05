@@ -2,7 +2,7 @@ import { ImageBackground, View } from "react-native";
 import ContinueButton from "../../components/ContinueButton";
 import PVText from "../../components/PVText";
 import { recommendedOils } from "../../text/recommendedOils";
-import { getBackgroundImage } from "../../utils/backgroundImages";
+import { getBackgroundImage } from "../../utils/getImages";
 import styles from "./styles";
 
 export default function RecommendedOils({
@@ -20,7 +20,7 @@ export default function RecommendedOils({
   ] || { description: "NO DESCRIPTION", oils: "NO OILS" };
   const titleColor = oilsContent.titleColor || "blue";
 
-  const image = getBackgroundImage[0];
+  const image = getBackgroundImage()[0];
   return (
     <View style={styles.imageWrapper}>
       <ImageBackground source={image} resizeMode="cover" style={styles.image}>

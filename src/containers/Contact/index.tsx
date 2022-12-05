@@ -1,7 +1,8 @@
 import * as React from "react";
-import { View } from "react-native";
+import { Image, View } from "react-native";
 import Background from "../../components/Background";
 import PVText from "../../components/PVText";
+import { getImage } from "../../utils/getImages";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import styles from "./styles";
 
@@ -43,8 +44,18 @@ export default function Contact({ navigation }: { navigation: any }) {
           {infoRow(email.icon, email.text)}
         </View>
         <View style={styles.bodyImages}>
-          <View style={styles.imageLogo}></View>
-          <View style={styles.imageFace}></View>
+          <View style={styles.imageLogo}>
+            <Image
+              style={styles.imageLogoSource}
+              source={getImage().patyLogo}
+            />
+          </View>
+          <View style={styles.imageFace}>
+            <Image
+              style={styles.imageLogoSource}
+              source={getImage().patyLogo}
+            />
+          </View>
         </View>
       </View>
     </Background>
