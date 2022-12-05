@@ -3,7 +3,10 @@ import * as SplashScreen from "expo-splash-screen";
 import * as Font from "expo-font";
 import { Asset } from "expo-asset";
 
-const imagesArray = [require("../../assets/images/logo_paty.png")];
+const imagesArray = [
+  require("../../assets/images/logo_paty.png"),
+  require("../../assets/images/bottles-of-rosemary-pine-thyme-mint-essential-oil-on-gray-background-top-view-copy-space.jpg"),
+];
 
 const fontsObj = {
   "roboto-regular": require("../../assets/fonts/Roboto/Roboto-Regular.ttf"),

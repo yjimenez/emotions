@@ -12,7 +12,12 @@ const styles = StyleSheet.create({
     paddingTop: screenHeight * 0.05,
   },
   container: {
+    flex: 1,
+    justifyContent: "center",
     marginTop: screenHeight * 0.1,
+  },
+  questionContainer: {
+    textAlign: "center",
   },
   buttonsContainer: {
     height: screenHeight * 0.2,

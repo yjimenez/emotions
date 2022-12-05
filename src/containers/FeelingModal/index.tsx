@@ -25,7 +25,7 @@ export default function FeelingModal({
     feelingDescription: string;
   };
 }) {
-  const colors = background[emotion].reverse();
+  const colors = background[emotion];
   const [modalVisible, setModalVisible] = useState(modalVisibleProp);
 
   const onPressClose = () => {

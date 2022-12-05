@@ -1,9 +1,8 @@
-import { useState } from "react";
-import { ImageBackground, Pressable, View } from "react-native";
-import Background from "../../components/Background";
+import { ImageBackground, View } from "react-native";
 import ContinueButton from "../../components/ContinueButton";
 import PVText from "../../components/PVText";
 import { recommendedOils } from "../../text/recommendedOils";
+import { getBackgroundImage } from "../../utils/backgroundImages";
 import styles from "./styles";
 
 export default function RecommendedOils({
@@ -19,36 +18,41 @@ export default function RecommendedOils({
   const oilsContent = recommendedOils(emotion)[emotion][
     feeling.toLowerCase()
   ] || { description: "NO DESCRIPTION", oils: "NO OILS" };
+  const titleColor = oilsContent.titleColor || "blue";
 
-  console.log("feelingSelection(emotion)[emotion]", oilsContent);
-  const onPress = (feeling: string, feelingDescription: string) => (
-    setModalContent({
-      emotionHeader: popUpHeader(emotion, feeling),
-      definition,
-      feeling,
-      feelingDescription,
-    }),
-    setModalVisible(true)
-  );
-
-  const image = require("../../../assets/images/bottles-of-rosemary-pine-thyme-mint-essential-oil-on-gray-background-top-view-copy-space.jpg");
+  const image = getBackgroundImage[0];
   return (
     <View style={styles.imageWrapper}>
       <ImageBackground source={image} resizeMode="cover" style={styles.image}>
         <View style={styles.wrapper}>
-          <View style={styles.header}>
+          <View style={[styles.headerEmotion, { backgroundColor: titleColor }]}>
             <PVText style={styles.headerText} fontType={"headlineH2"}>
-              {`${emotion.toUpperCase()} - ${oilsContent.description}`}
+              {`${feeling.toUpperCase()}`}
             </PVText>
           </View>
           <View style={styles.oilsContent}>
-            <PVText style={styles.headerText} fontType={"headlineH3"}>
-              {`${feeling.toUpperCase()} - ${oilsContent.oils}`}
-            </PVText>
+            <View style={styles.oilsDescription}>
+              <PVText style={styles.contentText} fontType={"headlineH2"}>
+                {` ${oilsContent.description}`}
+              </PVText>
+            </View>
+            <View style={styles.oilsDetails}>
+              <PVText
+                style={styles.contentTextRecommended}
+                fontType={"headlineH3"}
+              >
+                {`ACEITES ESCENCIALES RECOMENDADOS`}
+              </PVText>
+              <PVText style={styles.contentText} fontType={"headlineH3"}>
+                {`${oilsContent.oils}`}
+              </PVText>
+            </View>
           </View>
+        </View>
+        <View style={styles.buttonsContainer}>
           <ContinueButton
             sectionColor={sectionColor}
-            label="COMENZAR"
+            label="FINALIZAR"
             onPress={() =>
               navigation.navigate("Introduction", { screen: "Selection" })
             }

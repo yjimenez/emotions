@@ -23,7 +23,7 @@ export const feelingSelection = (emotion: string) => {
         Alerta: "Se aplica a la persona que está atenta, vigilante.",
         Discreción:
           "Reserva o cautela para no decir algo que se sabe o piensa.",
-        "Indiscreción VS Vergüenza/ Culpa":
+        "Indiscreción vs vergüenza/culpa":
           "Incapacidad para guardar un secreto o para no contar lo que sabe y no hay necesidad de que conozcan los demás.",
         Confusión:
           "Falta de orden o de claridad cuando hay muchas personas o cosas juntas.",

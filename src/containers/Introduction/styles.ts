@@ -99,9 +99,18 @@ const styles = StyleSheet.create({
     borderColor: "#fff",
     backgroundColor: "#887BF8",
     width: 150,
-    height: screenHeight * 0.1,
+    height: screenHeight * 0.12,
     justifyContent: "center",
     alignItems: "center",
+    alignContent: "center",
+    paddingTop: screenHeight * 0.0,
+  },
+  emotionFace: {
+    flex: 1,
+    width: screenWidth * 0.3,
+  },
+  tinyText: {
+    fontSize: screenWidth * 0.03,
   },
 });
 

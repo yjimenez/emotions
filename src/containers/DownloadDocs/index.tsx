@@ -10,7 +10,7 @@ export default function DownloadDocs({ navigation }: { navigation: any }) {
   return (
     <Background containsBottomTab gradientName={sectionColor}>
       <View style={styles.wrapper}>
-        <PVText style={styles.headlineH1}>Download Documents</PVText>
+        <PVText style={styles.headlineH1}>TEORIAS</PVText>
       </View>
       <ContinueButton
         sectionColor={sectionColor}

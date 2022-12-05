@@ -1,26 +1,33 @@
 import * as React from "react";
-import { Pressable, View } from "react-native";
+import { Image, Pressable, View } from "react-native";
 import Background from "../../components/Background";
 import * as text from "../../text/introduction";
 import PVText from "../../components/PVText";
+import { getEmotionFaces } from "../../utils/emotionFaces";
 import styles from "./styles";
 
 export default function Selection({ navigation }: { navigation: any }) {
   const sectionColor = "miedo";
 
-  const elementBox = (emotion: string, label: string) => (
-    <Pressable
-      onPress={() =>
-        navigation.navigate("MainFlow", {
-          screen: "EmotionScale",
-          params: { emotion, label },
-        })
-      }
-      style={styles.selectionElement}
-    >
-      <PVText fontType={"normalText"}>{label}</PVText>
-    </Pressable>
-  );
+  const elementBox = (emotion: string, label: string) => {
+    const image = getEmotionFaces(emotion);
+    return (
+      <Pressable
+        onPress={() =>
+          navigation.navigate("MainFlow", {
+            screen: "EmotionScale",
+            params: { emotion, label },
+          })
+        }
+        style={styles.selectionElement}
+      >
+        <Image style={styles.emotionFace} source={image} />
+        <PVText fontType={"normalText"} style={styles.tinyText}>
+          {label}
+        </PVText>
+      </Pressable>
+    );
+  };
 
   return (
     <Background containsBottomTab gradientName={sectionColor}>

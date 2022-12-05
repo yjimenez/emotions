@@ -24,3 +24,9 @@ export const headlineH4 = {
   color: "#fff",
   fontSize: width * 0.05,
 };
+
+export const text1 = {
+  fontFamily: "montserrat-regular",
+  color: "#fff",
+  fontSize: width * 0.05,
+};
