@@ -22,7 +22,10 @@ export default function Initial({
           <PVText fontType={"normalText"}>Te damos la bienvenida</PVText>
         </View>
         <View style={styles.body}>
-          <Image source={getImage().patyLogo} />
+          <Image
+            style={styles.imagePrincipal}
+            source={getImage().patyPrincipal}
+          />
         </View>
         <View style={styles.bottom}>
           <ContinueButton

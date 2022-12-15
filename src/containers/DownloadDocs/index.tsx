@@ -10,15 +10,10 @@ export default function DownloadDocs({ navigation }: { navigation: any }) {
   return (
     <Background containsBottomTab gradientName={sectionColor}>
       <View style={styles.wrapper}>
-        <PVText style={styles.headlineH1}>TEORIAS</PVText>
+        <View style={styles.header}>
+          <PVText style={styles.headlineH1}>Teorias</PVText>
+        </View>
       </View>
-      <ContinueButton
-        sectionColor={sectionColor}
-        label="INITIAL SCREEN"
-        onPress={() =>
-          navigation.navigate("Introduction", { screen: "Initial" })
-        }
-      />
     </Background>
   );
 }

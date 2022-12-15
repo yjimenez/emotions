@@ -1,5 +1,5 @@
 import * as React from "react";
-import Selection from "../containers/Introduction/selection";
+import Selection from "../containers/Selection";
 import DownloadDocs from "../containers/DownloadDocs";
 import Contact from "../containers/Contact";
 import getIconImage from "../utils/tabIconImage";

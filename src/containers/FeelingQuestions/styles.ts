@@ -20,8 +20,8 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   buttonsContainer: {
-    height: screenHeight * 0.2,
-    justifyContent: "space-around",
+    height: screenHeight * 0.17,
+    justifyContent: "space-between",
     marginBottom: screenHeight * 0.1,
   },
 });

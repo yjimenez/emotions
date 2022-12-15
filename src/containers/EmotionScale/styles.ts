@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     width: "100%",
-    height: screenHeight * 0.7,
+    height: screenHeight * 0.8,
     paddingTop: screenHeight * 0.1,
   },
   headlineH1,
@@ -17,12 +17,23 @@ const styles = StyleSheet.create({
   headerText: {
     textAlign: "center",
   },
+  circleText: {
+    fontSize: screenWidth * 0.1,
+    position: "absolute",
+    alignSelf: "center",
+  },
+  sliderLineText: {
+    fontSize: screenWidth * 0.1,
+    alignSelf: "center",
+    marginTop: screenHeight * 0.08,
+  },
   numberWrapper: {
     flex: 1,
     flexDirection: "row",
     width: "100%",
     flexWrap: "wrap",
     alignContent: "center",
+    marginTop: screenHeight * 0.09,
   },
   numberContainer: {
     flex: 1,
@@ -32,6 +43,14 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "#fff",
     flexBasis: "20%",
+  },
+  buttonsContainer: {
+    height: screenHeight * 0.16,
+    justifyContent: "space-between",
+  },
+  buttonContainer: {
+    height: screenHeight * 0.16,
+    justifyContent: "flex-end",
   },
 });
 

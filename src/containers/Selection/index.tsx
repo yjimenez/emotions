@@ -4,7 +4,7 @@ import Background from "../../components/Background";
 import * as text from "../../text/introduction";
 import PVText from "../../components/PVText";
 import { getEmotionFaces } from "../../utils/emotionFaces";
-import styles from "./styles";
+import styles from "../Introduction/styles";
 
 export default function Selection({ navigation }: { navigation: any }) {
   const sectionColor = "miedo";

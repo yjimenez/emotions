@@ -4,19 +4,17 @@ const { width, height: screenHeight } = Dimensions.get("window");
 
 const styles = StyleSheet.create({
   wrapper: {
+    flex: 1,
     flexDirection: "column",
     alignContent: "center",
     justifyContent: "space-around",
     alignItems: "center",
     width: "100%",
-    height: screenHeight * 0.7,
-    paddingTop: screenHeight * 0.1,
+    height: screenHeight * 0.8,
   },
-  bottom: {
-    width: "100%",
-    alignItems: "center",
-    paddingTop: screenHeight * 0.03,
-    paddingBottom: screenHeight * 0.03,
+  buttonContainer: {
+    height: screenHeight * 0.16,
+    justifyContent: "flex-end",
   },
   imageText: {
     textAlign: "center",

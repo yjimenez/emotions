@@ -11,8 +11,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   wrapper: {
+    flex: 1,
     flexDirection: "column",
-    justifyContent: "space-between",
     width: "100%",
     height: screenHeight * 0.75,
   },
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     alignContent: "flex-start",
     width: "80%",
-    marginTop: screenHeight * 0.03,
+    marginTop: screenHeight * 0.1,
     paddingTop: screenHeight * 0.02,
     paddingBottom: screenHeight * 0.02,
   },
@@ -37,26 +37,28 @@ const styles = StyleSheet.create({
   headlineH3,
   oilsContent: {
     flex: 1,
-    justifyContent: "space-between",
     textAlign: "center",
     alignItems: "center",
     paddingLeft: screenWidth * 0.03,
     paddingRight: screenWidth * 0.03,
-  },
-  oilsDescription: {
-    paddingTop: screenHeight * 0.05,
-    paddingBottom: screenHeight * 0.05,
-    justifyContent: "center",
     height: screenHeight * 0.25,
   },
+  oilsDescription: {
+    marginTop: screenHeight * 0.02,
+    paddingTop: screenHeight * 0.02,
+    paddingBottom: screenHeight * 0.02,
+    height: screenHeight * 0.2,
+  },
   oilsDetails: {
+    marginTop: screenHeight * 0.02,
     paddingLeft: screenWidth * 0.05,
     paddingRight: screenWidth * 0.05,
-    paddingTop: screenHeight * 0.05,
-    paddingBottom: screenHeight * 0.05,
+    paddingTop: screenHeight * 0.02,
+    paddingBottom: screenHeight * 0.02,
     backgroundColor: "#eeeeee",
     opacity: 0.8,
-    justifyContent: "space-between",
+    height: screenHeight * 0.37,
+    borderRadius: 10,
   },
   contentText: {
     color: "black",
@@ -85,10 +87,10 @@ const styles = StyleSheet.create({
     margin: screenWidth * 0.01,
   },
   buttonsContainer: {
-    marginTop: screenHeight * 0.05,
     justifyContent: "center",
     alignItems: "center",
     alignContent: "center",
+    marginBottom: screenHeight * 0.08,
   },
 });
 

@@ -51,10 +51,7 @@ export default function Contact({ navigation }: { navigation: any }) {
             />
           </View>
           <View style={styles.imageFace}>
-            <Image
-              style={styles.imageLogoSource}
-              source={getImage().patyLogo}
-            />
+            <Image style={styles.imageFaceSource} source={getImage().patyCel} />
           </View>
         </View>
       </View>

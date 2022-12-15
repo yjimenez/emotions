@@ -4,4 +4,7 @@ export const getBackgroundImage = () => [
 
 export const getImage = () => ({
   patyLogo: require("../../assets/images/logo_paty.png"),
+  patyCel: require("../../assets/images/patyCel.png"),
+  patyPrincipal: require("../../assets/images/faces/principal.png"),
+  patyChamarra: require("../../assets/images/faces/chamarra.png"),
 });

@@ -22,6 +22,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   body: {
+    marginTop: -screenHeight * 0.1,
     height: screenHeight * 0.5,
     alignContent: "center",
     justifyContent: "center",
@@ -30,12 +31,12 @@ const styles = StyleSheet.create({
   },
   imagePrincipal: {
     flex: 1,
-    marginTop: -screenHeight * 0.1,
     justifyContent: "center",
     alignContent: "center",
     alignItems: "center",
     width: "100%",
-    resizeMode: "contain",
+    height: screenHeight * 0.1,
+    resizeMode: "stretch",
   },
   bodySummary: {
     width: "100%",
@@ -119,8 +120,7 @@ const styles = StyleSheet.create({
   },
   emotionFace: {
     flex: 1,
-    width: "100%",
-    resizeMode: "contain",
+    width: screenWidth * 0.3,
   },
   tinyText: {
     fontSize: screenWidth * 0.03,

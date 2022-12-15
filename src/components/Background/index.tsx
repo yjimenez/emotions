@@ -13,7 +13,6 @@ interface Props {
 
 export default function Background(props: Props) {
   const { children, gradientName, containsBottomTab } = props;
-  console.log("gradientName", gradientName);
   const colors = background[gradientName] || background["miedo"];
   return (
     <SafeAreaProvider>

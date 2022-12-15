@@ -1,4 +1,4 @@
-import { ImageBackground, View } from "react-native";
+import { ImageBackground, ScrollView, View } from "react-native";
 import ContinueButton from "../../components/ContinueButton";
 import PVText from "../../components/PVText";
 import { recommendedOils } from "../../text/recommendedOils";
@@ -32,31 +32,46 @@ export default function RecommendedOils({
           </View>
           <View style={styles.oilsContent}>
             <View style={styles.oilsDescription}>
-              <PVText style={styles.contentText} fontType={"headlineH2"}>
-                {` ${oilsContent.description}`}
-              </PVText>
-            </View>
-            <View style={styles.oilsDetails}>
-              <PVText
-                style={styles.contentTextRecommended}
-                fontType={"headlineH3"}
+              <ScrollView
+                contentContainerStyle={{
+                  flexGrow: 1,
+                  justifyContent: "center",
+                }}
               >
-                {`ACEITES ESCENCIALES RECOMENDADOS`}
-              </PVText>
-              <PVText style={styles.contentText} fontType={"headlineH3"}>
-                {`${oilsContent.oils}`}
-              </PVText>
+                <PVText style={styles.contentText} fontType={"headlineH2"}>
+                  {`${oilsContent.description}`}
+                </PVText>
+              </ScrollView>
+            </View>
+
+            <View style={styles.oilsDetails}>
+              <ScrollView
+                contentContainerStyle={{
+                  flexGrow: 1,
+                  justifyContent: "center",
+                }}
+              >
+                <PVText
+                  style={styles.contentTextRecommended}
+                  fontType={"headlineH3"}
+                >
+                  {`ACEITES ESCENCIALES RECOMENDADOS`}
+                </PVText>
+                <PVText style={styles.contentText} fontType={"headlineH3"}>
+                  {`${oilsContent.oils}`}
+                </PVText>
+              </ScrollView>
             </View>
           </View>
-        </View>
-        <View style={styles.buttonsContainer}>
-          <ContinueButton
-            sectionColor={sectionColor}
-            label="FINALIZAR"
-            onPress={() =>
-              navigation.navigate("Introduction", { screen: "Selection" })
-            }
-          />
+          <View style={styles.buttonsContainer}>
+            <ContinueButton
+              sectionColor={sectionColor}
+              label="FINALIZAR"
+              onPress={() =>
+                navigation.navigate("Introduction", { screen: "Selection" })
+              }
+            />
+          </View>
         </View>
       </ImageBackground>
     </View>

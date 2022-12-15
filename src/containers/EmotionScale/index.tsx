@@ -1,10 +1,15 @@
-import * as React from "react";
-import { Pressable, View } from "react-native";
+import React, { useState } from "react";
+import { Dimensions, View } from "react-native";
+import CircularSlider from "react-native-rounded-slider";
+import * as background from "../../utils/backgroundColors";
+import Slider from "@react-native-community/slider";
 import Background from "../../components/Background";
 import ContinueButton from "../../components/ContinueButton";
 import PVText from "../../components/PVText";
 import { emotionScale, emotionSecondScale } from "../../text/mainFlow";
 import styles from "./styles";
+
+const { width: screenWidth } = Dimensions.get("window");
 
 export default function EmotionScale({
   navigation,
@@ -16,28 +21,22 @@ export default function EmotionScale({
   const { emotion, feeling, value } = route.params;
   const sectionColor = emotion;
   const secondPosition = value === "second";
+
+  const sectionColors = background[emotion];
+  const trackColor = sectionColors[sectionColors.length - 1];
+  const thumbColor = sectionColors[0];
+
+  const isCircular = true;
+
+  const [numberValue, setValue] = useState(0);
+
   const onPress = (value: number) => {
     secondPosition
       ? navigation.navigate("RecommendedOils", { emotion, feeling, value })
       : navigation.navigate("StartImage", { emotion, value });
   };
+  const numberSize = numberValue === 10 ? 0.2 : parseFloat(`0.1${numberValue}`);
 
-  const numberArr = [...new Array(10)]
-    .map((num, i) => {
-      const value = i + 1;
-      return (
-        <Pressable
-          key={i}
-          onPress={() => onPress(value)}
-          style={styles.numberContainer}
-        >
-          <PVText style={styles.headerText} fontType={"headlineH2"}>
-            {value}
-          </PVText>
-        </Pressable>
-      );
-    })
-    .reverse();
   return (
     <Background containsBottomTab gradientName={sectionColor}>
       <View style={styles.wrapper}>
@@ -46,17 +45,60 @@ export default function EmotionScale({
             ? emotionSecondScale(emotion.toUpperCase())
             : emotionScale(emotion.toUpperCase())}
         </PVText>
-        <View style={styles.numberWrapper}>{numberArr}</View>
+        <View style={styles.numberWrapper}>
+          <View
+            style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
+          >
+            {isCircular ? (
+              <CircularSlider
+                onChange={setValue}
+                size={300}
+                min={0}
+                max={10}
+                trackWidth={10}
+                trackColor={trackColor}
+                thumbColor={thumbColor}
+                thumbWidth={15}
+                steps={1}
+                element={
+                  <PVText
+                    style={[
+                      styles.circleText,
+                      { fontSize: screenWidth * numberSize },
+                    ]}
+                    fontType={"headlineH2"}
+                  >
+                    {numberValue}
+                  </PVText>
+                }
+              />
+            ) : (
+              <>
+                <Slider
+                  style={{ width: "80%", height: 40 }}
+                  step={1}
+                  minimumValue={0}
+                  maximumValue={10}
+                  thumbTintColor={thumbColor}
+                  minimumTrackTintColor={trackColor}
+                  maximumTrackTintColor="#FFFFFF"
+                  onValueChange={setValue}
+                />
+                <PVText style={styles.sliderLineText} fontType={"headlineH2"}>
+                  {numberValue}
+                </PVText>
+              </>
+            )}
+          </View>
+        </View>
+        <View style={styles.buttonContainer}>
+          <ContinueButton
+            sectionColor={sectionColor}
+            label="SIGUIENTE"
+            onPress={async () => onPress(numberValue)}
+          />
+        </View>
       </View>
-      {secondPosition ? null : (
-        <ContinueButton
-          sectionColor={sectionColor}
-          label="REGRESAR"
-          onPress={() =>
-            navigation.navigate("Introduction", { screen: "Selection" })
-          }
-        />
-      )}
     </Background>
   );
 }

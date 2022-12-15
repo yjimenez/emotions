@@ -17,21 +17,21 @@ export default function StartImage({
   const sectionColor = emotion;
   const { image, text } = getMonsterImage(emotion, value);
   return (
-    <Background containsBottomTab gradientName={sectionColor}>
+    <Background gradientName={sectionColor}>
       <View style={styles.wrapper}>
         <Image source={image} />
         <PVText style={styles.imageText} fontType={"headlineH2"}>
           {text}
         </PVText>
-      </View>
-      <View style={styles.bottom}>
-        <ContinueButton
-          sectionColor={sectionColor}
-          label="CONTINUAR"
-          onPress={() =>
-            navigation.navigate("FeelingQuestion", { emotion, value })
-          }
-        />
+        <View style={styles.bottom}>
+          <ContinueButton
+            sectionColor={sectionColor}
+            label="CONTINUAR"
+            onPress={() =>
+              navigation.navigate("FeelingQuestion", { emotion, value })
+            }
+          />
+        </View>
       </View>
     </Background>
   );
