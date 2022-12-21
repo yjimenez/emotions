@@ -16,6 +16,7 @@ const styles = StyleSheet.create({
     width: "100%",
     alignItems: "center",
     height: screenHeight * 0.2,
+    marginBottom: screenHeight * 0.1,
   },
   headlineH1,
   headlineH2,

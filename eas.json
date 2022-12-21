@@ -3,10 +3,6 @@
     "version": ">= 2.5.1"
   },
   "build": {
-    "development": {
-      "developmentClient": true,
-      "distribution": "internal"
-    },
     "beta": {
       "android": {
         "gradleCommand": ":app:assembleRelease",
@@ -14,6 +10,26 @@
         "developmentClient": true
       },
       "distribution": "internal"
+    },
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal"
+    },
+    "development-simulator": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "ios": {
+        "simulator": true
+      }
+    },
+    "preview": {
+      "distribution": "internal"
+    },
+    "preview-simulator": {
+      "distribution": "internal",
+      "ios": {
+        "simulator": true
+      }
     },
     "production": {}
   },

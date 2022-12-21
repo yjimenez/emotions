@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     width: "100%",
-    height: screenHeight * 0.8,
+    height: screenHeight * 0.9,
     paddingTop: screenHeight * 0.1,
   },
   headlineH1,

@@ -65,13 +65,6 @@ export default function FeelingQuestion({
           </View>
           <View style={styles.numberWrapper}>{optionsArr}</View>
         </View>
-        <ContinueButton
-          sectionColor={sectionColor}
-          label="REGRESAR"
-          onPress={() =>
-            navigation.navigate("Introduction", { screen: "Selection" })
-          }
-        />
       </Background>
       <FeelingModal
         navigation={navigation}

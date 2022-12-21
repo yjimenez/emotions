@@ -1,5 +1,6 @@
 import * as React from "react";
 import { View, Image } from "react-native";
+import ImageLoader from "./imageAnimation";
 import Background from "../../components/Background";
 import ContinueButton from "../../components/ContinueButton";
 import PVText from "../../components/PVText";
@@ -19,7 +20,7 @@ export default function StartImage({
   return (
     <Background gradientName={sectionColor}>
       <View style={styles.wrapper}>
-        <Image source={image} />
+        <ImageLoader source={image} />
         <PVText style={styles.imageText} fontType={"headlineH2"}>
           {text}
         </PVText>

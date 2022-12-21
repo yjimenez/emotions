@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Modal, Alert, View } from "react-native";
+import { Modal, Alert, View, ScrollView } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import * as background from "../../utils/backgroundColors";
 import Ionicons from "@expo/vector-icons/Ionicons";
@@ -64,19 +64,28 @@ export default function FeelingModal({
               onPress={() => onPressClose()}
             />
           </View>
+
           <View style={styles.content}>
-            <PVText style={styles.modalHeader} fontType={"headlineH3"}>
-              {`${modalContent.emotionHeader}`}
-            </PVText>
-            <PVText style={styles.modalParraph} fontType={"headlineH3"}>
-              {`${modalContent.definition}`}
-            </PVText>
-            <PVText style={styles.modalParraph} fontType={"headlineH3"}>
-              {`${modalContent.feeling.toUpperCase()}: ${
-                modalContent.feelingDescription
-              }`}
-            </PVText>
+            <ScrollView
+              contentContainerStyle={{
+                flexGrow: 1,
+                justifyContent: "center",
+              }}
+            >
+              <PVText style={styles.modalHeader} fontType={"headlineH3"}>
+                {`${modalContent.emotionHeader}`}
+              </PVText>
+              <PVText style={styles.modalParraph} fontType={"headlineH3"}>
+                {`${modalContent.definition}`}
+              </PVText>
+              <PVText style={styles.modalParraph} fontType={"headlineH3"}>
+                {`${modalContent.feeling.toUpperCase()}: ${
+                  modalContent.feelingDescription
+                }`}
+              </PVText>
+            </ScrollView>
           </View>
+
           <ContinueButton
             sectionColor={emotion}
             label="CONTINUAR"

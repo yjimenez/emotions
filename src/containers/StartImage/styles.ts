@@ -7,17 +7,18 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "column",
     alignContent: "center",
-    justifyContent: "space-around",
+    justifyContent: "space-between",
     alignItems: "center",
     width: "100%",
-    height: screenHeight * 0.8,
-  },
-  buttonContainer: {
-    height: screenHeight * 0.16,
-    justifyContent: "flex-end",
+    height: screenHeight * 0.1,
+    paddingTop: screenHeight * 0.1,
   },
   imageText: {
     textAlign: "center",
+    marginTop: -screenHeight * 0.05,
+  },
+  bottom: {
+    marginBottom: screenHeight * 0.02,
   },
 });
 

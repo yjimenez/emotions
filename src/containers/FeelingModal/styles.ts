@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
   content: {
     padding: 30,
     height: screenHeight * 0.6,
-    marginBottom: screenHeight * 0.03,
+    marginBottom: screenHeight * 0.01,
   },
   linearGradient: {
     borderRadius: 30,

@@ -62,7 +62,7 @@ export const verguenza = [
 ];
 
 export const amor = [
-  "#FFFFFF",
+  /*   "#FFFFFF",
   "#FFC9DE",
   "#FFE4E1",
   "#FFF4E1",
@@ -71,5 +71,8 @@ export const amor = [
   "#DCE4F9",
   "#E3F2FD",
   "#F5DCF9",
+  "#C5A3FF", */
   "#C5A3FF",
+  "#C5A3FF",
+  "#FF9A9E",
 ];
