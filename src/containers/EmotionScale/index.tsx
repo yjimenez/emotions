@@ -53,28 +53,31 @@ export default function EmotionScale({
             style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
           >
             {isCircular ? (
-              <CircularSlider
-                onChange={setValue}
-                size={300}
-                min={0}
-                max={10}
-                trackWidth={10}
-                trackColor={trackColor}
-                thumbColor={thumbColor}
-                thumbWidth={15}
-                steps={1}
-                element={
-                  <PVText
-                    style={[
-                      styles.circleText,
-                      { fontSize: screenWidth * numberSize },
-                    ]}
-                    fontType={"headlineH2"}
-                  >
-                    {numberValue}
-                  </PVText>
-                }
-              />
+              <View style={styles.circularRotation}>
+                <CircularSlider
+                  onChange={setValue}
+                  size={300}
+                  min={0}
+                  max={10}
+                  trackWidth={10}
+                  trackColor={trackColor}
+                  thumbColor={thumbColor}
+                  thumbWidth={15}
+                  steps={1}
+                  xCenter={99}
+                  element={
+                    <PVText
+                      style={[
+                        styles.circleText,
+                        { fontSize: screenWidth * numberSize },
+                      ]}
+                      fontType={"headlineH2"}
+                    >
+                      {numberValue}
+                    </PVText>
+                  }
+                />
+              </View>
             ) : (
               <>
                 <Slider

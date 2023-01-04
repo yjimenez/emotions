@@ -52,6 +52,7 @@ const styles = StyleSheet.create({
     height: screenHeight * 0.16,
     justifyContent: "flex-end",
   },
+  circularRotation: {},
 });
 
 export default styles;

@@ -1,18 +1,13 @@
 import * as React from "react";
-import { View, Image } from "react-native";
+import { View } from "react-native";
+import ImageLoader from "../../animations/imageAnimation";
 import Background from "../../components/Background";
 import ContinueButton from "../../components/ContinueButton";
 import PVText from "../../components/PVText";
 import { getImage } from "../../utils/getImages";
 import styles from "./styles";
 
-export default function Initial({
-  navigation,
-  route,
-}: {
-  navigation: any;
-  route: any;
-}) {
+export default function Initial({ navigation }: { navigation: any }) {
   const sectionColor = "miedo";
   return (
     <Background gradientName={sectionColor}>
@@ -22,9 +17,9 @@ export default function Initial({
           <PVText fontType={"normalText"}>Te damos la bienvenida</PVText>
         </View>
         <View style={styles.body}>
-          <Image
-            style={styles.imagePrincipal}
+          <ImageLoader
             source={getImage().patyPrincipal}
+            style={styles.imagePrincipal}
           />
         </View>
         <View style={styles.bottom}>

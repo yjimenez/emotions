@@ -4,6 +4,10 @@ export const delay = async (ms: number) => {
   });
 };
 
+export const randomNumber = (min: number, max: number) => {
+  return Math.floor(Math.random() * (max + 1 - min) + min);
+};
+
 export const formatDate: (input: Date | string) => string | null = (input) => {
   if (!input) {
     return null;

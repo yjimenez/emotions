@@ -5,7 +5,11 @@ import { Asset } from "expo-asset";
 
 const imagesArray = [
   require("../../assets/images/logo_paty.png"),
-  require("../../assets/images/bottles-of-rosemary-pine-thyme-mint-essential-oil-on-gray-background-top-view-copy-space.jpg"),
+  require("../../assets/images/oils/1.jpg"),
+  require("../../assets/images/oils/2.jpg"),
+  require("../../assets/images/oils/3.jpg"),
+  require("../../assets/images/oils/4.jpg"),
+  require("../../assets/images/oils/5.jpg"),
 ];
 
 const fontsObj = {

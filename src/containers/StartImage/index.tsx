@@ -1,6 +1,6 @@
 import * as React from "react";
-import { View, Image } from "react-native";
-import ImageLoader from "./imageAnimation";
+import { View } from "react-native";
+import ImageLoader from "../../animations/imageAnimation";
 import Background from "../../components/Background";
 import ContinueButton from "../../components/ContinueButton";
 import PVText from "../../components/PVText";

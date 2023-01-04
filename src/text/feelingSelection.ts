@@ -4,7 +4,7 @@ const titleHeader = (emotion: string) =>
 const subHeader = `Escoge hasta 4 SENTIMIENTOS que consideres los mas importantes para esa EMOCION.`;
 
 export const popUpHeader = (emotion: string, feeling: string) =>
-  `Dato sobre el ${emotion.toUpperCase()} con el semtimiento ${feeling.toUpperCase()} seleccionado`;
+  `Dato sobre el ${emotion.toUpperCase()} con el sentimiento ${feeling.toUpperCase()} seleccionado`;
 
 export const feelingSelection = (emotion: string) => {
   return {

@@ -2,6 +2,7 @@ import { ImageBackground, ScrollView, View } from "react-native";
 import ContinueButton from "../../components/ContinueButton";
 import PVText from "../../components/PVText";
 import { recommendedOils } from "../../text/recommendedOils";
+import { randomNumber } from "../../utils";
 import { getBackgroundImage } from "../../utils/getImages";
 import styles from "./styles";
 
@@ -20,7 +21,7 @@ export default function RecommendedOils({
   ] || { description: "NO DESCRIPTION", oils: "NO OILS" };
   const titleColor = oilsContent.titleColor || "blue";
 
-  const image = getBackgroundImage()[0];
+  const image = getBackgroundImage()[randomNumber(0, 4)];
   return (
     <View style={styles.imageWrapper}>
       <ImageBackground source={image} resizeMode="cover" style={styles.image}>
@@ -67,6 +68,7 @@ export default function RecommendedOils({
             <ContinueButton
               sectionColor={sectionColor}
               label="FINALIZAR"
+              pressEffect="highlight"
               onPress={() =>
                 navigation.navigate("Introduction", { screen: "Selection" })
               }

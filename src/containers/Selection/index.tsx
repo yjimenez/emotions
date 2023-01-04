@@ -1,5 +1,5 @@
-import * as React from "react";
-import { Image, Pressable, View } from "react-native";
+import React from "react";
+import { Image, View, Pressable } from "react-native";
 import Background from "../../components/Background";
 import * as text from "../../text/introduction";
 import PVText from "../../components/PVText";
@@ -19,12 +19,9 @@ export default function Selection({ navigation }: { navigation: any }) {
             params: { emotion, label },
           })
         }
-        style={styles.selectionElement}
+        style={[styles.selectionElement]}
       >
         <Image style={styles.emotionFace} source={image} />
-        <PVText fontType={"normalText"} style={styles.tinyText}>
-          {label}
-        </PVText>
       </Pressable>
     );
   };

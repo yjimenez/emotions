@@ -5,6 +5,7 @@ import * as background from "../../utils/backgroundColors";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import ContinueButton from "../../components/ContinueButton";
 import PVText from "../../components/PVText";
+import { delay } from "../../utils";
 import styles from "./styles";
 
 export default function FeelingModal({
@@ -32,12 +33,13 @@ export default function FeelingModal({
     setModalVisible(false), onCloseModal();
   };
 
-  const onPressContinue = () => {
-    onPressClose();
+  const onPressContinue = async () => {
     navigation.navigate("FeelingQuestions", {
       emotion,
       feeling: modalContent.feeling,
     });
+    await delay(500);
+    onPressClose();
   };
 
   useEffect(() => {
