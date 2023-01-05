@@ -4,6 +4,7 @@ import Background from "../../components/Background";
 import ContinueButton from "../../components/ContinueButton";
 import PVText from "../../components/PVText";
 import { feelingQuestions } from "../../text/feelingQuestions";
+import { delay } from "../../utils";
 import styles from "./styles";
 
 export default function FeelingQuestion({
@@ -19,7 +20,9 @@ export default function FeelingQuestion({
   const questions = feelingQuestions()[emotion];
   const [questionsCount, setQuestionCount] = useState(0);
 
-  const onPressAnswer = () => {
+  const onPressAnswer = async () => {
+    swipeRight();
+    await delay(500);
     const count = questionsCount + 1;
     if (count === questions.length) {
       navigation.navigate("EmotionScale", {
@@ -30,12 +33,13 @@ export default function FeelingQuestion({
     } else {
       setQuestionCount(count);
     }
+    swipeLeft();
   };
 
-  const animated = new Animated.Value(0);
+  const animated = new Animated.Value(-500);
   const duration = 500;
 
-  useEffect(() => {
+  const swipeLeft = () => {
     Animated.sequence([
       Animated.timing(animated, {
         toValue: 0,
@@ -43,12 +47,38 @@ export default function FeelingQuestion({
         useNativeDriver: true,
         easing: Easing.linear,
       }),
+    ]).start();
+  };
+
+  const swipeRight = () => {
+    Animated.sequence([
       Animated.timing(animated, {
-        toValue: 0,
+        toValue: 500,
         duration: duration,
         useNativeDriver: true,
+        easing: Easing.linear,
       }),
     ]).start();
+  };
+
+  useEffect(() => {
+    swipeLeft();
+  }, [questionsCount]);
+
+  useEffect(() => {
+    Animated.sequence([
+      Animated.timing(animated, {
+        toValue: -500,
+        duration: duration,
+        useNativeDriver: true,
+        easing: Easing.linear,
+      }),
+    ]).start();
+    const swipe = async () => {
+      await delay(500);
+      swipeLeft();
+    };
+    swipe();
   }, []);
 
   return (

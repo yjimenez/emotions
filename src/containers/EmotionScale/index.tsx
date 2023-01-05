@@ -37,8 +37,9 @@ export default function EmotionScale({
       ? navigation.navigate("RecommendedOils", { emotion, feeling, value })
       : navigation.navigate("StartImage", { emotion, value });
   };
-  const numberSize =
-    numberValue === 10 ? 0.25 : parseFloat(`0.1${numberValue}9`);
+  /*   const numberSize =
+    numberValue === 10 ? 0.25 : parseFloat(`0.1${numberValue}9`); */
+  const numberSize = numberValue === 10 ? 0.35 : parseFloat(numberValue * 0.03);
 
   return (
     <Background containsBottomTab gradientName={sectionColor}>

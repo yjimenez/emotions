@@ -15,6 +15,8 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(56, 255, 255, 0.1)",
     borderRadius: 10,
     marginTop: screenHeight * 0.05,
+    borderWidth: 1,
+    borderColor: "#fff",
   },
   bodyInfoRow: {
     flexDirection: "row",
