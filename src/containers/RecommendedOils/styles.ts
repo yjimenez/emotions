@@ -92,6 +92,28 @@ const styles = StyleSheet.create({
     alignContent: "center",
     marginBottom: screenHeight * 0.08,
   },
+  buyButton: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignContent: "center",
+    alignItems: "center",
+    alignSelf: "center",
+    marginTop: screenHeight * 0.01,
+    paddingTop: screenHeight * 0.01,
+    paddingBottom: screenHeight * 0.01,
+    backgroundColor: "red",
+    opacity: 1,
+    width: screenWidth * 0.7,
+    borderRadius: 10,
+  },
+  buyTextButton: {
+    fontSize: screenWidth * 0.04,
+    fontFamily: "montserrat-semibold",
+    textAlign: "center",
+    color: "#fff",
+    backgroundColor: "transparent",
+    marginLeft: screenWidth * 0.03,
+  },
 });
 
 export default styles;

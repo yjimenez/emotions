@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Dimensions, View } from "react-native";
 import CircularSlider from "react-native-rounded-slider";
 import * as background from "../../utils/backgroundColors";
@@ -21,9 +21,13 @@ export default function EmotionScale({
   const { emotion, feeling, value } = route.params;
   const sectionColor = emotion;
   const secondPosition = value === "second";
-  if (secondPosition) {
-    navigation.setOptions({ headerShown: false });
-  }
+
+  useEffect(() => {
+    if (secondPosition) {
+      navigation.setOptions({ headerShown: false });
+    }
+  }, [value]);
+
   const sectionColors = background[emotion];
   const trackColor = sectionColors[sectionColors.length - 1];
   const thumbColor = sectionColors[0];
@@ -37,9 +41,13 @@ export default function EmotionScale({
       ? navigation.navigate("RecommendedOils", { emotion, feeling, value })
       : navigation.navigate("StartImage", { emotion, value });
   };
-  /*   const numberSize =
-    numberValue === 10 ? 0.25 : parseFloat(`0.1${numberValue}9`); */
-  const numberSize = numberValue === 10 ? 0.35 : parseFloat(numberValue * 0.03);
+
+  const numberSize =
+    numberValue === 10
+      ? 0.35
+      : numberValue === 0
+      ? 0.025
+      : parseFloat(numberValue * 0.03);
 
   return (
     <Background containsBottomTab gradientName={sectionColor}>

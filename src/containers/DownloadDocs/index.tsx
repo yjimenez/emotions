@@ -1,5 +1,12 @@
 import React, { useEffect } from "react";
-import { View, SafeAreaView, Platform, UIManager } from "react-native";
+import {
+  View,
+  SafeAreaView,
+  Pressable,
+  Linking,
+  Platform,
+  UIManager,
+} from "react-native";
 import { AccordionList } from "react-native-accordion-list-view";
 import Background from "../../components/Background";
 import { documentDownload } from "../../text/documentDownload";
@@ -33,7 +40,22 @@ export default function DownloadDocs({ navigation }: { navigation: any }) {
                 <PVText style={styles.accordeonTitle}>{item.title}</PVText>
               )}
               customBody={(item) => (
-                <PVText style={styles.accordeonBody}>{item.body}</PVText>
+                <>
+                  <PVText style={styles.accordeonBody}>{item.body}</PVText>
+                  <Pressable
+                    style={styles.accordeonLinkWrapper}
+                    onPress={() =>
+                      Linking.openURL(
+                        "https://docs.google.com/document/d/1LqDixzhzxiJ2jZMphVa-yPZ283xN5W__qr0k3eyvXmg/edit?usp=sharing"
+                      )
+                    }
+                  >
+                    <PVText style={styles.accordeonLinkBody}>
+                      Ver Documento Completo
+                    </PVText>
+                    <Ionicons name="reader-outline" size={25} color="#fff" />
+                  </Pressable>
+                </>
               )}
               customIcon={() => (
                 <Ionicons

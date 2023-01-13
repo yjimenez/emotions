@@ -33,6 +33,8 @@ const styles = StyleSheet.create({
   },
   accordeonTitle: {
     ...headlineH4,
+    marginTop: screenHeight * 0.01,
+    marginBottom: screenHeight * 0.01,
     paddingLeft: screenWidth * 0.02,
     width: screenWidth * 0.78,
   },
@@ -40,6 +42,15 @@ const styles = StyleSheet.create({
     ...text1,
     fontSize: screenWidth * 0.04,
     padding: 10,
+  },
+  accordeonLinkBody: {
+    ...headlineH4,
+    fontSize: screenWidth * 0.04,
+    padding: 10,
+  },
+  accordeonLinkWrapper: {
+    flexDirection: "row",
+    alignItems: "center",
   },
   headlineH1,
 });

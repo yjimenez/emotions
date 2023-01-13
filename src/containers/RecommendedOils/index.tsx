@@ -1,9 +1,10 @@
-import { ImageBackground, ScrollView, View } from "react-native";
+import { ImageBackground, ScrollView, View, Pressable } from "react-native";
 import ContinueButton from "../../components/ContinueButton";
 import PVText from "../../components/PVText";
 import { recommendedOils } from "../../text/recommendedOils";
 import { randomNumber } from "../../utils";
 import { getBackgroundImage } from "../../utils/getImages";
+import Ionicons from "@expo/vector-icons/Ionicons";
 import styles from "./styles";
 
 export default function RecommendedOils({
@@ -46,21 +47,28 @@ export default function RecommendedOils({
             </View>
 
             <View style={styles.oilsDetails}>
+              <PVText
+                style={styles.contentTextRecommended}
+                fontType={"headlineH3"}
+              >
+                {`ACEITES ESCENCIALES RECOMENDADOS`}
+              </PVText>
               <ScrollView
                 contentContainerStyle={{
                   flexGrow: 1,
                   justifyContent: "center",
                 }}
               >
-                <PVText
-                  style={styles.contentTextRecommended}
-                  fontType={"headlineH3"}
-                >
-                  {`ACEITES ESCENCIALES RECOMENDADOS`}
-                </PVText>
                 <PVText style={styles.contentText} fontType={"headlineH3"}>
                   {`${oilsContent.oils}`}
                 </PVText>
+                <Pressable
+                  style={[styles.buyButton, { backgroundColor: titleColor }]}
+                  onPress={() => navigation.navigate("Contact")}
+                >
+                  <Ionicons name="cart-outline" size={25} color="#fff" />
+                  <PVText style={styles.buyTextButton}>COMPRAR AHORA</PVText>
+                </Pressable>
               </ScrollView>
             </View>
           </View>

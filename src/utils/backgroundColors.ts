@@ -17,12 +17,12 @@ export const sorpresa = [
 ];
 
 export const alegria = [
-  "#FFDA0A",
-  "#FFDD1F",
-  "#FFD400",
-  "#FFD400",
+  "#CCAD25",
+  "#EDCF2B",
+  "#CCAD25",
+  /*"#FFD400",
   "#FFD819",
-  "#FFDD33",
+  "#FFDD33", */
 ];
 
 export const tristeza = [
