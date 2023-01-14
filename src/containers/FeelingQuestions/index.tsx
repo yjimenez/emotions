@@ -86,7 +86,7 @@ export default function FeelingQuestion({
       <View style={styles.wrapper}>
         <View style={styles.container}>
           <Animated.View style={[{ transform: [{ translateX: animated }] }]}>
-            <PVText style={styles.questionContainer} fontType={"headlineH2"}>
+            <PVText style={styles.questionContainer} fontType={"headlineH1"}>
               {questions[questionsCount]}
             </PVText>
           </Animated.View>

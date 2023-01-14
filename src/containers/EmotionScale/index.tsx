@@ -21,6 +21,7 @@ export default function EmotionScale({
   const { emotion, feeling, value } = route.params;
   const sectionColor = emotion;
   const secondPosition = value === "second";
+  const [numberValue, setValue] = useState(0);
 
   useEffect(() => {
     if (secondPosition) {
@@ -33,8 +34,6 @@ export default function EmotionScale({
   const thumbColor = sectionColors[0];
 
   const isCircular = true;
-
-  const [numberValue, setValue] = useState(0);
 
   const onPress = (value: number) => {
     secondPosition

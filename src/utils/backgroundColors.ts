@@ -1,10 +1,11 @@
 export const miedo = [
-  "#311B92",
+  "#3B71FC",
+  // "#512DA8",
+  "#5609F8",
   "#4527A0",
-  "#512DA8",
-  "#5E35B1",
+  /*   "#5E35B1",
   "#673AB7",
-  "#7E57C2",
+  "#7E57C2", */
 ];
 
 export const sorpresa = [

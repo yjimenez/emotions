@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Pressable, View } from "react-native";
 import Background from "../../components/Background";
-import ContinueButton from "../../components/ContinueButton";
 import FeelingModal from "../../containers/FeelingModal";
 import PVText from "../../components/PVText";
 import { feelingSelection, popUpHeader } from "../../text/feelingSelection";
