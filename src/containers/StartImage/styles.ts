@@ -11,14 +11,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
     width: "100%",
     height: screenHeight * 0.1,
-    paddingTop: screenHeight * 0.1,
+    paddingTop: screenHeight * 0.08,
   },
   imageText: {
     textAlign: "center",
-    marginTop: -screenHeight * 0.05,
   },
   bottom: {
-    marginBottom: screenHeight * 0.02,
+    marginBottom: screenHeight * 0.05,
   },
 });
 

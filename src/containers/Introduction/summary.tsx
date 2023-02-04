@@ -24,7 +24,7 @@ export default function Introduction({ navigation }: { navigation: any }) {
         <View style={styles.bottom}>
           <ContinueButton
             sectionColor={sectionColor}
-            label="CONTINUAR"
+            label="VAMOS"
             onPress={() => navigation.navigate("TreeInfo")}
           />
         </View>

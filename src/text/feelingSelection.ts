@@ -69,8 +69,6 @@ export const feelingSelection = (emotion: string) => {
           "Estado anímico permanente, vago y sosegado, de tristeza y desinterés, que surge por causas físicas o morales, por lo general de leve importancia.",
         Desesperanza:
           "Pérdida de la Fé en lograr una cosa o de que se realice algo que se desea.",
-        Duelo:
-          "El duelo es el proceso de adaptación emocional que sigue a cualquier pérdida.",
         Pena: "Sentimiento de dolor, sufrimiento o tristeza que provoca en una persona un hecho adverso o desgraciado.",
         Soledad:
           "Sentimiento de aislamiento o confinamiento, falta de contacto con otras personas.",
@@ -78,6 +76,8 @@ export const feelingSelection = (emotion: string) => {
           "Sentimiento de tristeza o pena que causa el estar lejos de la patria o de las personas y lugares queridos.",
         Depresión:
           "Profunda tristeza, decaimiento anímico, baja autoestima, pérdida de interés por todo y disminución de las funciones psíquicas.",
+        Duelo:
+          "El duelo es el proceso de adaptación emocional que sigue a cualquier pérdida.",
       },
     },
     enojo: {
@@ -110,8 +110,6 @@ export const feelingSelection = (emotion: string) => {
       definition:
         "MIEDO: Sensación de angustia provocada por la presencia de un peligro real o imaginario.",
       options: {
-        Depresión:
-          "Enfermedad o trastorno mental que se caracteriza por una profunda tristeza, decaimiento anímico, baja autoestima, pérdida de interés por todo y disminución de las funciones psíquicas.",
         "Pavor Patológico": "Temor, con espanto o sobresalto.",
         Desconfianza: "Falta de seguridad en algo, en otro o en si mismo.",
         Ansiedad:
@@ -124,6 +122,8 @@ export const feelingSelection = (emotion: string) => {
           "Estado pasajero de excitación nerviosa, inquietud o de falta de tranquilidad.",
         Inquietud: "Desasosiego, desazón. Alboroto, conmoción.",
         Terror: "Miedo paralizante, espanto, pavor.",
+        Depresión:
+          "Enfermedad o trastorno mental que se caracteriza por una profunda tristeza, decaimiento anímico, baja autoestima, pérdida de interés por todo y disminución de las funciones psíquicas.",
       },
     },
     repulsion: {
@@ -132,8 +132,6 @@ export const feelingSelection = (emotion: string) => {
       definition: "REPULSIÓN: Sentimiento de rechazo u oposición.",
       options: {
         Asco: "Denominación de la emoción de fuerte desagrado y disgusto.",
-        Molestia:
-          "Persona, animal o cosa que hace perder la tranquilidad o el bienestar o hace que a alguien le resulte incomodo, difícil o más difícil realizar algo.",
         Celos:
           "Sentimiento que experimenta una persona cuando sospecha que la persona amada siente amor o cariño por otra.",
         Desconfianza: "Falta de seguridad en algo, en otro o en sí mismo.",
@@ -143,6 +141,8 @@ export const feelingSelection = (emotion: string) => {
         Desacuerdo: "Falta de aceptación de una situación, persona u opinión.",
         Desequilibrio: "Pérdida de la estabilidad temporal o permanente.",
         Lejanía: "Circunstancia de estar lejos en el tiempo o en el espacio.",
+        Molestia:
+          "Persona, animal o cosa que hace perder la tranquilidad o el bienestar o hace que a alguien le resulte incomodo, difícil o más difícil realizar algo.",
       },
     },
     verguenza: {
@@ -151,8 +151,6 @@ export const feelingSelection = (emotion: string) => {
       definition:
         "VERGÜENZA: Sentimiento de pérdida de dignidad causado por una falta cometida o por una humillación o insultos recibidos.",
       options: {
-        Arrepentimiento:
-          "Sentimiento de la persona que se arrepiente de haber hecho o dejado de hacer alguna cosa.",
         Humillación:
           "Ofensa que alguien o algo causa en el orgullo o el honor de una persona.",
         Pena: "Sentimiento de dolor, sufrimiento o tristeza que provoca en una persona un hecho adverso o desgraciado.",
@@ -168,6 +166,8 @@ export const feelingSelection = (emotion: string) => {
           "Circunstancia que desequilibra y produce dolor físico y/o emocional.",
         Desequilibrio:
           "Estado de la persona que ha perdido el equilibrio o la estabilidad mental.",
+        Arrepentimiento:
+          "Sentimiento de la persona que se arrepiente de haber hecho o dejado de hacer alguna cosa.",
       },
     },
     amor: {

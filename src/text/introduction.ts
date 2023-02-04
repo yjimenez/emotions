@@ -1,6 +1,8 @@
 export const summaryTitle = `Esta app ha sido creada para ti`;
 
-export const summaryBody = `En las Tarjetas de Salud Emocional  encontrarás una herramienta poderosa para tu trabajar en tu autoconocimiento. 
+export const listTitle = `Ponle Nombre a lo Sientes`;
+
+export const summaryBody = `En las Tarjetas de Salud Emocional encontrarás una herramienta poderosa para trabajar el autoconocimiento.
             
 La estructura de este sistema tiene como fundamento teorías y técnicas de reconocidos psiquiatras, filósofos, oleoterapeutas y estudiosos del comportamiento humano, las cuales te permitirán realizar una introspección en tu corazón y tu mente.
             
@@ -10,7 +12,7 @@ export const selectionHeader = `¿Que emocion estas experimentando mas intensame
 
 export const summaryTex1 = {
   icon: "analytics-outline",
-  text: "El procedimiento para usarlas es sencillo y solamente requiere tu buena disposición y atención cuidadosa a cada paso.",
+  text: "El procedimiento es sencillo. Requiere tu disposición y atención cuidadosa a cada paso.",
 };
 
 export const summaryTex2 = {

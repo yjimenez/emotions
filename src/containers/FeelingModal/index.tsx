@@ -56,7 +56,7 @@ export default function FeelingModal({
         setModalVisible(!modalVisible);
       }}
     >
-      <View style={styles.wrapper}>
+      <View style={[{ backgroundColor: colors }, styles.wrapper]}>
         <LinearGradient colors={colors} style={styles.linearGradient}>
           <View style={styles.header}>
             <Ionicons

@@ -3,7 +3,7 @@ import { Image, View, Pressable } from "react-native";
 import Background from "../../components/Background";
 import * as text from "../../text/introduction";
 import PVText from "../../components/PVText";
-import { getEmotionFaces } from "../../utils/emotionFaces";
+import { getEmotionFaces } from "../../utils/getImages";
 import styles from "../Introduction/styles";
 
 export default function Selection({ navigation }: { navigation: any }) {

@@ -34,6 +34,11 @@ export default function Introduction({ navigation }: { navigation: any }) {
   return (
     <Background gradientName={sectionColor}>
       <View style={styles.wrapper}>
+        <View style={styles.header}>
+          <PVText style={styles.headerTextAlign} fontType={"headlineH2"}>
+            {text.listTitle}
+          </PVText>
+        </View>
         <View style={styles.bodySummary}>
           {boxElm(
             styles.bodyTextBoxRadiusTop,

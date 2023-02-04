@@ -44,11 +44,7 @@ export default function DownloadDocs({ navigation }: { navigation: any }) {
                   <PVText style={styles.accordeonBody}>{item.body}</PVText>
                   <Pressable
                     style={styles.accordeonLinkWrapper}
-                    onPress={() =>
-                      Linking.openURL(
-                        "https://docs.google.com/document/d/1LqDixzhzxiJ2jZMphVa-yPZ283xN5W__qr0k3eyvXmg/edit?usp=sharing"
-                      )
-                    }
+                    onPress={() => Linking.openURL(item.path)}
                   >
                     <PVText style={styles.accordeonLinkBody}>
                       Ver Documento Completo

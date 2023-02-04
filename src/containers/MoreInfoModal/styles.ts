@@ -1,4 +1,5 @@
 import { StyleSheet, Dimensions } from "react-native";
+import { headlineH1 } from "../../utils/styles";
 const { width: screenWidth, height: screenHeight } = Dimensions.get("window");
 
 const styles = StyleSheet.create({
@@ -10,17 +11,14 @@ const styles = StyleSheet.create({
     width: screenWidth,
   },
   content: {
-    padding: 30,
-    height: screenHeight * 0.6,
-    marginBottom: screenHeight * 0.01,
+    padding: 20,
   },
+  container: {},
   linearGradient: {
     borderRadius: 30,
     borderWidth: 1,
     borderColor: "#fff",
-    height: screenHeight * 0.8,
     width: screenWidth * 0.9,
-    backgroundColor: "red",
     alignItems: "center",
     shadowColor: "#000",
     shadowOffset: {
@@ -43,6 +41,13 @@ const styles = StyleSheet.create({
   modalParraph: {
     paddingTop: screenHeight * 0.05,
     textAlign: "center",
+  },
+  iconCall: {
+    paddingTop: screenHeight * 0.03,
+    textAlign: "center",
+    alignContent: "center",
+    justifyContent: "center",
+    flexDirection: "row",
   },
 });
 

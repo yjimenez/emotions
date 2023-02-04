@@ -43,7 +43,7 @@ export default function FeelingQuestion({
           onPress={() => onPress(val[0], val[1])}
           style={styles.numberContainer}
         >
-          <PVText style={styles.headerText} fontType={"headlineH4"}>
+          <PVText style={styles.headerText} fontType={"headlineH3"}>
             {val[0]}
           </PVText>
         </Pressable>

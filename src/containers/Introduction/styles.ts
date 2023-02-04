@@ -40,13 +40,13 @@ const styles = StyleSheet.create({
   bodySummary: {
     width: "100%",
     alignItems: "center",
-    paddingTop: screenHeight * 0.04,
+    paddingTop: screenHeight * 0.02,
   },
   cardsBody: {
     flex: 1,
     width: "100%",
     alignItems: "center",
-    paddingTop: screenHeight * 0.04,
+    paddingTop: screenHeight * 0.03,
   },
   bottom: {
     width: "100%",
@@ -71,11 +71,11 @@ const styles = StyleSheet.create({
     paddingLeft: screenWidth * 0.025,
     paddingRight: screenWidth * 0.05,
     width: screenWidth * 0.7,
-    paddingTop: screenWidth * 0.05,
-    paddingBottom: screenWidth * 0.05,
+    paddingTop: screenWidth * 0.04,
+    paddingBottom: screenWidth * 0.04,
   },
   bodyTextBox: {
-    width: screenWidth * 0.9,
+    width: screenWidth * 0.87,
     justifyContent: "space-around",
     alignItems: "center",
     flexDirection: "row",

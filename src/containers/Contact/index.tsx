@@ -8,24 +8,24 @@ import styles from "./styles";
 
 const direction = {
   icon: "location-outline",
-  text: "Cualquier Lugar, cualquier direccion, cualquier estado y codigo postal",
+  text: "Circuito Poetas 44, Ciudad Satélite, Naucalpan de Juarez C.P. 53100 Estado de Mexico",
   link:
     Platform.OS === "android"
-      ? "geo:0,0?q=19.3029794,-99.1504699525862"
-      : "maps:0,0?q=19.3029794,-99.1504699525862",
+      ? "geo:0,0?q=19.50083704477105, -99.24120089313593"
+      : "maps:0,0?q=19.50083704477105, -99.24120089313593",
 };
 const phone = {
   icon: "call-outline",
-  text: "01 (52) 55 5252 9696",
+  text: "01 (52) 55 8618 1443",
   link:
     Platform.OS === "android"
-      ? "tel:${+125523221176}"
-      : "telprompt:${+125523221176}",
+      ? "tel:${+125586181443}"
+      : "telprompt:${+125586181443}",
 };
 const email = {
   icon: "mail-outline",
-  text: "hola@emociones.com",
-  link: "mailto:hola@emociones.com?subject=SendMail&body=Description",
+  text: "info@ino.org.mx",
+  link: "mailto:info@ino.org.mx?subject=Emotions App&body=Description",
 };
 
 export default function Contact({ navigation }: { navigation: any }) {
