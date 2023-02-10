@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from "react";
-import { View } from "react-native";
+import { View, Platform } from "react-native";
 import { FadeInView } from "../../animations/fades";
 import Background from "../../components/Background";
 import ContinueButton from "../../components/ContinueButton";
@@ -31,10 +31,11 @@ export default function Introduction({ navigation }: { navigation: any }) {
       </PVText>
     </FadeInView>
   );
+  const isAndroid = Platform.OS === "android";
   return (
     <Background gradientName={sectionColor}>
-      <View style={styles.wrapper}>
-        <View style={styles.header}>
+      <View style={isAndroid ? styles.wrapperAndroid : styles.wrapper}>
+        <View style={isAndroid ? styles.headerAndroid : styles.header}>
           <PVText style={styles.headerTextAlign} fontType={"headlineH2"}>
             {text.listTitle}
           </PVText>

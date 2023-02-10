@@ -14,6 +14,7 @@ const labels = {
 };
 
 export default function MoreInfoModal({
+  navigation,
   modalVisibleProp,
   onCloseModal,
   emotion,
@@ -72,14 +73,26 @@ export default function MoreInfoModal({
             </PVText>
             <View style={styles.iconCall}>
               <Ionicons
+                name="home-outline"
+                size={40}
+                color="#fff"
+                onPress={() => navigation.navigate("Selection")}
+              />
+              <Ionicons
                 name="logo-whatsapp"
-                size={50}
+                size={40}
                 color="#fff"
                 onPress={() =>
                   Linking.openURL(
                     "whatsapp://send?phone=5529192611&text=App Emociones, Hola "
                   )
                 }
+              />
+              <Ionicons
+                name="chatbubbles-outline"
+                size={40}
+                color="#fff"
+                onPress={() => navigation.navigate("Contact")}
               />
             </View>
           </View>

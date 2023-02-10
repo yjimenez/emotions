@@ -10,11 +10,25 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
   },
+  wrapperAndroid: {
+    flex: 1,
+    flexDirection: "column",
+    justifyContent: "space-between",
+    alignItems: "center",
+    width: "100%",
+    height: "100%",
+    marginTop: -screenHeight * 0.05,
+  },
   header: {
     justifyContent: "center",
     width: "100%",
     alignItems: "center",
     paddingTop: screenHeight * 0.05,
+  },
+  headerAndroid: {
+    justifyContent: "center",
+    width: "100%",
+    alignItems: "center",
   },
   headerSelector: {
     justifyContent: "center",

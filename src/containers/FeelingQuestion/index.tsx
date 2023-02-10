@@ -35,21 +35,22 @@ export default function FeelingQuestion({
     setModalVisible(true)
   );
 
-  const optionsArr = [...Object.entries(options)].map(
-    (val: [string, string | unknown]) => {
+  const optionsArr = [...Object.entries(options)]
+    .reverse()
+    .map((val: [string, string | unknown]) => {
       return (
         <Pressable
           key={val[0]}
           onPress={() => onPress(val[0], val[1])}
           style={styles.numberContainer}
         >
-          <PVText style={styles.headerText} fontType={"headlineH3"}>
+          <PVText style={styles.headerText} fontType={"headlineH4"}>
             {val[0]}
           </PVText>
         </Pressable>
       );
-    }
-  );
+    });
+
   return (
     <>
       <Background containsBottomTab gradientName={sectionColor}>

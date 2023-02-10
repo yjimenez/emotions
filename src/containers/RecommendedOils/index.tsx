@@ -27,13 +27,12 @@ export default function RecommendedOils({
   ] || { description: "NO DESCRIPTION", oils: "NO OILS" };
   const titleColor = oilsContent.titleColor || "blue";
 
-  console.log("image", image);
   return (
     <View style={styles.imageWrapper}>
       <ImageBackground
         source={image}
         resizeMode="cover"
-        blurRadius={modalVisible ? 90 : 1}
+        blurRadius={modalVisible ? 20 : 1}
         style={styles.image}
       >
         {modalVisible ? null : (
@@ -75,27 +74,17 @@ export default function RecommendedOils({
                   <PVText style={styles.contentText} fontType={"headlineH3"}>
                     {`${oilsContent.oils}`}
                   </PVText>
-                  <Pressable
-                    style={[styles.buyButton, { backgroundColor: titleColor }]}
-                    onPress={() => setModalVisible(true)}
-                  >
-                    <Ionicons name="search-outline" size={25} color="#fff" />
-                    <PVText style={styles.buyTextButton}>
-                      MAS INFORMACIÓN
-                    </PVText>
-                  </Pressable>
                 </ScrollView>
               </View>
             </View>
             <View style={styles.buttonsContainer}>
-              <ContinueButton
-                sectionColor={sectionColor}
-                label="FINALIZAR"
-                pressEffect="highlight"
-                onPress={() =>
-                  navigation.navigate("Introduction", { screen: "Selection" })
-                }
-              />
+              <Pressable
+                style={[styles.buyButton, { backgroundColor: titleColor }]}
+                onPress={() => setModalVisible(true)}
+              >
+                <Ionicons name="search-outline" size={25} color="#fff" />
+                <PVText style={styles.buyTextButton}>MAS INFORMACIÓN</PVText>
+              </Pressable>
             </View>
           </View>
         )}

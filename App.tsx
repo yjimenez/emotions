@@ -14,7 +14,7 @@ export default function App() {
         SplashScreen.preventAutoHideAsync();
         const imageAssets = cacheImages();
         const fontAssets = cacheFonts();
-        console.log(await Promise.all([...imageAssets, ...fontAssets]));
+        await Promise.all([...imageAssets, ...fontAssets]);
         await delay(3000);
       } catch (e) {
         console.warn(e);

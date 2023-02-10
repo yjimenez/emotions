@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     paddingTop: screenHeight * 0.03,
     textAlign: "center",
     alignContent: "center",
-    justifyContent: "center",
+    justifyContent: "space-around",
     flexDirection: "row",
   },
 });

@@ -8,10 +8,11 @@ import styles from "./styles";
 
 export default function Introduction({ navigation }: { navigation: any }) {
   const sectionColor = "miedo";
+  const isAndroid = Platform.OS === "android";
   return (
     <Background gradientName={sectionColor}>
       <View style={styles.wrapper}>
-        <View style={styles.header}>
+        <View style={isAndroid ? styles.headerAndroid : styles.header}>
           <PVText style={styles.headerTextAlign} fontType={"headlineH2"}>
             {text.summaryTitle}
           </PVText>
