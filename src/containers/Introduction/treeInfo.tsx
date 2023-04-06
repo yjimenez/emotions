@@ -61,7 +61,7 @@ export default function Introduction({ navigation }: { navigation: any }) {
           <FadeInView delay={3000} duration={500}>
             <ContinueButton
               sectionColor={sectionColor}
-              label="COMENZAR"
+              label="SIGUIENTE"
               onPress={() => navigation.navigate("TabNavigator")}
             />
           </FadeInView>

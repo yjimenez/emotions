@@ -9,12 +9,12 @@ export const getMonsterImage = (emotion: string, int: number) => {
   if (treasureImage.includes(emotion)) {
     return {
       image: require("../../assets/images/princess-treasure.png"),
-      text: `Visualizalo como ${int} Tesoros de tu corazon`,
+      text: `Visualízalo como ${int} tesoros de tu corazón`,
     };
   }
   return {
     image: require("../../assets/images/5cabezas.png"),
-    text: `Visualizalo como ${int} Monstruos estan atras de tu cabeza`,
+    text: `Visualízalo como ${int} monstruos que están detrás de tu cabeza quitándote el enfoque.`,
   };
 };
 

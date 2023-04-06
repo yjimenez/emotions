@@ -5,7 +5,7 @@ import PVText from "../../components/PVText";
 import { recommendedOils } from "../../text/recommendedOils";
 import { randomNumber } from "../../utils";
 import { getBackgroundImage } from "../../utils/getImages";
-import MoreInfoModal from "../../containers/MoreInfoModal";
+import MoreInfoModal from "../Modals/MoreInfoModal";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import styles from "./styles";
 

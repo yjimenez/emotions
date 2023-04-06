@@ -17,8 +17,7 @@ const direction = {
 const phone = {
   icon: "call-outline",
   text: "01 (52) 55 8618 1443",
-  link:
-    Platform.OS === "android" ? "tel:+125586181443" : "telprompt:+125586181443",
+  link: Platform.OS === "android" ? "tel:5586181443" : "telprompt:5586181443",
 };
 const email = {
   icon: "mail-outline",

@@ -1,44 +1,112 @@
 export const feelingQuestions = (emotion: string) => {
   return {
     sorpresa: [
-      "Lo que te está sucediendo, ¿lo esperabas?",
-      "¿Es un evento favorable o desfavorable?",
+      {
+        question: "Lo que te está sucediendo, ¿lo esperabas?",
+        options: ["SI", "NO"],
+      },
+      {
+        question: "¿Es un evento Favorable o Desfavorable?",
+        options: ["FAVORABLE", "DESFAVORABLE"],
+      },
     ],
     alegria: [
-      "¿Es por qué sucedió algo hermoso?",
-      "¿Es por qué obtuviste lo que deseabas?",
+      { question: "¿Es por qué sucedió algo hermoso?", 
+	  options: ["SI", "NO"] },
+      {
+        question: "¿Es por qué obtuviste lo que deseabas?",
+        options: ["SI", "NO"],
+      },
     ],
     tristeza: [
-      "¿Perdiste algo muy importante que considerabas tuyo?",
-      "¿Lo compraste o te fue prestado?",
-      "¿Lo sentías cómo tu propiedad, es un objeto? ",
+      {
+        question: "¿Perdiste algo muy importante que considerabas tuyo?",
+        options: ["SI", "NO"],
+      },
+      { question: "¿Es un objeto o persona? ", 
+	  options: ["OBJETO", "PERSONA"] },
+      {
+        question: "¿Es tu propiedad o creíste que era de tu propiedad?",
+        options: ["SI", "NO"],
+      },
     ],
     enojo: [
-      "La persona que te enoja ¿te debe obediencia?",
-      "La persona que te enoja ¿tiene la obligación de hacerte feliz?",
-      "¿Has firmado un contrato para que esa persona haga exactamente lo que tu deseas?",
+      {
+        question: "La persona que te enoja ¿te debe obediencia?",
+        options: ["SI", "NO"],
+      },
+      {
+        question:
+          "La persona que te enoja ¿tiene la obligación de hacerte feliz?",
+        options: ["SI", "NO"],
+      },
+      {
+        question:
+          "¿Has firmado un contrato para que esa persona haga exactamente lo que tu deseas?",
+        options: ["SI", "NO"],
+      },
     ],
     miedo: [
-      "¿Lo que te está sucediendo es una amenaza?",
-      "¿Es la presencia de un peligro latente?",
-      "¿Tu peligro es real o es imaginario?",
+      {
+        question: "¿Lo que te está sucediendo es una amenaza?",
+        options: ["SI", "NO"],
+      },
+      {
+        question: "¿Es la presencia de un peligro latente?",
+        options: ["SI", "NO"],
+      },
+      {
+        question: "¿Tu peligro es real o es imaginario?",
+        options: ["REAL", "IMAGINARIO"],
+      },
     ],
     repulsion: [
-      "¿Rechazas o te opones a algo o alguien?",
-      "¿Algo que no quieres ser tu?",
-      "¿Esto es tuyo o de alguien más?",
-      "¿Podría ser un tema heredado?",
+      {
+        question: "¿Rechazas a algo o alguien?",
+        options: ["ALGO", "ALGUIEN"],
+	  },
+      { question: "¿Eso que rechazas es tuyo o influenciado por otro? ",
+		options: ["TUYO", "INFLUENCIADO"],
+	  },
+      { question: "¿Algo que te gustaría finalizar?", 
+		options: ["SI", "NO"],
+      },
+      { question: "¿Podría ser un tema heredado?", 
+		options: ["SI", "NO"], 
+	  },
     ],
     verguenza: [
-      "¿Hiciste algo que consideras grabe?",
-      "¿Lo decidiste tu o alguien por ti?",
-      "¿Recibiste o proferiste un insulto?",
-      "¿Eres capaz de reconocerlo?",
-      "¿Quieres Arreglarlo?",
+      {
+        question: "¿Hiciste algo que consideras grabe?",
+        options: ["SI", "NO"],
+      },
+      { question: "¿Lo decidiste tu o alguien por ti?",
+		options: ["YO", "ALGUIEN MÁS"] },
+      {
+        question: "¿Recibiste o proferiste un insulto o acto doloroso? ",
+        options: ["SI", "NO"],
+      },
+      { question: "¿Eres capaz de reconocerlo?", 
+		options: ["SI", "NO"], 
+	  },
+      { question: "¿Quieres Arreglarlo?", 
+	  options: ["SI", "NO"], 
+	  },
+      { question: "¿Sigo Sufriendo?", 
+	  options: ["SI", "NO"], 
+	  },
+      { question: "¿Me perdono?", 
+	  options: ["SI", "NO"], 
+	  },	  
     ],
     amor: [
-      "¿Amas tanto que lo consideras tu placer?",
-      "¿Necesitas amar y ser amado?",
+      {
+        question: "¿Amas tanto que lo consideras tu placer?",
+        options: ["SI", "NO"],
+      },
+      { question: "¿Necesitas amar y ser amado?", 
+	  options: ["SI", "NO"],
+	  },
     ],
   };
 };

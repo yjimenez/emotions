@@ -6,6 +6,7 @@ import Slider from "@react-native-community/slider";
 import Background from "../../components/Background";
 import ContinueButton from "../../components/ContinueButton";
 import PVText from "../../components/PVText";
+import InfoModal from "../Modals/InfoModal";
 import { emotionScale, emotionSecondScale } from "../../text/mainFlow";
 import styles from "./styles";
 
@@ -18,16 +19,18 @@ export default function EmotionScale({
   navigation: any;
   route: any;
 }) {
-  const { emotion, feeling, value } = route.params;
+  const { emotion, feeling, section, scaleValue } = route.params;
+
   const sectionColor = emotion;
-  const secondPosition = value === "second";
-  const [numberValue, setValue] = useState(0);
+  const secondPosition = section === "second";
+  const [currentScaleValue, setValue] = useState(0);
+  const [modalVisible, setModalVisible] = useState(false);
 
   useEffect(() => {
     if (secondPosition) {
-      navigation.setOptions({ headerShown: false });
+      navigation.setOptions({ headerLeft: () => {} });
     }
-  }, [value]);
+  }, [section]);
 
   const sectionColors = background[emotion];
   const trackColor = sectionColors[sectionColors.length - 1];
@@ -35,22 +38,33 @@ export default function EmotionScale({
 
   const isCircular = true;
 
-  const onPress = (value: number) => {
+  const secondAnswered = () => {
+    if (currentScaleValue <= scaleValue) {
+      setModalVisible(true);
+    } else {
+      navigation.navigate("RecommendedOils", { emotion, feeling, scaleValue });
+    }
+  };
+
+  const onPress = (scaleValue: number) => {
     secondPosition
-      ? navigation.navigate("RecommendedOils", { emotion, feeling, value })
-      : navigation.navigate("StartImage", { emotion, value });
+      ? secondAnswered()
+      : navigation.navigate("StartImage", {
+          emotion,
+          scaleValue,
+        });
   };
 
   const numberSize =
-    numberValue === 10
+    currentScaleValue === 10
       ? 0.35
-      : numberValue === 0
+      : currentScaleValue === 0
       ? 0.025
-      : parseFloat(numberValue * 0.03);
+      : parseFloat(currentScaleValue * 0.03);
 
   return (
     <Background containsBottomTab gradientName={sectionColor}>
-      <View style={styles.wrapper}>
+      <View style={[styles.wrapper, { opacity: modalVisible ? 0.2 : 1 }]}>
         <PVText style={styles.headerText} fontType={"headlineH2"}>
           {secondPosition
             ? emotionSecondScale(emotion.toUpperCase())
@@ -81,7 +95,7 @@ export default function EmotionScale({
                       ]}
                       fontType={"headlineH2"}
                     >
-                      {numberValue}
+                      {currentScaleValue}
                     </PVText>
                   }
                 />
@@ -99,7 +113,7 @@ export default function EmotionScale({
                   onValueChange={setValue}
                 />
                 <PVText style={styles.sliderLineText} fontType={"headlineH2"}>
-                  {numberValue}
+                  {currentScaleValue}
                 </PVText>
               </>
             )}
@@ -109,10 +123,16 @@ export default function EmotionScale({
           <ContinueButton
             sectionColor={sectionColor}
             label="SIGUIENTE"
-            onPress={async () => onPress(numberValue)}
+            onPress={async () => onPress(currentScaleValue)}
           />
         </View>
       </View>
+      <InfoModal
+        navigation={navigation}
+        modalVisibleProp={modalVisible}
+        onCloseModal={() => setModalVisible(false)}
+        emotion={emotion}
+      />
     </Background>
   );
 }

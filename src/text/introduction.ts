@@ -1,6 +1,6 @@
 export const summaryTitle = `Esta app ha sido creada para ti`;
 
-export const listTitle = `Ponle Nombre a lo Sientes`;
+export const listTitle = `Ponle Nombre a lo Que Sientes`;
 
 export const summaryBody = `En las Tarjetas de Salud Emocional encontrarás una herramienta poderosa para trabajar el autoconocimiento.
             

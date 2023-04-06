@@ -1,6 +1,8 @@
 import * as React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HeaderBackButton from "../components/HeaderBackButton";
+import HeaderHomeButton from "../components/HeaderHomeButton";
+import Breath from "../containers/Breath";
 import StartImage from "../containers/StartImage";
 import EmotionScale from "../containers/EmotionScale";
 import FeelingQuestion from "../containers/FeelingQuestion";
@@ -20,13 +22,11 @@ export default function MainFlow() {
         headerBackVisible: false,
       }}
     >
-      <Stack.Screen
-        name="EmotionScale"
-        component={EmotionScale}
-        options={({ navigation }) => ({
+      <Stack.Group
+        screenOptions={({ navigation }) => ({
           title: "",
-          headerLeft: () => (
-            <HeaderBackButton
+          headerRight: () => (
+            <HeaderHomeButton
               onPress={() =>
                 navigation.navigate("Introduction", {
                   screen: "Selection",
@@ -36,35 +36,34 @@ export default function MainFlow() {
             />
           ),
         })}
-      />
-      <Stack.Screen
-        name="StartImage"
-        component={StartImage}
-        options={() => ({
-          title: "",
-        })}
-      />
-      <Stack.Screen
-        name="FeelingQuestion"
-        component={FeelingQuestion}
-        options={() => ({
-          title: "",
-        })}
-      />
-      <Stack.Screen
-        name="FeelingQuestions"
-        component={FeelingQuestions}
-        options={() => ({
-          title: "",
-        })}
-      />
-      <Stack.Screen
-        name="RecommendedOils"
-        component={RecommendedOils}
-        options={() => ({
-          title: "",
-        })}
-      />
+      >
+        <Stack.Screen
+          name="EmotionScale"
+          component={EmotionScale}
+          options={({ navigation }) => ({
+            headerLeft: () => (
+              <HeaderBackButton onPress={() => navigation.goBack()} label="" />
+            ),
+          })}
+        />
+        <Stack.Screen
+          name="Breath"
+          component={Breath}
+          options={() => ({
+            headerShown: false,
+          })}
+        />
+        <Stack.Screen name="StartImage" component={StartImage} />
+        <Stack.Screen name="FeelingQuestion" component={FeelingQuestion} />
+        <Stack.Screen name="FeelingQuestions" component={FeelingQuestions} />
+        <Stack.Screen
+          name="RecommendedOils"
+          component={RecommendedOils}
+          options={() => ({
+            headerShown: false,
+          })}
+        />
+      </Stack.Group>
     </Stack.Navigator>
   );
 }

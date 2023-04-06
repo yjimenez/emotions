@@ -1,15 +1,12 @@
 import { StyleSheet, Dimensions } from "react-native";
-import { headlineH1 } from "../../utils/styles";
 const { width, height } = Dimensions.get("window");
 
 const styles = StyleSheet.create({
-  wrapper: {
-    flexDirection: "column",
-    justifyContent: "space-between",
+  backButton: {
+    flexDirection: "row",
     alignItems: "center",
-    height: height * 0.4,
+    marginRight: 5,
   },
-  headlineH1,
 });
 
 export default styles;

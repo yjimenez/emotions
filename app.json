@@ -2,6 +2,7 @@
   "expo": {
     "name": "emotions",
     "slug": "emotions",
+    "privacy": "unlisted",
     "owner": "yair_jb",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -13,21 +14,23 @@
       "backgroundColor": "#EFEAD7"
     },
     "updates": {
-      "fallbackToCacheTimeout": 0
+      "fallbackToCacheTimeout": 0,
+      "url": "https://u.expo.dev/b6d6ddf6-ab30-42b8-96c5-3410e51a4651"
     },
     "assetBundlePatterns": [
       "assets/images/*"
     ],
     "ios": {
-      "bundleIdentifier": "com.test.test",
-      "supportsTablet": true
+      "bundleIdentifier": "com.emotions.test",
+      "supportsTablet": true,
+      "buildNumber": "2"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.yair_jb.emotions"
+      "package": "com.emotions.test"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -36,6 +39,9 @@
       "eas": {
         "projectId": "b6d6ddf6-ab30-42b8-96c5-3410e51a4651"
       }
+    },
+    "runtimeVersion": {
+      "policy": "sdkVersion"
     }
   }
 }

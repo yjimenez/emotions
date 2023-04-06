@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Pressable, View } from "react-native";
 import Background from "../../components/Background";
-import FeelingModal from "../../containers/FeelingModal";
+import FeelingModal from "../Modals/FeelingModal";
 import PVText from "../../components/PVText";
 import { feelingSelection, popUpHeader } from "../../text/feelingSelection";
 import styles from "./styles";
@@ -13,7 +13,7 @@ export default function FeelingQuestion({
   navigation: any;
   route: any;
 }) {
-  const { emotion } = route.params;
+  const { emotion, scaleValue } = route.params;
   const sectionColor = emotion;
   const [modalVisible, setModalVisible] = useState(false);
   const [modalContent, setModalContent] = useState({
@@ -71,6 +71,7 @@ export default function FeelingQuestion({
         modalVisibleProp={modalVisible}
         onCloseModal={() => setModalVisible(false)}
         emotion={emotion}
+        scaleValue={scaleValue}
         modalContent={modalContent}
       />
     </>

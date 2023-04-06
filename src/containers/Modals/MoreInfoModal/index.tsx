@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Modal, Alert, View, Linking, ImageBackground } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
-import * as background from "../../utils/backgroundColors";
+import * as background from "../../../utils/backgroundColors";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import PVText from "../../components/PVText";
-import { delay } from "../../utils";
+import PVText from "../../../components/PVText";
+import { delay } from "../../../utils";
 import styles from "./styles";
 
 const labels = {

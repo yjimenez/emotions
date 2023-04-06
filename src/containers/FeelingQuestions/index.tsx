@@ -14,7 +14,7 @@ export default function FeelingQuestion({
   navigation: any;
   route: any;
 }) {
-  const { emotion, feeling } = route.params;
+  const { emotion, feeling, scaleValue } = route.params;
   const sectionColor = emotion;
 
   const questions = feelingQuestions()[emotion];
@@ -28,7 +28,8 @@ export default function FeelingQuestion({
       navigation.navigate("EmotionScale", {
         emotion,
         feeling,
-        value: "second",
+        section: "second",
+        scaleValue,
       });
     } else {
       setQuestionCount(count);
@@ -87,22 +88,20 @@ export default function FeelingQuestion({
         <View style={styles.container}>
           <Animated.View style={[{ transform: [{ translateX: animated }] }]}>
             <PVText style={styles.questionContainer} fontType={"headlineH1"}>
-              {questions[questionsCount]}
+              {questions[questionsCount].question}
             </PVText>
           </Animated.View>
         </View>
       </View>
       <View style={styles.buttonsContainer}>
-        <ContinueButton
-          sectionColor={sectionColor}
-          label="SI"
-          onPress={() => onPressAnswer()}
-        />
-        <ContinueButton
-          sectionColor={sectionColor}
-          label="NO"
-          onPress={() => onPressAnswer()}
-        />
+        {questions[questionsCount].options.map((opt: string) => (
+          <ContinueButton
+            key={opt}
+            sectionColor={sectionColor}
+            label={opt}
+            onPress={() => onPressAnswer()}
+          />
+        ))}
       </View>
     </Background>
   );

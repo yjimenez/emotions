@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Modal, Alert, View, ScrollView } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
-import * as background from "../../utils/backgroundColors";
+import * as background from "../../../utils/backgroundColors";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import ContinueButton from "../../components/ContinueButton";
-import PVText from "../../components/PVText";
-import { delay } from "../../utils";
+import ContinueButton from "../../../components/ContinueButton";
+import PVText from "../../../components/PVText";
+import { delay } from "../../../utils";
 import styles from "./styles";
 
 export default function FeelingModal({
@@ -14,11 +14,13 @@ export default function FeelingModal({
   onCloseModal,
   emotion,
   modalContent,
+  scaleValue,
 }: {
   navigation: any;
   modalVisibleProp: boolean;
   onCloseModal: () => {};
   emotion: string;
+  scaleValue: string;
   modalContent: {
     emotionHeader: string;
     definition: string;
@@ -34,15 +36,17 @@ export default function FeelingModal({
   };
 
   const onPressContinue = async () => {
-    navigation.navigate("FeelingQuestions", {
+    navigation.navigate("Breath", {
       emotion,
       feeling: modalContent.feeling,
+      scaleValue,
     });
     await delay(500);
     onPressClose();
   };
 
   useEffect(() => {
+    navigation.setOptions({ headerShown: !modalVisibleProp });
     setModalVisible(modalVisibleProp);
   }, [modalVisibleProp]);
 

@@ -14,9 +14,9 @@ export default function StartImage({
   navigation: any;
   route: any;
 }) {
-  const { emotion, value } = route.params;
+  const { emotion, scaleValue } = route.params;
   const sectionColor = emotion;
-  const { image, text } = getMonsterImage(emotion, value);
+  const { image, text } = getMonsterImage(emotion, scaleValue);
   return (
     <Background gradientName={sectionColor}>
       <View style={styles.wrapper}>
@@ -29,7 +29,10 @@ export default function StartImage({
             sectionColor={sectionColor}
             label="CONTINUAR"
             onPress={() =>
-              navigation.navigate("FeelingQuestion", { emotion, value })
+              navigation.navigate("FeelingQuestion", {
+                emotion,
+                scaleValue,
+              })
             }
           />
         </View>
