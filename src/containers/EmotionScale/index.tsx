@@ -14,7 +14,6 @@ import {
 } from "../../text/mainFlow";
 import { feelingSelection } from "../../text/feelingSelection";
 import styles from "./styles";
-import sections from "../../utils/sections";
 import EmotionsModal from "../Modal";
 import labels from "../../text/labels";
 
@@ -101,64 +100,70 @@ export default function EmotionScale({
       : currentScaleValue * 0.03;
 
   return (
-    <Background containsBottomTab gradientName={sectionColor}>
+    <Background gradientName={sectionColor}>
       <View style={[styles.wrapper, { opacity: modalVisible ? 0.2 : 1 }]}>
-        <PVText style={styles.headerText} fontType={"headlineH2"}>
-          {secondPosition
-            ? emotionSecondScale(emotionLabel.toUpperCase())
-            : emotionScale(emotionLabel.toUpperCase())}
-        </PVText>
-        <View style={styles.numberWrapper}>
-          <View
-            style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
-          >
-            {isCircular ? (
-              <View style={styles.circularRotation}>
-                <CircularSlider
-                  onChange={setValue}
-                  size={300}
-                  min={0}
-                  max={10}
-                  trackWidth={10}
-                  trackColor={trackColor}
-                  thumbColor={thumbColor}
-                  thumbWidth={15}
-                  steps={1}
-                  xCenter={99}
-                  value={scaleValue}
-                  element={
-                    <PVText
-                      style={[
-                        styles.circleText,
-                        { fontSize: screenWidth * numberSize },
-                      ]}
-                      fontType={"headlineH2"}
-                    >
-                      {currentScaleValue}
-                    </PVText>
-                  }
-                />
-              </View>
-            ) : (
-              <>
-                <Slider
-                  style={{ width: "80%", height: 40 }}
-                  step={1}
-                  minimumValue={0}
-                  maximumValue={10}
-                  thumbTintColor={thumbColor}
-                  minimumTrackTintColor={trackColor}
-                  maximumTrackTintColor="#FFFFFF"
-                  onValueChange={setValue}
-                />
-                <PVText style={styles.sliderLineText} fontType={"headlineH2"}>
-                  {currentScaleValue}
-                </PVText>
-              </>
-            )}
+        <View style={styles.content}>
+          <PVText style={styles.headerText} fontType={"headlineH2"}>
+            {secondPosition
+              ? emotionSecondScale(emotionLabel.toUpperCase())
+              : emotionScale(emotionLabel.toUpperCase())}
+          </PVText>
+          <View style={styles.numberWrapper}>
+            <View
+              style={{
+                flex: 1,
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              {isCircular ? (
+                <View style={styles.circularRotation}>
+                  <CircularSlider
+                    onChange={setValue}
+                    size={300}
+                    min={0}
+                    max={10}
+                    trackWidth={10}
+                    trackColor={trackColor}
+                    thumbColor={thumbColor}
+                    thumbWidth={15}
+                    steps={1}
+                    xCenter={99}
+                    value={scaleValue}
+                    element={
+                      <PVText
+                        style={[
+                          styles.circleText,
+                          { fontSize: screenWidth * numberSize },
+                        ]}
+                        fontType={"headlineH2"}
+                      >
+                        {currentScaleValue}
+                      </PVText>
+                    }
+                  />
+                </View>
+              ) : (
+                <>
+                  <Slider
+                    style={{ width: "80%", height: 40 }}
+                    step={1}
+                    minimumValue={0}
+                    maximumValue={10}
+                    thumbTintColor={thumbColor}
+                    minimumTrackTintColor={trackColor}
+                    maximumTrackTintColor="#FFFFFF"
+                    onValueChange={setValue}
+                  />
+                  <PVText style={styles.sliderLineText} fontType={"headlineH2"}>
+                    {currentScaleValue}
+                  </PVText>
+                </>
+              )}
+            </View>
           </View>
         </View>
-        <View style={styles.buttonContainer}>
+        <View style={styles.bottom}>
           <ContinueButton
             sectionColor={sectionColor}
             label="SIGUIENTE"

@@ -20,10 +20,16 @@ export default function StartImage({
   return (
     <Background gradientName={sectionColor}>
       <View style={styles.wrapper}>
-        <ImageLoader source={image} shakeImage />
-        <PVText style={styles.imageText} fontType={"headlineH2"}>
-          {text}
-        </PVText>
+        <View style={styles.content}>
+          <View style={styles.imageContent}>
+            <ImageLoader source={image} shakeImage />
+          </View>
+          <View style={styles.textContent}>
+            <PVText style={styles.imageText} fontType={"headlineH2"}>
+              {text}
+            </PVText>
+          </View>
+        </View>
         <View style={styles.bottom}>
           <ContinueButton
             sectionColor={sectionColor}

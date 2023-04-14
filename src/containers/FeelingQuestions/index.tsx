@@ -84,25 +84,27 @@ export default function FeelingQuestions({
   }, []);
 
   return (
-    <Background containsBottomTab gradientName={sectionColor}>
+    <Background gradientName={sectionColor}>
       <View style={styles.wrapper}>
-        <View style={styles.container}>
+        <View style={styles.content}>
           <Animated.View style={[{ transform: [{ translateX: animated }] }]}>
             <PVText style={styles.questionContainer} fontType={"headlineH1"}>
               {questions[questionsCount].question}
             </PVText>
           </Animated.View>
         </View>
-      </View>
-      <View style={styles.buttonsContainer}>
-        {questions[questionsCount].options.map((opt: string) => (
-          <ContinueButton
-            key={opt}
-            sectionColor={sectionColor}
-            label={opt}
-            onPress={() => onPressAnswer()}
-          />
-        ))}
+
+        <View style={styles.buttonsContainer}>
+          {questions[questionsCount].options.map((opt: string, i: number) => (
+            <ContinueButton
+              key={opt}
+              sectionColor={sectionColor}
+              label={opt}
+              customStyle={i === 0 ? styles.marginBottom : undefined}
+              onPress={() => onPressAnswer()}
+            />
+          ))}
+        </View>
       </View>
     </Background>
   );

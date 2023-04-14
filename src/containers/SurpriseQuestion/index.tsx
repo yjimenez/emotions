@@ -24,10 +24,12 @@ export default function SurpriseQuestion({
             {surpriseQuestion}
           </PVText>
         </View>
-        <View style={styles.bottom}>
+
+        <View style={styles.buttonsContainer}>
           <ContinueButton
             sectionColor={sectionColor}
             label="AGRADABLE"
+            customStyle={styles.marginBottom}
             onPress={() =>
               navigation.navigate("Breath", {
                 label,
@@ -37,8 +39,6 @@ export default function SurpriseQuestion({
               })
             }
           />
-        </View>
-        <View style={styles.bottom}>
           <ContinueButton
             sectionColor={sectionColor}
             label="DESAGRADABLE"

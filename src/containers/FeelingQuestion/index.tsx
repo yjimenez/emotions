@@ -52,17 +52,17 @@ export default function FeelingQuestion({
       </PVText>
       <View style={styles.spaceBetween}></View>
       <ScrollView contentContainerStyle={styles.contentScroll}>
-        <PVText style={styles.modalParraph} fontType={"headlineH2"}>
+        <PVText style={styles.modalParraph} fontType={"headlineH3"}>
           {`${emotionProps.definition}`}
         </PVText>
         <View style={styles.spaceBetween}></View>
-        <PVText style={styles.modalParraph} fontType={"headlineH2"}>
+        <PVText style={styles.modalParraph} fontType={"headlineH3"}>
           {`${selectedFeeling?.toUpperCase()}: ${
             emotionProps?.feelings[selectedFeeling]
           }`}
         </PVText>
         <View style={styles.spaceBetween}></View>
-        <PVText style={styles.modalParraph} fontType={"headlineH2"}>
+        <PVText style={styles.modalParraph} fontType={"headlineH3"}>
           {` ${emotionProps.oppositeDefinition}`}
         </PVText>
         <View style={styles.spaceBetween}></View>
@@ -75,12 +75,13 @@ export default function FeelingQuestion({
 
   return (
     <>
-      <Background containsBottomTab gradientName={sectionColor}>
-        <View style={styles.wrapper}>
+      <Background gradientName={sectionColor}>
+        <View style={[styles.wrapper, { opacity: modalVisible ? 0.2 : 1 }]}>
           <View style={styles.header}>
             <PVText style={styles.headerText} fontType={"headlineH2"}>
               {titleHeader(emotion)}
             </PVText>
+            <View style={styles.spaceBetween}></View>
             <PVText style={styles.headerText} fontType={"headlineH3"}>
               {subHeader}
             </PVText>

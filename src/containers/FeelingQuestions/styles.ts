@@ -4,25 +4,29 @@ const { width: screenWidth, height: screenHeight } = Dimensions.get("window");
 
 const styles = StyleSheet.create({
   wrapper: {
+    flex: 1,
     flexDirection: "column",
+    alignContent: "center",
     justifyContent: "space-between",
     alignItems: "center",
     width: "100%",
-    height: screenHeight * 0.75,
-    paddingTop: screenHeight * 0.05,
   },
-  container: {
-    flex: 1,
+  content: {
     justifyContent: "center",
-    marginTop: screenHeight * 0.1,
+    flex: 1,
+    width: "100%",
+    height: "100%",
   },
   questionContainer: {
     textAlign: "center",
   },
   buttonsContainer: {
-    height: screenHeight * 0.17,
     justifyContent: "space-between",
-    marginBottom: screenHeight * 0.1,
+    paddingTop: screenHeight * 0.03,
+    paddingBottom: screenHeight * 0.03,
+  },
+  marginBottom: {
+    marginBottom: screenHeight * 0.03,
   },
 });
 

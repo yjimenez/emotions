@@ -10,8 +10,6 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     width: "100%",
-    height: screenHeight * 0.1,
-    paddingTop: screenHeight * 0.08,
   },
   text: {
     textAlign: "center",
@@ -19,9 +17,16 @@ const styles = StyleSheet.create({
   centerText: {
     justifyContent: "center",
     flex: 1,
+    width: "100%",
+    height: "100%",
   },
-  bottom: {
-    marginBottom: screenHeight * 0.05,
+  buttonsContainer: {
+    justifyContent: "space-between",
+    paddingTop: screenHeight * 0.03,
+    paddingBottom: screenHeight * 0.03,
+  },
+  marginBottom: {
+    marginBottom: screenHeight * 0.03,
   },
 });
 

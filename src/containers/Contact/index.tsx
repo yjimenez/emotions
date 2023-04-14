@@ -25,6 +25,28 @@ const email = {
   link: "mailto:info@ino.org.mx?subject=Emotions App&body=Description",
 };
 
+const ytINO = {
+  icon: "logo-youtube",
+  link: "https://www.youtube.com/channel/UC-eH8rO-FMO1SSLKDsShZWQ/",
+};
+const fbINO = {
+  icon: "logo-facebook",
+  link: "https://www.facebook.com/INSTITUTONACIONALDEOLEOTERAPIA/?locale=es_LA",
+};
+const igINO = {
+  icon: "logo-instagram",
+  link: "https://www.instagram.com/institutonacionaldeoleoterapia/",
+};
+
+const fbPaty = {
+  icon: "logo-facebook",
+  link: "https://www.facebook.com/PatyQuirozConectandoGeneraciones?mibextid=LQQJ4d",
+};
+const igPaty = {
+  icon: "logo-instagram",
+  link: "https://instagram.com/patyquiroz_conectando?igshid=YmMyMTA2M2Y=",
+};
+
 export default function Contact({ navigation }: { navigation: any }) {
   const sectionColor = "miedo";
 
@@ -42,6 +64,15 @@ export default function Contact({ navigation }: { navigation: any }) {
       </Pressable>
     </View>
   );
+
+  const iconRow = (icon: string, link: string) => (
+    <View style={styles.bodyInfoIcon}>
+      <Pressable onPress={() => Linking.openURL(link)}>
+        <Ionicons name={icon} size={32} color="#fff" />
+      </Pressable>
+    </View>
+  );
+
   return (
     <Background containsBottomTab gradientName={sectionColor}>
       <View style={styles.wrapper}>
@@ -52,13 +83,23 @@ export default function Contact({ navigation }: { navigation: any }) {
           {infoRow(direction.icon, direction.text, direction.link)}
           {infoRow(phone.icon, phone.text, phone.link)}
           {infoRow(email.icon, email.text, email.link)}
+          <View style={styles.bodyInfoRow}>
+            {iconRow(ytINO.icon, ytINO.link)}
+            {iconRow(fbINO.icon, fbINO.link)}
+            {iconRow(igINO.icon, igINO.link)}
+          </View>
         </View>
+
         <View style={styles.bodyImages}>
           <View style={styles.imageLogo}>
             <Image
               style={styles.imageLogoSource}
               source={getImage().patyLogo}
             />
+            <View style={styles.bodyInfoRowImage}>
+              {iconRow(fbPaty.icon, fbPaty.link)}
+              {iconRow(igPaty.icon, igPaty.link)}
+            </View>
           </View>
           <View style={styles.imageFace}>
             <Image style={styles.imageFaceSource} source={getImage().patyCel} />

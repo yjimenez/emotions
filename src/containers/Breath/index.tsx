@@ -64,7 +64,7 @@ export default function StartImage({
         Animated.parallel([
           Animated.timing(inhaleOpacity, textAnimatedOut),
           Animated.timing(sostenOpacity, textAnimatedIn),
-          Animated.delay(1500),
+          Animated.delay(2000),
         ]),
 
         Animated.parallel([

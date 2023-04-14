@@ -1,6 +1,6 @@
 import { StyleSheet, Dimensions } from "react-native";
 import { headlineH1 } from "../../utils/styles";
-const { width, height: screenHeight } = Dimensions.get("window");
+const { width: screenWidth, height: screenHeight } = Dimensions.get("window");
 
 const styles = StyleSheet.create({
   wrapper: {
@@ -10,8 +10,6 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     width: "100%",
-    height: screenHeight * 0.1,
-    paddingTop: screenHeight * 0.08,
   },
   text: {
     textAlign: "center",
@@ -19,9 +17,15 @@ const styles = StyleSheet.create({
   centerText: {
     justifyContent: "center",
     flex: 1,
+    width: "100%",
+    paddingLeft: screenWidth * 0.05,
+    paddingRight: screenWidth * 0.05,
   },
   bottom: {
-    marginBottom: screenHeight * 0.05,
+    width: "100%",
+    alignItems: "center",
+    paddingTop: screenHeight * 0.03,
+    paddingBottom: screenHeight * 0.03,
   },
 });
 

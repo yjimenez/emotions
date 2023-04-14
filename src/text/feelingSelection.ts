@@ -52,8 +52,8 @@ const emotionsArr = (emotion: string, oppositeEmotion: string) => {
       modalFooter: modalFooter(oppositeEmotion),
       type: labels.positive,
       definition: `${emotion.toUpperCase()}: Es la alteración emocional que causa una cosa que no está prevista o no se espera.`,
-      oppositeDefinition: "Precaución: definicion",
-      goals: `El objetivo es que juntos con este ejercicio instalemos la ${oppositeEmotion}`,
+      oppositeDefinition: "Precaución: Ante una posible acción, la persona actúa con precaución para minimizar la posibilidad de que un daño se concrete.",
+      goals: `El objetivo es que juntos con este ejercicio instalemos la`,
       selectedFeeling: "",
       feelings: {
         Asombro:
@@ -75,8 +75,8 @@ const emotionsArr = (emotion: string, oppositeEmotion: string) => {
       modalFooter: modalFooter(oppositeEmotion),
       type: labels.negative,
       definition: `${emotion.toUpperCase()}: Es la alteración emocional que causa una cosa que no está prevista o no se espera.`,
-      oppositeDefinition: "Precaución: definicion",
-      goals: `El objetivo es que juntos con este ejercicio instalemos la ${oppositeEmotion}`,
+      oppositeDefinition: "Precaución: Ante una posible acción, la persona actúa con precaución para minimizar la posibilidad de que un daño se concrete.",
+      goals: `El objetivo es que juntos con este ejercicio instalemos la`,
       selectedFeeling: "",
       feelings: {
         Shock:
@@ -86,7 +86,7 @@ const emotionsArr = (emotion: string, oppositeEmotion: string) => {
         Alerta: "Se aplica a la persona que está atenta, vigilante.",
         Confusión:
           "Falta de orden o de claridad cuando hay muchas personas o cosas juntas.",
-        "Indiscreción vs. Vergüenza/Culpa": "falta definicion",
+        "Indiscreción vs. Vergüenza/Culpa": "Incapacidad para guardar un secreto o para no contar lo que sabe y no hay necesidad de que conozcan los demás.",
       },
     },
     alegria: {
@@ -96,8 +96,8 @@ const emotionsArr = (emotion: string, oppositeEmotion: string) => {
       modalHeader: modalHeader(emotion, oppositeEmotion),
       modalFooter: modalFooter(oppositeEmotion),
       definition: `${emotion.toUpperCase()}: Sentimiento de placer que tiene una persona cuando se produce un suceso favorable o cuando obtiene una cosa que deseaba.`,
-      oppositeDefinition: `${oppositeEmotion.toUpperCase()}: definicion`,
-      goals: `El objetivo es que juntos con este ejercicio anclemos la ${emotion.toUpperCase()}`,
+      oppositeDefinition: `${oppositeEmotion.toUpperCase()}: Falta de fuerza o energía para resolver o emprender algo.`,
+      goals: `El objetivo es que juntos con este ejercicio anclemos la`,
       selectedFeeling: "",
       feelings: {
         Gratitud:
@@ -125,8 +125,8 @@ const emotionsArr = (emotion: string, oppositeEmotion: string) => {
       modalFooter: modalFooter(oppositeEmotion),
       selectedFeeling: "",
       definition: `${emotion.toUpperCase()}: Sentimiento de dolor anímico producido por un suceso desfavorable que suele manifestarse con un estado de ánimo pesimista, la insatisfacción y la tendencia al llanto. `,
-      oppositeDefinition: `${oppositeEmotion.toUpperCase()}: definicion`,
-      goals: `El objetivo es que juntos con este ejercicio anclemos la ${oppositeEmotion.toUpperCase()}`,
+      oppositeDefinition: `${oppositeEmotion.toUpperCase()}: Expresión de la alegría a través de palabras, gestos, gritos, etc.`,
+      goals: `El objetivo es que juntos con este ejercicio anclemos la`,
       feelings: {
         Aflicción: "Tristeza o pérdida del ánimo.",
         Autocompasión:
@@ -153,8 +153,8 @@ const emotionsArr = (emotion: string, oppositeEmotion: string) => {
       modalHeader: modalHeader(emotion, oppositeEmotion),
       modalFooter: modalFooter(oppositeEmotion),
       definition: `${emotion.toUpperCase()}: Enfado, especialmente el que esta causado por una falta de: obediencia, de obligación o de respeto.`,
-      oppositeDefinition: `${oppositeEmotion.toUpperCase()}: definicion`,
-      goals: `El objetivo es que juntos con este ejercicio anclemos la ${oppositeEmotion.toUpperCase()}`,
+      oppositeDefinition: `${oppositeEmotion.toUpperCase()}: Capacidad de mantener la tranquilidad en momento de dificultad (habilidad emocional).`,
+      goals: `El objetivo es que juntos con este ejercicio anclemos la`,
       selectedFeeling: "",
       feelings: {
         Control:
@@ -182,8 +182,8 @@ const emotionsArr = (emotion: string, oppositeEmotion: string) => {
       modalHeader: modalHeader(emotion, oppositeEmotion),
       modalFooter: modalFooter(oppositeEmotion),
       definition: `${emotion.toUpperCase()}: Sensación de angustia provocada por la presencia de un peligro real o imaginario.`,
-      oppositeDefinition: `${oppositeEmotion.toUpperCase()}: definicion`,
-      goals: `El objetivo es que juntos con este ejercicio anclemos la ${oppositeEmotion.toUpperCase()}`,
+      oppositeDefinition: `${oppositeEmotion.toUpperCase()}: Acción y efecto de proteger amparar defender a algo o a alguien.`,
+      goals: `El objetivo es que juntos con este ejercicio anclemos la`,
       selectedFeeling: "",
       feelings: {
         "Pavor Patológico": "Temor, con espanto o sobresalto.",
@@ -209,8 +209,8 @@ const emotionsArr = (emotion: string, oppositeEmotion: string) => {
       modalHeader: modalHeader(emotion, oppositeEmotion),
       modalFooter: modalFooter(oppositeEmotion),
       definition: `${emotion.toUpperCase()} Sentimiento de rechazo u oposición`,
-      oppositeDefinition: `${oppositeEmotion.toUpperCase()}: definicion`,
-      goals: `El objetivo es que juntos con este ejercicio anclemos la ${oppositeEmotion.toUpperCase()}`,
+      oppositeDefinition: `${oppositeEmotion.toUpperCase()}: Capacidad de comprender y compartir los sentimientos del otro, permitiéndote observar cosas desde otra perspectiva.`,
+      goals: `El objetivo es que juntos con este ejercicio anclemos la`,
       selectedFeeling: "",
       feelings: {
         Asco: "Denominación de la emoción de fuerte desagrado y disgusto.",
@@ -234,8 +234,8 @@ const emotionsArr = (emotion: string, oppositeEmotion: string) => {
       modalHeader: modalHeader(emotion, oppositeEmotion),
       modalFooter: modalFooter(oppositeEmotion),
       definition: `${emotion.toUpperCase()}: Sentimiento de pérdida de dignidad causado por una falta cometida o por una humillación o insultos recibidos.`,
-      oppositeDefinition: `${oppositeEmotion.toUpperCase()}: definicion`,
-      goals: `El objetivo es que juntos con este ejercicio instalemos la ${oppositeEmotion.toUpperCase()}`,
+      oppositeDefinition: `${oppositeEmotion.toUpperCase()}: Capacidad de dar respuesta efectiva a riesgos, amenazas o vulnerabilidades y estar preparados para prevenirlos, contenerlos y enfrentarlos.`,
+      goals: `El objetivo es que juntos con este ejercicio instalemos la`,
       selectedFeeling: "",
       feelings: {
         Humillación:
@@ -264,8 +264,8 @@ const emotionsArr = (emotion: string, oppositeEmotion: string) => {
       modalHeader: modalHeader(emotion, oppositeEmotion),
       modalFooter: modalFooter(oppositeEmotion),
       definition: `${emotion.toUpperCase()}: El amor es un concepto universal relativo a la afinidad entre seres, definido de diversas formas según las diferentes ideologías y puntos de vista.`,
-      oppositeDefinition: `${oppositeEmotion.toUpperCase()}: definicion`,
-      goals: `El objetivo es que juntos con este ejercicio instalemos el verdadero ${emotion.toUpperCase()}`,
+      oppositeDefinition: `${oppositeEmotion.toUpperCase()}: Emoción que sentimos cuando alguien a quien queremos o queremos que nos quiera, no nos corresponde.`,
+      goals: `El objetivo es que juntos con este ejercicio instalemos el verdadero`,
       selectedFeeling: "",
       feelings: {
         Afinidad:

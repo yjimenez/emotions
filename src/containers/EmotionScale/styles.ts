@@ -4,12 +4,20 @@ const { width: screenWidth, height: screenHeight } = Dimensions.get("window");
 
 const styles = StyleSheet.create({
   wrapper: {
+    flex: 1,
     flexDirection: "column",
+    alignContent: "center",
     justifyContent: "space-between",
     alignItems: "center",
     width: "100%",
-    height: screenHeight * 0.85,
-    paddingTop: screenHeight * 0.1,
+    height: "100%",
+  },
+  content: {
+    justifyContent: "center",
+    flex: 1,
+    width: "100%",
+    height: "100%",
+    paddingTop: screenHeight * 0.05,
   },
   headlineH1,
   headlineH2,
@@ -31,16 +39,13 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "row",
     width: "100%",
-    flexWrap: "wrap",
     alignContent: "center",
-    marginTop: screenHeight * 0.09,
   },
   numberContainer: {
     flex: 1,
     justifyContent: "center",
     width: screenWidth * 0.5,
     height: screenHeight * 0.1,
-    borderWidth: 1,
     borderColor: "#fff",
     flexBasis: "20%",
   },
@@ -51,6 +56,12 @@ const styles = StyleSheet.create({
   buttonContainer: {
     height: screenHeight * 0.16,
     justifyContent: "flex-end",
+  },
+  bottom: {
+    width: "100%",
+    alignItems: "center",
+    paddingTop: screenHeight * 0.03,
+    paddingBottom: screenHeight * 0.03,
   },
   circularRotation: {},
 });
