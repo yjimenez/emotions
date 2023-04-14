@@ -11,11 +11,27 @@ export default function Selection({ navigation }: { navigation: any }) {
 
   const elementBox = (emotion: string, label: string) => {
     const image = getEmotionFaces(emotion);
+    if (emotion === "sorpresa") {
+      return (
+        <Pressable
+          onPress={() =>
+            navigation.navigate("MainFlow", {
+              screen: "SurpriseQuestion",
+              params: { emotion, label },
+            })
+          }
+          style={[styles.selectionElement]}
+        >
+          <Image style={styles.emotionFace} source={image} />
+        </Pressable>
+      );
+    }
+
     return (
       <Pressable
         onPress={() =>
           navigation.navigate("MainFlow", {
-            screen: "EmotionScale",
+            screen: "StartText",
             params: { emotion, label },
           })
         }

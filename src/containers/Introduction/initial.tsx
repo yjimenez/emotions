@@ -5,16 +5,18 @@ import Background from "../../components/Background";
 import ContinueButton from "../../components/ContinueButton";
 import PVText from "../../components/PVText";
 import { getImage } from "../../utils/getImages";
+import labels from "../../text/labels";
 import styles from "./styles";
+import { initialSubTitle, initialTitle } from "../../text/introduction";
 
 export default function Initial({ navigation }: { navigation: any }) {
-  const sectionColor = "miedo";
+  const sectionColor = labels.defaultBackColor;
   return (
     <Background gradientName={sectionColor}>
       <View style={styles.wrapper}>
         <View style={styles.header}>
-          <PVText fontType={"headlineH1"}>APP EMOCIONES</PVText>
-          <PVText fontType={"normalText"}>Te damos la bienvenida</PVText>
+          <PVText fontType={"headlineH1"}>{initialTitle}</PVText>
+          <PVText fontType={"normalText"}>{initialSubTitle}</PVText>
         </View>
         <View style={styles.body}>
           <ImageLoader
@@ -26,7 +28,7 @@ export default function Initial({ navigation }: { navigation: any }) {
           <ContinueButton
             sectionColor={sectionColor}
             label="SIGUIENTE"
-            onPress={() => navigation.navigate("Summary")}
+            onPress={() => navigation.navigate("Screen1")}
           />
         </View>
       </View>

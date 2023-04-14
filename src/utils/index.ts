@@ -7,3 +7,10 @@ export const delay = async (ms: number) => {
 export const randomNumber = (min: number, max: number) => {
   return Math.floor(Math.random() * (max + 1 - min) + min);
 };
+
+export const normilizeString = (value: string) => {
+  return value
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
+};

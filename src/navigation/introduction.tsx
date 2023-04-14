@@ -2,11 +2,10 @@ import * as React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Initial from "../containers/Introduction/initial";
 import TabNavigator from "./tabNavigator";
-import Summary from "../containers/Introduction/summary";
-import TreeInfo from "../containers/Introduction/treeInfo";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import Final from "../containers/Introduction/final";
+import Screen2 from "../containers/Introduction/screen2";
+import Screen1 from "../containers/Introduction/screen1";
 
-const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 export default function IntroductionScreen() {
   return (
@@ -18,8 +17,9 @@ export default function IntroductionScreen() {
       }}
     >
       <Stack.Screen name="Initial" component={Initial} />
-      <Stack.Screen name="Summary" component={Summary} />
-      <Stack.Screen name="TreeInfo" component={TreeInfo} />
+      <Stack.Screen name="Screen1" component={Screen1} />
+      <Stack.Screen name="Screen2" component={Screen2} />
+      <Stack.Screen name="Final" component={Final} />
       <Stack.Screen name="TabNavigator" component={TabNavigator} />
     </Stack.Navigator>
   );

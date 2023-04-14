@@ -11,31 +11,17 @@ const styles = StyleSheet.create({
     alignItems: "center",
     width: "100%",
     height: screenHeight * 0.1,
+    paddingTop: screenHeight * 0.08,
   },
-  imageText: {
+  text: {
     textAlign: "center",
   },
-  content: {
-    height: "90%",
-    width: "100%",
-    paddingTop: screenHeight * 0.08,
+  centerText: {
+    justifyContent: "center",
+    flex: 1,
   },
   bottom: {
     marginBottom: screenHeight * 0.05,
-  },
-  breathContentText: {
-    display: "flex",
-    justifyContent: "center",
-    alignContent: "center",
-    alignItems: "center",
-  },
-  breathText: {
-    position: "absolute",
-    alignSelf: "center",
-  },
-  breathAnimation: {
-    flex: 1,
-    paddingTop: screenHeight * 0.1,
   },
 });
 

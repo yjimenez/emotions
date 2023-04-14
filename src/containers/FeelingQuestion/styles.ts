@@ -24,11 +24,19 @@ const styles = StyleSheet.create({
   headerText: {
     textAlign: "center",
   },
-  numberWrapper: {
+  numberWrapperReverse: {
     flex: 1,
     flexDirection: "row",
     width: "100%",
     flexWrap: "wrap-reverse",
+    alignContent: "center",
+    marginTop: -screenHeight * 0.03,
+  },
+  numberWrapper: {
+    flex: 1,
+    flexDirection: "row",
+    width: "100%",
+    flexWrap: "wrap",
     alignContent: "center",
     marginTop: -screenHeight * 0.03,
   },
@@ -41,6 +49,17 @@ const styles = StyleSheet.create({
     borderColor: "#fff",
     flexBasis: "45%",
     margin: screenWidth * 0.01,
+  },
+  contentScroll: {
+    justifyContent: "center",
+    paddingRight: screenWidth * 0.06,
+    paddingLeft: screenWidth * 0.06,
+  },
+  modalParraph: {
+    textAlign: "center",
+  },
+  spaceBetween: {
+    margin: screenHeight * 0.02,
   },
 });
 

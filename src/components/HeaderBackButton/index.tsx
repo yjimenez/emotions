@@ -16,7 +16,7 @@ export default function HeaderBackButton(props: Props) {
     <View>
       <Pressable onPress={onPress} style={[styles.backButton]}>
         <Ionicons name="arrow-back-outline" size={32} color="#fff" />
-        <PVText fontType={"headlineH3"}>{label || "Regresar"}</PVText>
+        <PVText fontType={"headlineH3"}>{label}</PVText>
       </Pressable>
     </View>
   );

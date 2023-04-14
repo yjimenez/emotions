@@ -1,4 +1,4 @@
-export const miedo = [
+export const defaultBackColor = [
   "#3B71FC",
   // "#512DA8",
   "#5609F8",
@@ -8,7 +8,18 @@ export const miedo = [
   "#7E57C2", */
 ];
 
-export const sorpresa = [
+export const miedo = [...defaultBackColor];
+
+export const sorpresaPositivo = [
+  "#1B5E20",
+  "#2E7D32",
+  "#388E3C",
+  "#43A047",
+  "#4CAF50",
+  "#66BB6A",
+];
+
+export const sorpresaNegativo = [
   "#1B5E20",
   "#2E7D32",
   "#388E3C",

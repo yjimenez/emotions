@@ -36,11 +36,20 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   body: {
-    height: screenHeight * 0.5,
+    flex: 1,
     alignContent: "center",
     justifyContent: "center",
     width: "100%",
     alignItems: "center",
+  },
+  bodySpaceAround: {
+    flex: 1,
+    alignContent: "center",
+    justifyContent: "space-around",
+    width: "100%",
+    alignItems: "center",
+    paddingTop: screenHeight * 0.04,
+    paddingBottom: screenHeight * 0.04,
   },
   imagePrincipal: {
     flex: 1,
@@ -77,9 +86,14 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   bodyTextAlign: {
+    paddingLeft: screenWidth * 0.05,
+    paddingRight: screenWidth * 0.05,
+    width: "100%",
+  },
+  bodyTextCenterAlign: {
     paddingLeft: screenWidth * 0.01,
     paddingRight: screenWidth * 0.01,
-    lineHeight: screenWidth * 0.07,
+    textAlign: "center",
   },
   bodyBoxTextAlign: {
     paddingLeft: screenWidth * 0.025,
@@ -130,6 +144,18 @@ const styles = StyleSheet.create({
   },
   tinyText: {
     fontSize: screenWidth * 0.03,
+  },
+  parraph: {
+    lineHeight: screenWidth * 0.07,
+  },
+  contentBody: {
+    position: "absolute",
+  },
+  treeInfo: {
+    position: "absolute",
+    display: "flex",
+    flex: 1,
+    top: screenHeight * 0.15,
   },
 });
 

@@ -11,11 +11,11 @@ import * as backgroundColors from "../../utils/backgroundColors";
 
 interface Props {
   label: string;
-  onPress: () => {};
+  onPress: () => void;
   customStyle?: {};
   customTextStyle?: {};
   sectionColor?: string;
-  pressEffect: "opacity" | "highlight" | null;
+  pressEffect?: "opacity" | "highlight" | null;
 }
 
 export default function ContinueButton(props: Props) {

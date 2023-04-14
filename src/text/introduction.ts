@@ -1,12 +1,21 @@
-export const summaryTitle = `Esta app ha sido creada para ti`;
+export const initialTitle = `APP EMOCIONES`;
+export const initialSubTitle = `Te damos la bienvenida`;
+export const screen1Title = `Esta app ha sido creada para ti`;
+export const screen2Title = `Ponle Nombre a lo Que Sientes`;
 
-export const listTitle = `Ponle Nombre a lo Que Sientes`;
+export const summary1 = {
+  parraph1: `En las Tarjetas de Salud Emocional encontrarás una herramienta poderosa para trabajar el autoconocimiento.`,
+  parraph2: `La estructura de este sistema tiene como fundamento teorías y técnicas de reconocidos psiquiatras, filósofos, oleoterapeutas y estudiosos del comportamiento humano, las cuales te permitirán realizar una introspección en tu corazón y tu mente.`,
+  parraph3: `Sigamos con tu AutoEvaluacion.`,
+};
 
-export const summaryBody = `En las Tarjetas de Salud Emocional encontrarás una herramienta poderosa para trabajar el autoconocimiento.
-            
-La estructura de este sistema tiene como fundamento teorías y técnicas de reconocidos psiquiatras, filósofos, oleoterapeutas y estudiosos del comportamiento humano, las cuales te permitirán realizar una introspección en tu corazón y tu mente.
-            
-Sigamos con tu AutoEvaluacion.`;
+export const summary2 = {
+  parraph1: `El objetivo de ponerle nombre a lo que sientes, es buscar la mejor forma de gestionar tu emoción.`,
+  parraph2: `Estar instalados en nuestro verdadero sentir, nos permite ser asertivos en nuestras actitudes.`,
+  parraph3: `Una vez que somos asertivos en nuestra forma de actuar, podemos también agradecernos a nosotros mismos la posibilidad de relacionarnos mejor, busquemos equilibrio para relacionarnos mejor.`,
+};
+
+export const summary3 = `Ven, continuemos, vamos a ponerle nombre a lo que te pasa`;
 
 export const selectionHeader = `¿Que emocion estas experimentando mas intensamente en este momento?`;
 

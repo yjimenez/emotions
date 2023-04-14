@@ -1,44 +1,105 @@
-const titleHeader = (emotion: string) =>
-  `Con que SENTIMIENTO asocias la ${emotion.toUpperCase()}`;
+import labels from "./labels";
+export const titleHeader = (emotion: string) =>
+  `Con que SENTIMIENTO asocias la ${validateEmotionName(
+    emotion
+  ).toUpperCase()}`;
 
-const subHeader = `Lee cuidadosamente y elige el SENTIMIENTO que consideres el más importante.`;
+export const subHeader = `Lee cuidadosamente y elige el SENTIMIENTO que consideres el más importante.`;
 
-export const popUpHeader = (emotion: string, feeling: string) =>
-  `Dato sobre el ${emotion.toUpperCase()} con el sentimiento ${feeling.toUpperCase()} seleccionado`;
+export const modalHeader = (emotion: string, oppositeEmotion: string) =>
+  `${emotion.toUpperCase()} / ${oppositeEmotion.toUpperCase()}`;
 
-export const feelingSelection = (emotion: string) => {
+export const modalFooter = (oppositeEmotion: string) =>
+  `Cuando has sentido ${oppositeEmotion.toUpperCase()}?`;
+
+export const validateEmotionName = (emotion: string) => {
+  if (emotion === "sorpresaPositivo" || emotion === "sorpresaNegativo") {
+    return "sorpresa";
+  }
+  return emotion;
+};
+
+export const emotions = {
+  sorpresaPositivo: "Sorpresa",
+  sorpresaNegativo: "Sorpresa",
+  alegria: "Alegría",
+  tristeza: "Tristeza",
+  enojo: "Enojo",
+  miedo: "Miedo",
+  repulsion: "Repulsión",
+  verguenza: "Vergüenza",
+  amor: "amor",
+};
+
+export const oppositeEmotions = {
+  sorpresaPositivo: "Precaución",
+  sorpresaNegativo: "Precaución",
+  alegria: "Desánimo",
+  tristeza: "Euforia",
+  enojo: "Calma",
+  miedo: "Protección",
+  repulsion: "Empatía",
+  verguenza: "Seguridad",
+  amor: "Desamor",
+};
+
+const emotionsArr = (emotion: string, oppositeEmotion: string) => {
   return {
-    sorpresa: {
-      titleHeader: titleHeader(emotion),
-      subHeader,
-      definition:
-        "SORPRESA: Es la alteración emocional que causa una cosa que no está prevista o no se espera.",
-      options: {
-        Shock:
-          "Resultado de un evento traumático que abruma la facultad que tiene un individuo para hacer frente a las emociones.",
+    sorpresaPositivo: {
+      emotion,
+      oppositeEmotion,
+      modalHeader: modalHeader(emotion, oppositeEmotion),
+      modalFooter: modalFooter(oppositeEmotion),
+      type: labels.positive,
+      definition: `${emotion.toUpperCase()}: Es la alteración emocional que causa una cosa que no está prevista o no se espera.`,
+      oppositeDefinition: "Precaución: definicion",
+      goals: `El objetivo es que juntos con este ejercicio instalemos la ${oppositeEmotion}`,
+      selectedFeeling: "",
+      feelings: {
         Asombro:
           "Impresión en el ánimo que alguien o algo causa a una persona, especialmente por alguna cualidad extraordinaria o por ser inesperado.",
-        Imprudencia:
-          "Falta de juicio, sensatez y cuidado que una persona demuestra en sus acciones.",
-        Alerta: "Se aplica a la persona que está atenta, vigilante.",
         Discreción:
           "Reserva o cautela para no decir algo que se sabe o piensa.",
         "Indiscreción vs vergüenza/culpa":
           "Incapacidad para guardar un secreto o para no contar lo que sabe y no hay necesidad de que conozcan los demás.",
-        Confusión:
-          "Falta de orden o de claridad cuando hay muchas personas o cosas juntas.",
         Atontado:
           "Perturbación momentánea de la capacidad de captar nuestro entorno.",
         Parálisis:
           "Pérdida total o parcial de la capacidad de movimiento (física o emocional) de una o más partes del cuerpo.",
       },
     },
+    sorpresaNegativo: {
+      emotion,
+      oppositeEmotion,
+      modalHeader: modalHeader(emotion, oppositeEmotion),
+      modalFooter: modalFooter(oppositeEmotion),
+      type: labels.negative,
+      definition: `${emotion.toUpperCase()}: Es la alteración emocional que causa una cosa que no está prevista o no se espera.`,
+      oppositeDefinition: "Precaución: definicion",
+      goals: `El objetivo es que juntos con este ejercicio instalemos la ${oppositeEmotion}`,
+      selectedFeeling: "",
+      feelings: {
+        Shock:
+          "Resultado de un evento traumático que abruma la facultad que tiene un individuo para hacer frente a las emociones.",
+        Imprudencia:
+          "Falta de juicio, sensatez y cuidado que una persona demuestra en sus acciones.",
+        Alerta: "Se aplica a la persona que está atenta, vigilante.",
+        Confusión:
+          "Falta de orden o de claridad cuando hay muchas personas o cosas juntas.",
+        "Indiscreción vs. Vergüenza/Culpa": "falta definicion",
+      },
+    },
     alegria: {
-      titleHeader: titleHeader(emotion),
-      subHeader,
-      definition:
-        "ALEGRIA: Sentimiento de placer que tiene una persona cuando se produce un suceso favorable o cuando obtiene una cosa que deseaba.",
-      options: {
+      emotion,
+      oppositeEmotion,
+      type: labels.positive,
+      modalHeader: modalHeader(emotion, oppositeEmotion),
+      modalFooter: modalFooter(oppositeEmotion),
+      definition: `${emotion.toUpperCase()}: Sentimiento de placer que tiene una persona cuando se produce un suceso favorable o cuando obtiene una cosa que deseaba.`,
+      oppositeDefinition: `${oppositeEmotion.toUpperCase()}: definicion`,
+      goals: `El objetivo es que juntos con este ejercicio anclemos la ${emotion.toUpperCase()}`,
+      selectedFeeling: "",
+      feelings: {
         Gratitud:
           "Deseo de corresponder a una persona por un servicio prestado o hecho favorable.",
         Felicidad:
@@ -57,11 +118,16 @@ export const feelingSelection = (emotion: string) => {
       },
     },
     tristeza: {
-      titleHeader: titleHeader(emotion),
-      subHeader,
-      definition:
-        "TRISTEZA: Sentimiento de dolor anímico producido por un suceso desfavorable que suele manifestarse con un estado de ánimo pesimista, la insatisfacción y la tendencia al llanto. ",
-      options: {
+      emotion,
+      oppositeEmotion,
+      type: labels.negative,
+      modalHeader: modalHeader(emotion, oppositeEmotion),
+      modalFooter: modalFooter(oppositeEmotion),
+      selectedFeeling: "",
+      definition: `${emotion.toUpperCase()}: Sentimiento de dolor anímico producido por un suceso desfavorable que suele manifestarse con un estado de ánimo pesimista, la insatisfacción y la tendencia al llanto. `,
+      oppositeDefinition: `${oppositeEmotion.toUpperCase()}: definicion`,
+      goals: `El objetivo es que juntos con este ejercicio anclemos la ${oppositeEmotion.toUpperCase()}`,
+      feelings: {
         Aflicción: "Tristeza o pérdida del ánimo.",
         Autocompasión:
           "Es el sentimiento de pena hacia uno mismo que experimenta una persona en situaciones percibidas como adversas.",
@@ -81,11 +147,16 @@ export const feelingSelection = (emotion: string) => {
       },
     },
     enojo: {
-      titleHeader: titleHeader(emotion),
-      subHeader,
-      definition:
-        "ENOJO: Enfado, especialmente el que esta causado por una falta de: obediencia, de obligación o de respeto.",
-      options: {
+      emotion,
+      oppositeEmotion,
+      type: labels.negative,
+      modalHeader: modalHeader(emotion, oppositeEmotion),
+      modalFooter: modalFooter(oppositeEmotion),
+      definition: `${emotion.toUpperCase()}: Enfado, especialmente el que esta causado por una falta de: obediencia, de obligación o de respeto.`,
+      oppositeDefinition: `${oppositeEmotion.toUpperCase()}: definicion`,
+      goals: `El objetivo es que juntos con este ejercicio anclemos la ${oppositeEmotion.toUpperCase()}`,
+      selectedFeeling: "",
+      feelings: {
         Control:
           "Actividad que se realiza no sólo a nivel directivo, sino en todos los niveles.",
         Fastidio:
@@ -105,11 +176,16 @@ export const feelingSelection = (emotion: string) => {
       },
     },
     miedo: {
-      titleHeader: titleHeader(emotion),
-      subHeader,
-      definition:
-        "MIEDO: Sensación de angustia provocada por la presencia de un peligro real o imaginario.",
-      options: {
+      emotion,
+      oppositeEmotion,
+      type: labels.negative,
+      modalHeader: modalHeader(emotion, oppositeEmotion),
+      modalFooter: modalFooter(oppositeEmotion),
+      definition: `${emotion.toUpperCase()}: Sensación de angustia provocada por la presencia de un peligro real o imaginario.`,
+      oppositeDefinition: `${oppositeEmotion.toUpperCase()}: definicion`,
+      goals: `El objetivo es que juntos con este ejercicio anclemos la ${oppositeEmotion.toUpperCase()}`,
+      selectedFeeling: "",
+      feelings: {
         "Pavor Patológico": "Temor, con espanto o sobresalto.",
         Desconfianza: "Falta de seguridad en algo, en otro o en si mismo.",
         Ansiedad:
@@ -127,10 +203,16 @@ export const feelingSelection = (emotion: string) => {
       },
     },
     repulsion: {
-      titleHeader: titleHeader(emotion),
-      subHeader,
-      definition: "REPULSIÓN: Sentimiento de rechazo u oposición.",
-      options: {
+      emotion,
+      oppositeEmotion,
+      type: labels.negative,
+      modalHeader: modalHeader(emotion, oppositeEmotion),
+      modalFooter: modalFooter(oppositeEmotion),
+      definition: `${emotion.toUpperCase()} Sentimiento de rechazo u oposición`,
+      oppositeDefinition: `${oppositeEmotion.toUpperCase()}: definicion`,
+      goals: `El objetivo es que juntos con este ejercicio anclemos la ${oppositeEmotion.toUpperCase()}`,
+      selectedFeeling: "",
+      feelings: {
         Asco: "Denominación de la emoción de fuerte desagrado y disgusto.",
         Celos:
           "Sentimiento que experimenta una persona cuando sospecha que la persona amada siente amor o cariño por otra.",
@@ -146,11 +228,16 @@ export const feelingSelection = (emotion: string) => {
       },
     },
     verguenza: {
-      titleHeader: titleHeader(emotion),
-      subHeader,
-      definition:
-        "VERGÜENZA: Sentimiento de pérdida de dignidad causado por una falta cometida o por una humillación o insultos recibidos.",
-      options: {
+      emotion,
+      oppositeEmotion,
+      type: labels.negative,
+      modalHeader: modalHeader(emotion, oppositeEmotion),
+      modalFooter: modalFooter(oppositeEmotion),
+      definition: `${emotion.toUpperCase()}: Sentimiento de pérdida de dignidad causado por una falta cometida o por una humillación o insultos recibidos.`,
+      oppositeDefinition: `${oppositeEmotion.toUpperCase()}: definicion`,
+      goals: `El objetivo es que juntos con este ejercicio instalemos la ${oppositeEmotion.toUpperCase()}`,
+      selectedFeeling: "",
+      feelings: {
         Humillación:
           "Ofensa que alguien o algo causa en el orgullo o el honor de una persona.",
         Pena: "Sentimiento de dolor, sufrimiento o tristeza que provoca en una persona un hecho adverso o desgraciado.",
@@ -171,11 +258,16 @@ export const feelingSelection = (emotion: string) => {
       },
     },
     amor: {
-      titleHeader: titleHeader(emotion),
-      subHeader,
-      definition:
-        "AMOR: El amor es un concepto universal relativo a la afinidad entre seres, definido de diversas formas según las diferentes ideologías y puntos de vista.",
-      options: {
+      emotion,
+      oppositeEmotion,
+      type: labels.positive,
+      modalHeader: modalHeader(emotion, oppositeEmotion),
+      modalFooter: modalFooter(oppositeEmotion),
+      definition: `${emotion.toUpperCase()}: El amor es un concepto universal relativo a la afinidad entre seres, definido de diversas formas según las diferentes ideologías y puntos de vista.`,
+      oppositeDefinition: `${oppositeEmotion.toUpperCase()}: definicion`,
+      goals: `El objetivo es que juntos con este ejercicio instalemos el verdadero ${emotion.toUpperCase()}`,
+      selectedFeeling: "",
+      feelings: {
         Afinidad:
           "Coincidencia de gustos, caracteres u opiniones en dos o más personas.",
         Gratitud:
@@ -195,4 +287,10 @@ export const feelingSelection = (emotion: string) => {
       },
     },
   };
+};
+
+export const feelingSelection = (selected: string) => {
+  const emotion = emotions[selected];
+  const oppositeEmotion = oppositeEmotions[selected];
+  return emotionsArr(emotion, oppositeEmotion)[selected];
 };

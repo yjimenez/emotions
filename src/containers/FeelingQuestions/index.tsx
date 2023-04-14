@@ -5,9 +5,10 @@ import ContinueButton from "../../components/ContinueButton";
 import PVText from "../../components/PVText";
 import { feelingQuestions } from "../../text/feelingQuestions";
 import { delay } from "../../utils";
+import { validateEmotionName } from "../../text/feelingSelection";
 import styles from "./styles";
 
-export default function FeelingQuestion({
+export default function FeelingQuestions({
   navigation,
   route,
 }: {
@@ -17,7 +18,7 @@ export default function FeelingQuestion({
   const { emotion, feeling, scaleValue } = route.params;
   const sectionColor = emotion;
 
-  const questions = feelingQuestions()[emotion];
+  const questions = feelingQuestions()[validateEmotionName(emotion)];
   const [questionsCount, setQuestionCount] = useState(0);
 
   const onPressAnswer = async () => {
@@ -25,7 +26,7 @@ export default function FeelingQuestion({
     await delay(500);
     const count = questionsCount + 1;
     if (count === questions.length) {
-      navigation.navigate("EmotionScale", {
+      navigation.navigate("Breath", {
         emotion,
         feeling,
         section: "second",

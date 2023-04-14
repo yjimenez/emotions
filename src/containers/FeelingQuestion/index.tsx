@@ -1,9 +1,14 @@
 import React, { useState } from "react";
-import { Pressable, View } from "react-native";
+import { Pressable, View, ScrollView } from "react-native";
 import Background from "../../components/Background";
-import FeelingModal from "../Modals/FeelingModal";
+import EmotionsModal from "../Modal";
 import PVText from "../../components/PVText";
-import { feelingSelection, popUpHeader } from "../../text/feelingSelection";
+import {
+  feelingSelection,
+  titleHeader,
+  subHeader,
+} from "../../text/feelingSelection";
+import labels from "../../text/labels";
 import styles from "./styles";
 
 export default function FeelingQuestion({
@@ -16,40 +21,57 @@ export default function FeelingQuestion({
   const { emotion, scaleValue } = route.params;
   const sectionColor = emotion;
   const [modalVisible, setModalVisible] = useState(false);
-  const [modalContent, setModalContent] = useState({
-    emotionHeader: "",
-    definition: "",
-    feeling: "",
-    feelingDescription: "",
-  });
-  const { titleHeader, subHeader, definition, options } =
-    feelingSelection(emotion)[emotion];
+  const [selectedFeeling, setSelectedFeeling] = useState("");
+  const emotionProps = feelingSelection(emotion);
 
-  const onPress = (feeling: string, feelingDescription: string) => (
-    setModalContent({
-      emotionHeader: popUpHeader(emotion, feeling),
-      definition,
-      feeling,
-      feelingDescription,
-    }),
-    setModalVisible(true)
-  );
+  const onPress = (feeling: string) => {
+    setSelectedFeeling(feeling);
+    setModalVisible(true);
+  };
 
-  const optionsArr = [...Object.entries(options)]
+  const optionsArr = Object.keys(emotionProps.feelings)
     .reverse()
-    .map((val: [string, string | unknown]) => {
+    .map((val) => {
       return (
         <Pressable
-          key={val[0]}
-          onPress={() => onPress(val[0], val[1])}
+          key={val}
+          onPress={() => onPress(val)}
           style={styles.numberContainer}
         >
           <PVText style={styles.headerText} fontType={"headlineH4"}>
-            {val[0]}
+            {val}
           </PVText>
         </Pressable>
       );
     });
+
+  const modalCustomContent = (
+    <>
+      <PVText style={styles.modalParraph} fontType={"headlineH2"}>
+        {`${emotionProps.modalHeader}`}
+      </PVText>
+      <View style={styles.spaceBetween}></View>
+      <ScrollView contentContainerStyle={styles.contentScroll}>
+        <PVText style={styles.modalParraph} fontType={"headlineH2"}>
+          {`${emotionProps.definition}`}
+        </PVText>
+        <View style={styles.spaceBetween}></View>
+        <PVText style={styles.modalParraph} fontType={"headlineH2"}>
+          {`${selectedFeeling?.toUpperCase()}: ${
+            emotionProps?.feelings[selectedFeeling]
+          }`}
+        </PVText>
+        <View style={styles.spaceBetween}></View>
+        <PVText style={styles.modalParraph} fontType={"headlineH2"}>
+          {` ${emotionProps.oppositeDefinition}`}
+        </PVText>
+        <View style={styles.spaceBetween}></View>
+        <PVText style={styles.modalParraph} fontType={"headlineH2"}>
+          {` ${emotionProps.modalFooter}`}
+        </PVText>
+      </ScrollView>
+    </>
+  );
 
   return (
     <>
@@ -57,22 +79,38 @@ export default function FeelingQuestion({
         <View style={styles.wrapper}>
           <View style={styles.header}>
             <PVText style={styles.headerText} fontType={"headlineH2"}>
-              {titleHeader}
+              {titleHeader(emotion)}
             </PVText>
             <PVText style={styles.headerText} fontType={"headlineH3"}>
               {subHeader}
             </PVText>
           </View>
-          <View style={styles.numberWrapper}>{optionsArr}</View>
+          <View
+            style={
+              emotion === "sorpresaNegativo"
+                ? styles.numberWrapper
+                : styles.numberWrapperReverse
+            }
+          >
+            {optionsArr}
+          </View>
         </View>
       </Background>
-      <FeelingModal
+      <EmotionsModal
         navigation={navigation}
         modalVisibleProp={modalVisible}
-        onCloseModal={() => setModalVisible(false)}
+        selectedFeeling={selectedFeeling}
+        onCloseModal={async () => setModalVisible(false)}
         emotion={emotion}
-        scaleValue={scaleValue}
-        modalContent={modalContent}
+        size={labels.large}
+        onPressButton={() =>
+          navigation.navigate("Breath", {
+            emotion,
+            feeling: selectedFeeling,
+            scaleValue,
+          })
+        }
+        modalCustomContent={modalCustomContent}
       />
     </>
   );

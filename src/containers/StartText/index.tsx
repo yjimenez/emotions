@@ -1,36 +1,39 @@
 import * as React from "react";
 import { View } from "react-native";
-import ImageLoader from "../../animations/imageAnimation";
 import Background from "../../components/Background";
 import ContinueButton from "../../components/ContinueButton";
 import PVText from "../../components/PVText";
-import { getMonsterImage } from "../../text/mainFlow";
+import { feelingSelection } from "../../text/feelingSelection";
 import styles from "./styles";
 
-export default function StartImage({
+export default function StartText({
   navigation,
   route,
 }: {
   navigation: any;
   route: any;
 }) {
-  const { emotion, scaleValue } = route.params;
+  const { emotion, label, scaleValue } = route.params;
   const sectionColor = emotion;
-  const { image, text } = getMonsterImage(emotion, scaleValue);
+  const { goals } = feelingSelection(emotion);
+
   return (
     <Background gradientName={sectionColor}>
       <View style={styles.wrapper}>
-        <ImageLoader source={image} shakeImage />
-        <PVText style={styles.imageText} fontType={"headlineH2"}>
-          {text}
-        </PVText>
+        <View style={styles.centerText}>
+          <PVText style={styles.text} fontType={"headlineH1"}>
+            {goals}
+          </PVText>
+        </View>
         <View style={styles.bottom}>
           <ContinueButton
             sectionColor={sectionColor}
             label="CONTINUAR"
             onPress={() =>
-              navigation.navigate("FeelingQuestion", {
+              navigation.navigate("Breath", {
+                label,
                 emotion,
+                section: "emotions",
                 scaleValue,
               })
             }

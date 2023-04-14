@@ -1,14 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { Dimensions, View } from "react-native";
-import CircularSlider from "react-native-rounded-slider";
+import CircularSlider from "../../animations/circularSlider";
 import * as background from "../../utils/backgroundColors";
 import Slider from "@react-native-community/slider";
 import Background from "../../components/Background";
 import ContinueButton from "../../components/ContinueButton";
 import PVText from "../../components/PVText";
-import InfoModal from "../Modals/InfoModal";
-import { emotionScale, emotionSecondScale } from "../../text/mainFlow";
+import {
+  emotionScale,
+  emotionSecondScale,
+  moreNegativeScale,
+  lessPositiveScale,
+} from "../../text/mainFlow";
+import { feelingSelection } from "../../text/feelingSelection";
 import styles from "./styles";
+import sections from "../../utils/sections";
+import EmotionsModal from "../Modal";
+import labels from "../../text/labels";
 
 const { width: screenWidth } = Dimensions.get("window");
 
@@ -20,17 +28,17 @@ export default function EmotionScale({
   route: any;
 }) {
   const { emotion, feeling, section, scaleValue } = route.params;
-
   const sectionColor = emotion;
   const secondPosition = section === "second";
   const [currentScaleValue, setValue] = useState(0);
   const [modalVisible, setModalVisible] = useState(false);
-
-  useEffect(() => {
-    if (secondPosition) {
-      navigation.setOptions({ headerLeft: () => {} });
-    }
-  }, [section]);
+  const [modalProps, setModalProps] = useState({
+    modalSize: "",
+    modalFontSize: "",
+    modalText: "",
+  });
+  const feelingType = feelingSelection(emotion).type;
+  const emotionLabel = feelingSelection(emotion).emotion;
 
   const sectionColors = background[emotion];
   const trackColor = sectionColors[sectionColors.length - 1];
@@ -38,12 +46,42 @@ export default function EmotionScale({
 
   const isCircular = true;
 
-  const secondAnswered = () => {
-    if (currentScaleValue <= scaleValue) {
-      setModalVisible(true);
-    } else {
-      navigation.navigate("RecommendedOils", { emotion, feeling, scaleValue });
+  useEffect(() => {
+    if (scaleValue) {
+      setValue(scaleValue);
     }
+  }, [scaleValue]);
+
+  const secondAnswered = () => {
+    if (feelingType === labels.positive) {
+      if (currentScaleValue <= scaleValue) {
+        setModalProps({
+          modalSize: labels.medium,
+          modalFontSize: labels.small,
+          modalText: lessPositiveScale,
+        });
+        setModalVisible(true);
+        return;
+      }
+    }
+
+    if (feelingType === labels.negative) {
+      if (currentScaleValue >= scaleValue) {
+        setModalProps({
+          modalSize: labels.small,
+          modalFontSize: labels.medium,
+          modalText: moreNegativeScale(emotionLabel.toUpperCase()),
+        });
+        setModalVisible(true);
+        return;
+      }
+    }
+
+    navigation.navigate("RecommendedOils", {
+      emotion,
+      feeling,
+      scaleValue,
+    });
   };
 
   const onPress = (scaleValue: number) => {
@@ -60,15 +98,15 @@ export default function EmotionScale({
       ? 0.35
       : currentScaleValue === 0
       ? 0.025
-      : parseFloat(currentScaleValue * 0.03);
+      : currentScaleValue * 0.03;
 
   return (
     <Background containsBottomTab gradientName={sectionColor}>
       <View style={[styles.wrapper, { opacity: modalVisible ? 0.2 : 1 }]}>
         <PVText style={styles.headerText} fontType={"headlineH2"}>
           {secondPosition
-            ? emotionSecondScale(emotion.toUpperCase())
-            : emotionScale(emotion.toUpperCase())}
+            ? emotionSecondScale(emotionLabel.toUpperCase())
+            : emotionScale(emotionLabel.toUpperCase())}
         </PVText>
         <View style={styles.numberWrapper}>
           <View
@@ -87,6 +125,7 @@ export default function EmotionScale({
                   thumbWidth={15}
                   steps={1}
                   xCenter={99}
+                  value={scaleValue}
                   element={
                     <PVText
                       style={[
@@ -127,11 +166,28 @@ export default function EmotionScale({
           />
         </View>
       </View>
-      <InfoModal
+      <EmotionsModal
         navigation={navigation}
         modalVisibleProp={modalVisible}
         onCloseModal={() => setModalVisible(false)}
         emotion={emotion}
+        showCloseHeader
+        size={modalProps.modalSize}
+        fontSize={modalProps.modalFontSize}
+        buttonLabel="CONTÁCTANOS"
+        onPressButton={
+          secondPosition
+            ? () => navigation.navigate("Contact")
+            : () =>
+                navigation.navigate("Breath", {
+                  emotion,
+                  feeling,
+                  scaleValue,
+                })
+        }
+        modalText={modalProps.modalText}
+        showButton
+        modalCustomContent={undefined}
       />
     </Background>
   );

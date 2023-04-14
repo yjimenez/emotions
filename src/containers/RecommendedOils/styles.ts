@@ -114,6 +114,28 @@ const styles = StyleSheet.create({
     backgroundColor: "transparent",
     marginLeft: screenWidth * 0.03,
   },
+  modalHeader: {
+    textAlign: "center",
+  },
+  modalParraph: {
+    textAlign: "center",
+  },
+  iconCall: {
+    paddingTop: screenHeight * 0.03,
+    textAlign: "center",
+    alignContent: "center",
+    justifyContent: "space-around",
+    flexDirection: "row",
+  },
+  modalContent: {
+    flex: 1,
+    justifyContent: "center",
+    paddingRight: screenWidth * 0.06,
+    paddingLeft: screenWidth * 0.06,
+  },
+  spaceBetween: {
+    margin: screenHeight * 0.02,
+  },
 });
 
 export default styles;
