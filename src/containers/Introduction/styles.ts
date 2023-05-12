@@ -102,6 +102,12 @@ const styles = StyleSheet.create({
     paddingTop: screenWidth * 0.04,
     paddingBottom: screenWidth * 0.04,
   },
+  bodyBoxTextAlignAndroid: {
+    flex: 1,
+    width: screenWidth * 0.7,
+    paddingTop: screenWidth * 0.01,
+    paddingBottom: screenWidth * 0.01,
+  },
   bodyTextBox: {
     width: screenWidth * 0.87,
     justifyContent: "space-around",
@@ -152,6 +158,12 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   treeInfo: {
+    position: "absolute",
+    display: "flex",
+    flex: 1,
+    top: screenHeight * 0.15,
+  },
+  treeInfoAndroid: {
     position: "absolute",
     display: "flex",
     flex: 1,

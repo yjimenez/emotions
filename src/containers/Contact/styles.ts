@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
 
   bodyInfoText: {
     minHeight: screenHeight * 0.05,
-    flex: 3,
+    flex: 3.5,
     justifyContent: "center",
   },
   bodyImages: {
@@ -75,6 +75,26 @@ const styles = StyleSheet.create({
   },
   imageFaceSource: {
     width: "150%",
+    height: "100%",
+    resizeMode: "contain",
+  },
+  logoINOContiner: {
+    width: screenWidth * 0.2,
+  },
+  logoINOBackground: {
+    borderRadius: 10,
+    position: "absolute",
+    width: "100%",
+    height: "300%",
+    display: "flex",
+    justifyContent: "center",
+    alignContent: "center",
+    bottom: 0,
+    backgroundColor: "#fff",
+    padding: 8,
+  },
+  logoINO: {
+    width: "100%",
     height: "100%",
     resizeMode: "contain",
   },

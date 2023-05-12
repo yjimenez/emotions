@@ -26,7 +26,7 @@ export const getMonsterImage = (emotion: string, int: number) => {
 export const selectionHeader = `¿Que emocion estas experimentando mas intensamente en este momento?`;
 
 export const moreNegativeScale = (emotion: string) =>
-  `Tú ${emotion} no disminuyo, comunícate con nosotros.`;
+  `Si tu ${emotion} no disminuyo, comunícate con nosotros.`;
 
 export const lessPositiveScale = `La intención de hacer este ejercicio es instalarte en las cosas positivas y con ello recorrer tu día a día. 
 

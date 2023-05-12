@@ -157,7 +157,7 @@ export default function Screen1({
   const content2 = (
     <Animated.View
       style={[
-        styles.treeInfo,
+        isAndroid ? styles.treeInfoAndroid : styles.treeInfo,
         { transform: [{ translateX: content2Animated }] },
       ]}
     >
@@ -171,7 +171,12 @@ export default function Screen1({
         <View style={styles.iconBox}>
           <Ionicons name={summaryTex1.icon} size={32} color="#fff" />
         </View>
-        <PVText style={styles.bodyBoxTextAlign} fontType={"normalText"}>
+        <PVText
+          style={
+            isAndroid ? styles.bodyBoxTextAlignAndroid : styles.bodyBoxTextAlign
+          }
+          fontType={"normalText"}
+        >
           {summaryTex1.text}
         </PVText>
       </Animated.View>
@@ -179,7 +184,12 @@ export default function Screen1({
         <View style={styles.iconBox}>
           <Ionicons name={summaryTex2.icon} size={32} color="#fff" />
         </View>
-        <PVText style={styles.bodyBoxTextAlign} fontType={"normalText"}>
+        <PVText
+          style={
+            isAndroid ? styles.bodyBoxTextAlignAndroid : styles.bodyBoxTextAlign
+          }
+          fontType={"normalText"}
+        >
           {summaryTex2.text}
         </PVText>
       </Animated.View>
@@ -193,7 +203,12 @@ export default function Screen1({
         <View style={styles.iconBox}>
           <Ionicons name={summaryTex3.icon} size={32} color="#fff" />
         </View>
-        <PVText style={styles.bodyBoxTextAlign} fontType={"normalText"}>
+        <PVText
+          style={
+            isAndroid ? styles.bodyBoxTextAlignAndroid : styles.bodyBoxTextAlign
+          }
+          fontType={"normalText"}
+        >
           {summaryTex3.text}
         </PVText>
       </Animated.View>

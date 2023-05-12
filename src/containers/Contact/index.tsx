@@ -17,7 +17,7 @@ const direction = {
 const phone = {
   icon: "call-outline",
   text: "01 (52) 55 8618 1443",
-  link: Platform.OS === "android" ? "tel:5586181443" : "telprompt:5586181443",
+  link: "whatsapp://send?text=App Emotions Hola&phone=525586181443",
 };
 const email = {
   icon: "mail-outline",
@@ -87,6 +87,11 @@ export default function Contact({ navigation }: { navigation: any }) {
             {iconRow(ytINO.icon, ytINO.link)}
             {iconRow(fbINO.icon, fbINO.link)}
             {iconRow(igINO.icon, igINO.link)}
+            <View style={styles.logoINOContiner}>
+              <View style={styles.logoINOBackground}>
+                <Image style={styles.logoINO} source={getImage().logoINO} />
+              </View>
+            </View>
           </View>
         </View>
 

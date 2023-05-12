@@ -4,7 +4,7 @@
     "slug": "emotions",
     "privacy": "unlisted",
     "owner": "yair_jb",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -17,13 +17,11 @@
       "fallbackToCacheTimeout": 0,
       "url": "https://u.expo.dev/b6d6ddf6-ab30-42b8-96c5-3410e51a4651"
     },
-    "assetBundlePatterns": [
-      "assets/images/*"
-    ],
+    "assetBundlePatterns": ["assets/images/*"],
     "ios": {
       "bundleIdentifier": "com.emotions.test",
       "supportsTablet": true,
-      "buildNumber": "2"
+      "buildNumber": "1"
     },
     "android": {
       "adaptiveIcon": {

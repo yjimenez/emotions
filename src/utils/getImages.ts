@@ -11,6 +11,8 @@ export const getImage = () => ({
   patyCel: require("../../assets/images/patyCel.png"),
   patyPrincipal: require("../../assets/images/faces/principal.png"),
   patyChamarra: require("../../assets/images/faces/chamarra.png"),
+  florINO: require("../../assets/images/florINO.png"),
+  logoINO: require("../../assets/images/logoINO.png"),
 });
 
 export const getEmotionFaces = (emotion: string) => {

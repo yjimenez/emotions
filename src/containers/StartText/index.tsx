@@ -3,7 +3,7 @@ import { Animated, View } from "react-native";
 import Background from "../../components/Background";
 import ContinueButton from "../../components/ContinueButton";
 import PVText from "../../components/PVText";
-import { feelingSelection } from "../../text/feelingSelection";
+import { feelingSelection, goalsComplement } from "../../text/feelingSelection";
 import labels from "../../text/labels";
 import styles from "./styles";
 
@@ -50,6 +50,12 @@ export default function StartText({
                 : oppositeEmotion.toUpperCase()}
             </PVText>
           </Animated.View>
+          <PVText
+            style={[styles.text, styles.marginTop]}
+            fontType={"headlineH2"}
+          >
+            {goalsComplement}
+          </PVText>
         </View>
         <View style={styles.bottom}>
           <ContinueButton

@@ -19,6 +19,8 @@ export const validateEmotionName = (emotion: string) => {
   return emotion;
 };
 
+export const goalsComplement = `Porque es la herramienta emocional que al instalarla lograremos el equilibrio.`;
+
 export const emotions = {
   sorpresaPositivo: "Sorpresa",
   sorpresaNegativo: "Sorpresa",
@@ -52,7 +54,8 @@ const emotionsArr = (emotion: string, oppositeEmotion: string) => {
       modalFooter: modalFooter(oppositeEmotion),
       type: labels.positive,
       definition: `${emotion.toUpperCase()}: Es la alteración emocional que causa una cosa que no está prevista o no se espera.`,
-      oppositeDefinition: "Precaución: Ante una posible acción, la persona actúa con precaución para minimizar la posibilidad de que un daño se concrete.",
+      oppositeDefinition:
+        "Precaución: Ante una posible acción, la persona actúa con precaución para minimizar la posibilidad de que un daño se concrete.",
       goals: `El objetivo es que juntos con este ejercicio instalemos la`,
       selectedFeeling: "",
       feelings: {
@@ -75,7 +78,8 @@ const emotionsArr = (emotion: string, oppositeEmotion: string) => {
       modalFooter: modalFooter(oppositeEmotion),
       type: labels.negative,
       definition: `${emotion.toUpperCase()}: Es la alteración emocional que causa una cosa que no está prevista o no se espera.`,
-      oppositeDefinition: "Precaución: Ante una posible acción, la persona actúa con precaución para minimizar la posibilidad de que un daño se concrete.",
+      oppositeDefinition:
+        "Precaución: Ante una posible acción, la persona actúa con precaución para minimizar la posibilidad de que un daño se concrete.",
       goals: `El objetivo es que juntos con este ejercicio instalemos la`,
       selectedFeeling: "",
       feelings: {
@@ -86,7 +90,8 @@ const emotionsArr = (emotion: string, oppositeEmotion: string) => {
         Alerta: "Se aplica a la persona que está atenta, vigilante.",
         Confusión:
           "Falta de orden o de claridad cuando hay muchas personas o cosas juntas.",
-        "Indiscreción vs. Vergüenza/Culpa": "Incapacidad para guardar un secreto o para no contar lo que sabe y no hay necesidad de que conozcan los demás.",
+        "Indiscreción vs. Vergüenza/Culpa":
+          "Incapacidad para guardar un secreto o para no contar lo que sabe y no hay necesidad de que conozcan los demás.",
       },
     },
     alegria: {

@@ -14,6 +14,9 @@ const styles = StyleSheet.create({
   text: {
     textAlign: "center",
   },
+  marginTop: {
+    marginTop: screenHeight * 0.05,
+  },
   centerText: {
     justifyContent: "center",
     flex: 1,

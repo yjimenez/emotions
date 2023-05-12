@@ -19,6 +19,8 @@ const styles = StyleSheet.create({
   },
   questionContainer: {
     textAlign: "center",
+    paddingLeft: screenHeight * 0.05,
+    paddingRight: screenHeight * 0.05,
   },
   buttonsContainer: {
     justifyContent: "space-between",

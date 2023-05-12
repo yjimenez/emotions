@@ -3,7 +3,6 @@ import { View, Dimensions, Animated, Easing, StyleSheet } from "react-native";
 import Background from "../../components/Background";
 import ContinueButton from "../../components/ContinueButton";
 import PVText from "../../components/PVText";
-
 import styles from "./styles";
 
 const { width } = Dimensions.get("window");
@@ -118,6 +117,9 @@ export default function StartImage({
     });
   };
 
+  const breathColor = ["enojo"].includes(emotion) ? "#fff" : "#d600d3";
+
+  console.log("breathColor", breathColor);
   return (
     <Background gradientName={sectionColor}>
       <View style={styles.wrapper}>
@@ -144,7 +146,7 @@ export default function StartImage({
             const rotation = move.interpolate({
               inputRange: [0, 1, 2],
               outputRange: [
-                `${item * 45}deg`, //
+                `${item * 45}deg`,
                 `${item * 45 + 180}deg`,
                 `${item * 45 + 360}deg`,
               ],
@@ -164,7 +166,7 @@ export default function StartImage({
                 <Animated.View
                   style={{
                     opacity: 0.15,
-                    backgroundColor: "#d600d3",
+                    backgroundColor: breathColor,
                     width: circleSize,
                     height: circleSize,
                     borderRadius: circleSize / 2,
