@@ -45,5 +45,11 @@ export const contactModal = {
   text2: "*Consulta a tu distribuidor favorito",
   text3: `*Si deseas sesión personalizada, pídela al whats: 55 2919 2611`,
 };
+export const INOModal = {
+  titulo: "Tarjetas de Salud Emocional",
+  noRegistro: "03-2019-030412404600-14",
+  autor: `Julia Patricia Quiroz Rios`,
+  tipoTramite: `Registro de Colección de Obra`,
+};
 
 export const surpriseQuestion = `¿Tu sorpresa es agradable o desagradable?`;

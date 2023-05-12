@@ -1,5 +1,5 @@
 import { StyleSheet, Dimensions } from "react-native";
-import { headlineH1, text1 } from "../../utils/styles";
+import { headlineH1, headlineH4, text1, text2 } from "../../utils/styles";
 const { width: screenWidth, height: screenHeight } = Dimensions.get("window");
 
 const styles = StyleSheet.create({
@@ -34,11 +34,11 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-
   bodyInfoText: {
     minHeight: screenHeight * 0.05,
     flex: 3.5,
     justifyContent: "center",
+    marginRight: screenWidth * 0.03,
   },
   bodyImages: {
     flex: 1,
@@ -78,20 +78,21 @@ const styles = StyleSheet.create({
     height: "100%",
     resizeMode: "contain",
   },
-  logoINOContiner: {
+  logoINOContainer: {
+    marginLeft: screenWidth * 0.03,
     width: screenWidth * 0.2,
   },
   logoINOBackground: {
     borderRadius: 10,
     position: "absolute",
-    width: "100%",
-    height: "300%",
+    width: "90%",
+    height: "200%",
     display: "flex",
     justifyContent: "center",
     alignContent: "center",
     bottom: 0,
     backgroundColor: "#fff",
-    padding: 8,
+    padding: 5,
   },
   logoINO: {
     width: "100%",
@@ -100,6 +101,50 @@ const styles = StyleSheet.create({
   },
   headlineH1,
   text1,
+  INOModalBody: {
+    flex: 1,
+    width: "90%",
+  },
+  INOModalRow: {
+    width: "100%",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    alignContent: "center",
+    marginBottom: screenWidth * 0.04,
+  },
+  modalTextTitle: {
+    paddingRight: screenWidth * 0.03,
+    textAlign: "right",
+    width: screenWidth * 0.27,
+    ...headlineH4,
+  },
+  modalText: {
+    flex: 1,
+    alignSelf: "center",
+    justifyContent: "center",
+    alignContent: "center",
+    alignItems: "center",
+
+    ...text2,
+  },
+  INOModalLogos: {
+    height: "50%",
+    width: "100%",
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  INOModalLogo: {
+    borderRadius: 10,
+    width: "40%",
+    height: 100,
+    padding: screenWidth * 0.02,
+    marginLeft: screenWidth * 0.04,
+    marginRight: screenWidth * 0.04,
+    backgroundColor: "#fff",
+  },
 });
 
 export default styles;

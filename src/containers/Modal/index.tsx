@@ -11,7 +11,8 @@ import { feelingSelection } from "../../text/feelingSelection";
 
 export default function EmotionsModal({
   navigation = {},
-  emotion = "",
+  section = "",
+  emotion = "miedo",
   modalVisibleProp = false,
   onCloseModal = () => {},
   selectedFeeling = "",
@@ -25,8 +26,9 @@ export default function EmotionsModal({
   modalCustomContent = null,
 }: {
   navigation: any;
+  section: string;
   modalVisibleProp: boolean;
-  emotion: string;
+  emotion?: string;
   showCloseHeader?: boolean;
   onCloseModal?: () => void;
   selectedFeeling?: string;
@@ -63,7 +65,9 @@ export default function EmotionsModal({
   };
 
   useEffect(() => {
-    navigation.setOptions({ headerShown: !modalVisibleProp });
+    if (![labels.contact].includes(section)) {
+      navigation.setOptions({ headerShown: !modalVisibleProp });
+    }
     setModalVisible(modalVisibleProp);
   }, [modalVisibleProp]);
 

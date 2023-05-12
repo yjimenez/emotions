@@ -11,4 +11,5 @@ export default {
   large: "large",
   siguiente: "SIGUIENTE",
   vamos: "VAMOS",
+  contact: "contact",
 };

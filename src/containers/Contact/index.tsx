@@ -1,9 +1,12 @@
-import * as React from "react";
+import React, { useState } from "react";
 import { Image, View, Pressable, Linking, Platform } from "react-native";
 import Background from "../../components/Background";
 import PVText from "../../components/PVText";
+import EmotionsModal from "../Modal";
 import { getImage } from "../../utils/getImages";
+import { INOModal } from "../../text/mainFlow";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import labels from "../../text/labels";
 import styles from "./styles";
 
 const direction = {
@@ -49,6 +52,36 @@ const igPaty = {
 
 export default function Contact({ navigation }: { navigation: any }) {
   const sectionColor = "miedo";
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const modalCustomContent = (
+    <View style={styles.INOModalBody}>
+      <View style={styles.INOModalRow}>
+        <PVText style={styles.modalTextTitle}>{`Título:`}</PVText>
+        <PVText style={styles.modalText}>{`${INOModal.titulo}`}</PVText>
+      </View>
+      <View style={styles.INOModalRow}>
+        <PVText style={styles.modalTextTitle}>{`No. Registro:`}</PVText>
+        <PVText style={styles.modalText}>{`${INOModal.noRegistro}`}</PVText>
+      </View>
+      <View style={styles.INOModalRow}>
+        <PVText style={styles.modalTextTitle}>{`Autor:`}</PVText>
+        <PVText style={styles.modalText}>{`${INOModal.autor}`}</PVText>
+      </View>
+      <View style={styles.INOModalRow}>
+        <PVText style={styles.modalTextTitle}>{`Tipo de Tramite:`}</PVText>
+        <PVText style={styles.modalText}>{`${INOModal.tipoTramite}`}</PVText>
+      </View>
+      <View style={styles.INOModalLogos}>
+        <View style={styles.INOModalLogo}>
+          <Image style={styles.logoINO} source={getImage().indautorLogo} />
+        </View>
+        <View style={styles.INOModalLogo}>
+          <Image style={styles.logoINO} source={getImage().logoINO} />
+        </View>
+      </View>
+    </View>
+  );
 
   const infoRow = (icon: string, text: string, link: string) => (
     <View style={styles.bodyInfoRow}>
@@ -75,7 +108,7 @@ export default function Contact({ navigation }: { navigation: any }) {
 
   return (
     <Background containsBottomTab gradientName={sectionColor}>
-      <View style={styles.wrapper}>
+      <View style={[styles.wrapper, { opacity: modalVisible ? 0.2 : 1 }]}>
         <View style={styles.header}>
           <PVText style={styles.headlineH1}>Contacto</PVText>
         </View>
@@ -87,11 +120,15 @@ export default function Contact({ navigation }: { navigation: any }) {
             {iconRow(ytINO.icon, ytINO.link)}
             {iconRow(fbINO.icon, fbINO.link)}
             {iconRow(igINO.icon, igINO.link)}
-            <View style={styles.logoINOContiner}>
+
+            <Pressable
+              style={styles.logoINOContainer}
+              onPress={() => setModalVisible(true)}
+            >
               <View style={styles.logoINOBackground}>
-                <Image style={styles.logoINO} source={getImage().logoINO} />
+                <Image style={styles.logoINO} source={getImage().florINO} />
               </View>
-            </View>
+            </Pressable>
           </View>
         </View>
 
@@ -111,6 +148,15 @@ export default function Contact({ navigation }: { navigation: any }) {
           </View>
         </View>
       </View>
+      <EmotionsModal
+        navigation={navigation}
+        modalVisibleProp={modalVisible}
+        onCloseModal={() => setModalVisible(false)}
+        showCloseHeader
+        showButton={false}
+        section={labels.contact}
+        modalCustomContent={modalCustomContent}
+      />
     </Background>
   );
 }

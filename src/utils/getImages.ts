@@ -13,6 +13,7 @@ export const getImage = () => ({
   patyChamarra: require("../../assets/images/faces/chamarra.png"),
   florINO: require("../../assets/images/florINO.png"),
   logoINO: require("../../assets/images/logoINO.png"),
+  indautorLogo: require("../../assets/images/indautorLogo.jpg"),
 });
 
 export const getEmotionFaces = (emotion: string) => {

@@ -21,7 +21,7 @@
     "ios": {
       "bundleIdentifier": "com.emotions.test",
       "supportsTablet": true,
-      "buildNumber": "1"
+      "buildNumber": "2"
     },
     "android": {
       "adaptiveIcon": {
