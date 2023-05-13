@@ -115,7 +115,6 @@ const styles = StyleSheet.create({
   },
   modalTextTitle: {
     paddingRight: screenWidth * 0.03,
-    textAlign: "right",
     width: screenWidth * 0.27,
     ...headlineH4,
   },
@@ -125,7 +124,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignContent: "center",
     alignItems: "center",
-
     ...text2,
   },
   INOModalLogos: {
