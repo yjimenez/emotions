@@ -1,33 +1,68 @@
 {
   "expo": {
-    "name": "emotions",
+    "name": "INO Emociones",
     "slug": "emotions",
-    "version": "1.0.0",
+    "privacy": "unlisted",
+    "owner": "yair_jb",
+    "version": "1.3.1",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "resizeMode": "cover",
+      "backgroundColor": "#EFEAD7"
     },
-    "updates": {
-      "fallbackToCacheTimeout": 0
-    },
-    "assetBundlePatterns": [
-      "**/*"
+    "plugins": [
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "enableProguardInReleaseBuilds": true,
+            "compileSdkVersion": 33,
+            "targetSdkVersion": 33,
+            "buildToolsVersion": "33.0.0"
+          }
+        }
+      ]
     ],
+    "updates": {
+      "fallbackToCacheTimeout": 0,
+      "url": "https://u.expo.dev/b6d6ddf6-ab30-42b8-96c5-3410e51a4651"
+    },
+    "assetBundlePatterns": ["assets/images/*"],
     "ios": {
-      "supportsTablet": true
+      "bundleIdentifier": "com.emotions.test",
+      "supportsTablet": true,
+      "buildNumber": "1",
+      "splash": {
+        "image": "./assets/splash.png",
+        "resizeMode": "cover",
+        "backgroundColor": "#EFEAD7",
+        "tabletImage": "./assets/splashIpad.png"
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.emotions.test",
+      "versionCode": 3
+    },
+    "androidStatusBar": {
+      "translucent": true
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "b6d6ddf6-ab30-42b8-96c5-3410e51a4651"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "sdkVersion"
     }
   }
 }
