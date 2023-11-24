@@ -23,7 +23,7 @@ export const getMonsterImage = (emotion: string, int: number) => {
   }
 };
 
-export const selectionHeader = `¿Que emocion estas experimentando mas intensamente en este momento?`;
+export const selectionHeader = `¿Que emoción estas experimentando más intensamente en este momento?`;
 
 export const moreNegativeScale = (emotion: string) =>
   `Si tu ${emotion} no disminuyo, comunícate con nosotros.`;
@@ -33,6 +33,8 @@ export const lessPositiveScale = `La intención de hacer este ejercicio es insta
 Las emociones negativas se equilibra con el pensamiento de la emoción positiva. 
 
 Comunícate con nosotros para más información.`;
+
+export const selectEmotionScale = `Indícanos como te sientes en este momento, moviendo el cursor en manera circular.`;
 
 export const beforeOils = (
   emotion: string

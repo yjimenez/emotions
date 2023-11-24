@@ -1,5 +1,14 @@
-import { StyleSheet, Dimensions } from "react-native";
+import {
+  StyleSheet,
+  Dimensions,
+  Platform,
+  PlatformIOSStatic,
+  PixelRatio,
+} from "react-native";
 const { width: screenWidth, height: screenHeight } = Dimensions.get("window");
+
+const platformIOS = Platform as PlatformIOSStatic;
+const isIpad = platformIOS.isPad;
 
 const styles = StyleSheet.create({
   wrapper: {
@@ -14,8 +23,42 @@ const styles = StyleSheet.create({
     paddingRight: screenWidth * 0.06,
     paddingLeft: screenWidth * 0.06,
   },
-  content: {
-    flex: 1,
+  header: {
+    flex: 0.6,
+    alignItems: "flex-end",
+    width: "100%",
+    justifyContent: "center",
+    paddingRight: screenWidth * 0.03,
+  },
+  crossIcon: {
+    width: screenHeight * 0.05,
+  },
+  modalBodyLarge: {
+    flex: 6,
+    width: "100%",
+    justifyContent: "center",
+    paddingRight: screenWidth * 0.03,
+    paddingLeft: screenWidth * 0.03,
+  },
+  modalBodySmall: {
+    flex: 2,
+    width: "100%",
+    justifyContent: "center",
+    paddingRight: screenWidth * 0.03,
+    paddingLeft: screenWidth * 0.03,
+  },
+  modalBodyMedium: {
+    flex: 4,
+    width: "100%",
+    justifyContent: "center",
+    paddingRight: screenWidth * 0.03,
+    paddingLeft: screenWidth * 0.03,
+  },
+  bottom: {
+    flex: 1.5,
+    width: "100%",
+    alignItems: "center",
+    justifyContent: "center",
   },
   modalContentSmall: {
     height: screenHeight * 0.4,
@@ -42,13 +85,7 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 5,
   },
-  header: {
-    alignItems: "flex-end",
-    width: "100%",
-    height: screenHeight * 0.07,
-    justifyContent: "center",
-    paddingRight: screenWidth * 0.03,
-  },
+
   modalHeader: {
     textAlign: "center",
   },

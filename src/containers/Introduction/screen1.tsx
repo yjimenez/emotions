@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
-import { View, Platform, Animated, Easing } from "react-native";
+import { View, Animated, Easing } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import Background from "../../components/Background";
 import ContinueButton from "../../components/ContinueButton";
@@ -22,20 +22,22 @@ export default function Screen1({
   route: any;
 }) {
   const sectionColor = labels.defaultBackColor;
-  const isAndroid = Platform.OS === "android";
 
   const content1Animated = useRef(new Animated.Value(0)).current;
-  const content2Animated = useRef(new Animated.Value(-500)).current;
-  const animated = new Animated.Value(-500);
-  const animated2 = new Animated.Value(-500);
-  const animated3 = new Animated.Value(-500);
+  const content2Animated = useRef(new Animated.Value(-1000)).current;
+  const animated = new Animated.Value(-1000);
+  const animated2 = new Animated.Value(-1000);
+  const animated3 = new Animated.Value(-1000);
+  const animated4 = new Animated.Value(0);
   const appear = useRef(new Animated.Value(0)).current;
   const appear2 = useRef(new Animated.Value(0)).current;
   const appear3 = useRef(new Animated.Value(0)).current;
+  const appear4 = useRef(new Animated.Value(0)).current;
 
   const [buttonProps, setButtonProps] = useState({
     onPress: () => {},
     title: labels.vamos,
+    screen: 1,
   });
 
   useEffect(() => {
@@ -60,11 +62,18 @@ export default function Screen1({
         useNativeDriver: true,
         easing: Easing.linear,
       }),
+      Animated.delay(AN.delayDuration),
+      Animated.timing(animated4, {
+        toValue: 1,
+        duration: AN.durationQuick,
+        useNativeDriver: true,
+      }),
     ]).start((finished) => {
       if (finished) {
         setButtonProps({
           onPress: async () => onChangeContent(),
           title: labels.vamos,
+          screen: 1,
         });
       }
     });
@@ -74,14 +83,9 @@ export default function Screen1({
     setButtonProps({
       onPress: async () => navigation.navigate("Screen2"),
       title: labels.siguiente,
+      screen: 2,
     });
     Animated.sequence([
-      Animated.timing(content1Animated, {
-        toValue: 500,
-        duration: AN.duration,
-        useNativeDriver: true,
-        easing: Easing.linear,
-      }),
       Animated.timing(content2Animated, {
         toValue: 0,
         duration: AN.durationQuick,
@@ -108,13 +112,19 @@ export default function Screen1({
         useNativeDriver: true,
         easing: Easing.linear,
       }),
+      Animated.delay(AN.delayDuration),
+      Animated.timing(appear4, {
+        toValue: 1,
+        duration: AN.durationQuick,
+        useNativeDriver: true,
+        easing: Easing.linear,
+      }),
     ]).start();
   };
 
   const content1 = (
     <Animated.View
       style={[
-        styles.bodySpaceAround,
         {
           transform: [{ translateX: content1Animated }],
         },
@@ -153,12 +163,12 @@ export default function Screen1({
     </Animated.View>
   );
 
-  const icon1 = summaryTex1.icon;
   const content2 = (
     <Animated.View
       style={[
-        isAndroid ? styles.treeInfoAndroid : styles.treeInfo,
-        { transform: [{ translateX: content2Animated }] },
+        {
+          transform: [{ translateX: content2Animated }],
+        },
       ]}
     >
       <Animated.View
@@ -169,27 +179,25 @@ export default function Screen1({
         ]}
       >
         <View style={styles.iconBox}>
-          <Ionicons name={summaryTex1.icon} size={32} color="#fff" />
+          <Ionicons
+            name={summaryTex1.icon}
+            size={styles.iconSize.width}
+            color="#fff"
+          />
         </View>
-        <PVText
-          style={
-            isAndroid ? styles.bodyBoxTextAlignAndroid : styles.bodyBoxTextAlign
-          }
-          fontType={"normalText"}
-        >
+        <PVText style={styles.bodyBoxTextAlign} fontType={"normalText"}>
           {summaryTex1.text}
         </PVText>
       </Animated.View>
       <Animated.View style={[styles.bodyTextBox, { opacity: appear2 }]}>
         <View style={styles.iconBox}>
-          <Ionicons name={summaryTex2.icon} size={32} color="#fff" />
+          <Ionicons
+            name={summaryTex2.icon}
+            size={styles.iconSize.width}
+            color="#fff"
+          />
         </View>
-        <PVText
-          style={
-            isAndroid ? styles.bodyBoxTextAlignAndroid : styles.bodyBoxTextAlign
-          }
-          fontType={"normalText"}
-        >
+        <PVText style={styles.bodyBoxTextAlign} fontType={"normalText"}>
           {summaryTex2.text}
         </PVText>
       </Animated.View>
@@ -201,14 +209,13 @@ export default function Screen1({
         ]}
       >
         <View style={styles.iconBox}>
-          <Ionicons name={summaryTex3.icon} size={32} color="#fff" />
+          <Ionicons
+            name={summaryTex3.icon}
+            size={styles.iconSize.width}
+            color="#fff"
+          />
         </View>
-        <PVText
-          style={
-            isAndroid ? styles.bodyBoxTextAlignAndroid : styles.bodyBoxTextAlign
-          }
-          fontType={"normalText"}
-        >
+        <PVText style={styles.bodyBoxTextAlign} fontType={"normalText"}>
           {summaryTex3.text}
         </PVText>
       </Animated.View>
@@ -218,22 +225,41 @@ export default function Screen1({
   return (
     <Background gradientName={sectionColor}>
       <View style={styles.wrapper}>
-        <View style={isAndroid ? styles.headerAndroid : styles.header}>
+        <View style={styles.header}>
           <PVText style={styles.headerTextAlign} fontType={"headlineH2"}>
             {screen1Title}
           </PVText>
         </View>
 
-        {content1}
-        {content2}
-
-        <View style={styles.bottom}>
-          <ContinueButton
-            sectionColor={sectionColor}
-            label={buttonProps.title}
-            onPress={buttonProps.onPress}
-          />
+        <View style={styles.body}>
+          {buttonProps.screen === 1 ? content1 : null}
+          {buttonProps.screen === 2 ? content2 : null}
         </View>
+
+        {buttonProps.title === labels.vamos ? (
+          <Animated.View
+            style={[
+              styles.bottom,
+              { transform: [{ translateX: content1Animated }] },
+            ]}
+          >
+            <Animated.View style={[{ opacity: animated4 }]}>
+              <ContinueButton
+                sectionColor={sectionColor}
+                label={buttonProps.title}
+                onPress={buttonProps.onPress}
+              />
+            </Animated.View>
+          </Animated.View>
+        ) : (
+          <Animated.View style={[styles.bottom, { opacity: appear4 }]}>
+            <ContinueButton
+              sectionColor={sectionColor}
+              label={buttonProps.title}
+              onPress={buttonProps.onPress}
+            />
+          </Animated.View>
+        )}
       </View>
     </Background>
   );

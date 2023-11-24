@@ -47,29 +47,30 @@ export default function FeelingQuestion({
 
   const modalCustomContent = (
     <>
-      <PVText style={styles.modalParraph} fontType={"headlineH2"}>
-        {`${emotionProps.modalHeader}`}
-      </PVText>
-      <View style={styles.spaceBetween}></View>
-      <ScrollView contentContainerStyle={styles.contentScroll}>
-        <PVText style={styles.modalParraph} fontType={"headlineH3"}>
-          {`${emotionProps.definition}`}
-        </PVText>
-        <View style={styles.spaceBetween}></View>
-        <PVText style={styles.modalParraph} fontType={"headlineH3"}>
-          {`${selectedFeeling?.toUpperCase()}: ${
-            emotionProps?.feelings[selectedFeeling]
-          }`}
-        </PVText>
-        <View style={styles.spaceBetween}></View>
-        <PVText style={styles.modalParraph} fontType={"headlineH3"}>
-          {` ${emotionProps.oppositeDefinition}`}
-        </PVText>
-        <View style={styles.spaceBetween}></View>
-        <PVText style={styles.modalParraph} fontType={"headlineH2"}>
-          {` ${emotionProps.modalFooter}`}
-        </PVText>
-      </ScrollView>
+      <View style={styles.modalHeaderParraph}>
+        <PVText fontType={"headlineH2"}>{`${emotionProps.modalHeader}`}</PVText>
+      </View>
+      <View style={styles.modalBodyParraph}>
+        <ScrollView contentContainerStyle={styles.contentScroll}>
+          <PVText style={styles.modalParraph} fontType={"headlineH4"}>
+            {`${emotionProps.definition}`}
+          </PVText>
+          <View style={styles.spaceBetween}></View>
+          <PVText style={styles.modalParraph} fontType={"headlineH4"}>
+            {`${selectedFeeling?.toUpperCase()}: ${
+              emotionProps?.feelings[selectedFeeling]
+            }`}
+          </PVText>
+          <View style={styles.spaceBetween}></View>
+          <PVText style={styles.modalParraph} fontType={"headlineH4"}>
+            {` ${emotionProps.oppositeDefinition}`}
+          </PVText>
+          <View style={styles.spaceBetween}></View>
+          <PVText style={styles.modalParraph} fontType={"headlineH4"}>
+            {` ${emotionProps.modalFooter}`}
+          </PVText>
+        </ScrollView>
+      </View>
     </>
   );
 

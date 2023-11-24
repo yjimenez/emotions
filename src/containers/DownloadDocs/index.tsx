@@ -29,34 +29,45 @@ export default function DownloadDocs({ navigation }: { navigation: any }) {
     <Background containsBottomTab gradientName={sectionColor}>
       <View style={styles.wrapper}>
         <View style={styles.header}>
-          <PVText style={styles.headlineH1}>Teorias</PVText>
+          <PVText fontType={"headlineH1"}>Teorias</PVText>
         </View>
-        <View style={styles.bodyInfo}>
+        <View style={styles.body}>
           <SafeAreaView>
             <AccordionList
               data={documentDownload}
               containerItemStyle={styles.containerAccordeonStyle}
               customTitle={(item) => (
-                <PVText style={styles.accordeonTitle}>{item.title}</PVText>
+                <PVText style={styles.accordeonTitle} fontType={"headlineH4"}>
+                  {item.title}
+                </PVText>
               )}
               customBody={(item) => (
                 <>
-                  <PVText style={styles.accordeonBody}>{item.body}</PVText>
+                  <PVText style={styles.accordeonBody} fontType={"normalText"}>
+                    {item.body}
+                  </PVText>
                   <Pressable
                     style={styles.accordeonLinkWrapper}
                     onPress={() => Linking.openURL(item.path)}
                   >
-                    <PVText style={styles.accordeonLinkBody}>
+                    <PVText
+                      style={styles.accordeonLinkBody}
+                      fontType={"headlineH4"}
+                    >
                       Ver Documento Completo
                     </PVText>
-                    <Ionicons name="reader-outline" size={25} color="#fff" />
+                    <Ionicons
+                      name="reader-outline"
+                      size={styles.chevronRightSize.width}
+                      color="#fff"
+                    />
                   </Pressable>
                 </>
               )}
               customIcon={() => (
                 <Ionicons
                   name="chevron-forward-outline"
-                  size={25}
+                  size={styles.chevronRightSize.width}
                   color="#fff"
                 />
               )}

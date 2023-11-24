@@ -1,64 +1,69 @@
-import { StyleSheet, Dimensions } from "react-native";
+import {
+  StyleSheet,
+  Dimensions,
+  Platform,
+  PlatformIOSStatic,
+  PixelRatio,
+} from "react-native";
 const { width: screenWidth, height: screenHeight } = Dimensions.get("window");
+
+const platformIOS = Platform as PlatformIOSStatic;
+const isIpad = platformIOS.isPad;
+const isAndroid = Platform.OS === "android";
 
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
     flexDirection: "column",
-    justifyContent: "space-between",
     alignItems: "center",
     width: "100%",
-    height: "100%",
-  },
-  wrapperAndroid: {
-    flex: 1,
-    flexDirection: "column",
-    justifyContent: "space-between",
-    alignItems: "center",
-    width: "100%",
-    height: "100%",
-    marginTop: -screenHeight * 0.05,
   },
   header: {
+    flex: 1,
     justifyContent: "center",
     width: "100%",
     alignItems: "center",
-    paddingTop: screenHeight * 0.05,
   },
-  headerAndroid: {
+  body: {
+    flex: 5,
     justifyContent: "center",
     width: "100%",
     alignItems: "center",
+  },
+  bottom: {
+    flex: 1,
+    width: "100%",
+    alignItems: "center",
+    justifyContent: "center",
   },
   headerSelector: {
     justifyContent: "center",
     width: "100%",
     alignItems: "center",
   },
-  body: {
-    flex: 1,
-    alignContent: "center",
-    justifyContent: "center",
-    width: "100%",
-    alignItems: "center",
-  },
   bodySpaceAround: {
     flex: 1,
+    height: "100%",
     alignContent: "center",
     justifyContent: "space-around",
     width: "100%",
     alignItems: "center",
     paddingTop: screenHeight * 0.04,
     paddingBottom: screenHeight * 0.04,
+    borderWidth: 1,
+    borderColor: "red",
   },
   imagePrincipal: {
-    flex: 1,
-    marginTop: -screenHeight * 0.1,
     justifyContent: "center",
     alignContent: "center",
     alignItems: "center",
-    width: "100%",
-    resizeMode: "contain",
+    height: screenHeight * 0.4,
+    aspectRatio: 1,
+  },
+  iconSize: {
+    width: isIpad
+      ? PixelRatio.getPixelSizeForLayoutSize(30)
+      : PixelRatio.getPixelSizeForLayoutSize(11),
   },
   bodySummary: {
     width: "100%",
@@ -71,12 +76,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingTop: screenHeight * 0.03,
   },
-  bottom: {
-    width: "100%",
-    alignItems: "center",
-    paddingTop: screenHeight * 0.03,
-    paddingBottom: screenHeight * 0.03,
-  },
+
   headerTextAlign: {
     textAlign: "center",
     paddingLeft: screenWidth * 0.1,
@@ -86,8 +86,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   bodyTextAlign: {
-    paddingLeft: screenWidth * 0.05,
-    paddingRight: screenWidth * 0.05,
+    padding: screenWidth * 0.05,
     width: "100%",
   },
   bodyTextCenterAlign: {
@@ -99,8 +98,8 @@ const styles = StyleSheet.create({
     paddingLeft: screenWidth * 0.025,
     paddingRight: screenWidth * 0.05,
     width: screenWidth * 0.7,
-    paddingTop: screenWidth * 0.04,
-    paddingBottom: screenWidth * 0.04,
+    paddingTop: screenHeight * 0.02,
+    paddingBottom: screenHeight * 0.02,
   },
   bodyBoxTextAlignAndroid: {
     flex: 1,
@@ -152,22 +151,10 @@ const styles = StyleSheet.create({
     fontSize: screenWidth * 0.03,
   },
   parraph: {
-    lineHeight: screenWidth * 0.07,
+    lineHeight: screenHeight * 0.03,
   },
   contentBody: {
     position: "absolute",
-  },
-  treeInfo: {
-    position: "absolute",
-    display: "flex",
-    flex: 1,
-    top: screenHeight * 0.15,
-  },
-  treeInfoAndroid: {
-    position: "absolute",
-    display: "flex",
-    flex: 1,
-    top: screenHeight * 0.15,
   },
 });
 

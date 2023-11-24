@@ -7,6 +7,7 @@ import {
   TouchableHighlight,
 } from "react-native";
 import styles from "./styles";
+import PVText from "../PVText";
 import * as backgroundColors from "../../utils/backgroundColors";
 
 interface Props {
@@ -33,7 +34,12 @@ export default function ContinueButton(props: Props) {
     : styles.textStyle.color;
 
   const textBtn = (
-    <Text style={[styles.textStyle, customTextStyle, { color }]}>{label}</Text>
+    <PVText
+      style={[styles.textStyle, customTextStyle, { color }]}
+      fontType={"headlineH3"}
+    >
+      {label}
+    </PVText>
   );
   return (
     <View>

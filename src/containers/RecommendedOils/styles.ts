@@ -1,6 +1,16 @@
-import { StyleSheet, Dimensions } from "react-native";
+import {
+  StyleSheet,
+  Dimensions,
+  Platform,
+  PlatformIOSStatic,
+  PixelRatio,
+} from "react-native";
 import { headlineH1, headlineH2, headlineH3 } from "../../utils/styles";
 const { width: screenWidth, height: screenHeight } = Dimensions.get("window");
+
+const platformIOS = Platform as PlatformIOSStatic;
+const isIpad = platformIOS.isPad;
+const isAndroid = Platform.OS === "android";
 
 const styles = StyleSheet.create({
   imageWrapper: {
@@ -50,15 +60,24 @@ const styles = StyleSheet.create({
     height: screenHeight * 0.2,
   },
   oilsDetails: {
-    marginTop: screenHeight * 0.02,
     paddingLeft: screenWidth * 0.05,
     paddingRight: screenWidth * 0.05,
-    paddingTop: screenHeight * 0.02,
-    paddingBottom: screenHeight * 0.02,
     backgroundColor: "#eeeeee",
     opacity: 0.8,
     height: screenHeight * 0.37,
     borderRadius: 10,
+  },
+  oilsDetailsHeader: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: screenHeight * 0.02,
+  },
+  oilsDetailsBody: {
+    flex: 3,
+    alignItems: "center",
+    justifyContent: "center",
+    marginBottom: screenHeight * 0.02,
   },
   contentText: {
     color: "black",
@@ -68,7 +87,6 @@ const styles = StyleSheet.create({
   contentTextRecommended: {
     color: "black",
     textAlign: "center",
-    marginBottom: screenHeight * 0.02,
   },
   numberWrapper: {
     flex: 1,
@@ -121,7 +139,6 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   iconCall: {
-    paddingTop: screenHeight * 0.03,
     textAlign: "center",
     alignContent: "center",
     justifyContent: "space-around",
@@ -133,8 +150,23 @@ const styles = StyleSheet.create({
     paddingRight: screenWidth * 0.06,
     paddingLeft: screenWidth * 0.06,
   },
+  modalBody: {
+    flex: 4,
+    justifyContent: "space-around",
+  },
+  modalBottom: {
+    flex: 1,
+    justifyContent: "center",
+    alignContent: "center",
+  },
   spaceBetween: {
     margin: screenHeight * 0.02,
+  },
+  modalIconsSize: {
+    width: screenHeight * 0.04,
+  },
+  iconsLensSize: {
+    width: screenHeight * 0.04,
   },
 });
 

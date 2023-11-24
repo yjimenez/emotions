@@ -1,5 +1,6 @@
 export default {
-  duration: 800,
-  durationQuick: 200,
+  duration: 1200,
+  durationQuick: 800,
   delayDuration: 1500,
+  durationBtn: 1000,
 };

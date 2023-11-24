@@ -10,10 +10,8 @@ const styles = StyleSheet.create({
     borderRadius: 50,
   },
   textStyle: {
-    fontSize: width * 0.05,
     fontFamily: "montserrat-semibold",
     textAlign: "center",
-    color: "red",
     backgroundColor: "transparent",
   },
   buttonContainer: {

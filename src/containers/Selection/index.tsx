@@ -4,7 +4,7 @@ import Background from "../../components/Background";
 import * as text from "../../text/introduction";
 import PVText from "../../components/PVText";
 import { getEmotionFaces } from "../../utils/getImages";
-import styles from "../Introduction/styles";
+import styles from "./styles";
 
 export default function Selection({ navigation }: { navigation: any }) {
   const sectionColor = "miedo";
@@ -45,7 +45,7 @@ export default function Selection({ navigation }: { navigation: any }) {
   return (
     <Background containsBottomTab gradientName={sectionColor}>
       <View style={styles.wrapper}>
-        <View style={styles.headerSelector}>
+        <View style={styles.header}>
           <PVText
             style={styles.headerSelectionTextAlign}
             fontType={"headlineH3"}
@@ -54,7 +54,7 @@ export default function Selection({ navigation }: { navigation: any }) {
           </PVText>
         </View>
 
-        <View style={styles.cardsBody}>
+        <View style={styles.body}>
           <View style={styles.selectionRow}>
             {elementBox("sorpresa", `SORPRESA`)}
           </View>

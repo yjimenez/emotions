@@ -1,12 +1,29 @@
 import React, { useEffect, useRef } from "react";
-import { View, Dimensions, Animated, Easing, StyleSheet } from "react-native";
+import {
+  View,
+  Animated,
+  Easing,
+  StyleSheet,
+  Platform,
+  PlatformIOSStatic,
+  Dimensions,
+} from "react-native";
 import Background from "../../components/Background";
 import ContinueButton from "../../components/ContinueButton";
 import PVText from "../../components/PVText";
 import styles from "./styles";
 
-const { width } = Dimensions.get("window");
-const circleSize = width / 1.9;
+const platformIOS = Platform as PlatformIOSStatic;
+const isIpad = platformIOS.isPad;
+const isAndroid = Platform.OS === "android";
+const { width: screenWidth, height: screenHeight } = Dimensions.get("window");
+
+const circleSize = isAndroid
+  ? screenHeight * 0.3
+  : isIpad
+  ? screenHeight * 0.25
+  : screenHeight * 0.25;
+
 export default function StartImage({
   navigation,
   route,
@@ -119,29 +136,28 @@ export default function StartImage({
 
   const breathColor = ["enojo"].includes(emotion) ? "#fff" : "#d600d3";
 
-  console.log("breathColor", breathColor);
   return (
     <Background gradientName={sectionColor}>
       <View style={styles.wrapper}>
-        <View style={styles.content}>
-          <View style={styles.breathContentText}>
-            <Animated.View style={[{ opacity: inhaleOpacity }]}>
-              <PVText style={styles.breathText} fontType={"headlineH1"}>
-                Inhala
-              </PVText>
-            </Animated.View>
-            <Animated.View style={[{ opacity: sostenOpacity }]}>
-              <PVText style={styles.breathText} fontType={"headlineH1"}>
-                Sostén
-              </PVText>
-            </Animated.View>
-            <Animated.View style={[{ opacity: exhaleOpacity }]}>
-              <PVText style={styles.breathText} fontType={"headlineH1"}>
-                Exhala
-              </PVText>
-            </Animated.View>
-          </View>
+        <View style={styles.header}>
+          <Animated.View
+            style={[styles.breathText, { opacity: inhaleOpacity }]}
+          >
+            <PVText fontType={"headlineH1"}>Inhala</PVText>
+          </Animated.View>
+          <Animated.View
+            style={[styles.breathText, { opacity: sostenOpacity }]}
+          >
+            <PVText fontType={"headlineH1"}>Sostén</PVText>
+          </Animated.View>
+          <Animated.View
+            style={[styles.breathText, { opacity: exhaleOpacity }]}
+          >
+            <PVText fontType={"headlineH1"}>Exhala</PVText>
+          </Animated.View>
+        </View>
 
+        <View style={styles.body}>
           {[0, 1, 2, 3, 4, 5, 6, 7].map((item) => {
             const rotation = move.interpolate({
               inputRange: [0, 1, 2],

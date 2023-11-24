@@ -42,41 +42,42 @@ export default function RecommendedOils({
   const modalText = beforeOils(selectedEmotion);
   const modalCustomContent = (
     <View style={styles.modalContent}>
-      <PVText style={styles.modalHeader} fontType={"headlineH2"}>
-        {`${contactModal.text1}`}
-      </PVText>
-      <View style={styles.spaceBetween}></View>
-      <PVText style={styles.modalParraph} fontType={"headlineH3"}>
-        {`${contactModal.text2}`}
-      </PVText>
-      <View style={styles.spaceBetween}></View>
-      <PVText style={styles.modalParraph} fontType={"headlineH3"}>
-        {`${contactModal.text3}`}
-      </PVText>
-      <View style={styles.spaceBetween}></View>
-      <View style={styles.iconCall}>
-        <Ionicons
-          name="home-outline"
-          size={40}
-          color="#fff"
-          onPress={() => navigation.navigate("Selection")}
-        />
-        <Ionicons
-          name="logo-whatsapp"
-          size={40}
-          color="#fff"
-          onPress={() =>
-            Linking.openURL(
-              "whatsapp://send?phone=5529192611&text=App Emociones, Hola "
-            )
-          }
-        />
-        <Ionicons
-          name="chatbubbles-outline"
-          size={40}
-          color="#fff"
-          onPress={() => navigation.navigate("Contact")}
-        />
+      <View style={styles.modalBody}>
+        <PVText style={styles.modalHeader} fontType={"headlineH3"}>
+          {`${contactModal.text1}`}
+        </PVText>
+        <PVText style={styles.modalParraph} fontType={"headlineH4"}>
+          {`${contactModal.text2}`}
+        </PVText>
+        <PVText style={styles.modalParraph} fontType={"headlineH4"}>
+          {`${contactModal.text3}`}
+        </PVText>
+      </View>
+      <View style={styles.modalBottom}>
+        <View style={styles.iconCall}>
+          <Ionicons
+            name="home-outline"
+            size={styles.modalIconsSize.width}
+            color="#fff"
+            onPress={() => navigation.navigate("Selection")}
+          />
+          <Ionicons
+            name="logo-whatsapp"
+            size={styles.modalIconsSize.width}
+            color="#fff"
+            onPress={() =>
+              Linking.openURL(
+                "whatsapp://send?phone=5529192611&text=App Emociones, Hola "
+              )
+            }
+          />
+          <Ionicons
+            name="chatbubbles-outline"
+            size={styles.modalIconsSize.width}
+            color="#fff"
+            onPress={() => navigation.navigate("Contact")}
+          />
+        </View>
       </View>
     </View>
   );
@@ -106,29 +107,33 @@ export default function RecommendedOils({
                     justifyContent: "center",
                   }}
                 >
-                  <PVText style={styles.contentText} fontType={"headlineH2"}>
+                  <PVText style={styles.contentText} fontType={"headlineH4"}>
                     {`${oilsContent.description}`}
                   </PVText>
                 </ScrollView>
               </View>
 
               <View style={styles.oilsDetails}>
-                <PVText
-                  style={styles.contentTextRecommended}
-                  fontType={"headlineH3"}
-                >
-                  {`ACEITES ESCENCIALES RECOMENDADOS`}
-                </PVText>
-                <ScrollView
-                  contentContainerStyle={{
-                    flexGrow: 1,
-                    justifyContent: "center",
-                  }}
-                >
-                  <PVText style={styles.contentText} fontType={"headlineH3"}>
-                    {`${oilsContent.oils}`}
+                <View style={styles.oilsDetailsHeader}>
+                  <PVText
+                    style={styles.contentTextRecommended}
+                    fontType={"headlineH4"}
+                  >
+                    {`ACEITES ESCENCIALES RECOMENDADOS`}
                   </PVText>
-                </ScrollView>
+                </View>
+                <View style={styles.oilsDetailsBody}>
+                  <ScrollView
+                    contentContainerStyle={{
+                      flexGrow: 1,
+                      justifyContent: "center",
+                    }}
+                  >
+                    <PVText style={styles.contentText} fontType={"headlineH4"}>
+                      {`${oilsContent.oils}`}
+                    </PVText>
+                  </ScrollView>
+                </View>
               </View>
             </View>
             <View style={styles.buttonsContainer}>
@@ -139,7 +144,11 @@ export default function RecommendedOils({
                   setModalSection(sections.finalModal),
                 ]}
               >
-                <Ionicons name="search-outline" size={25} color="#fff" />
+                <Ionicons
+                  name="search-outline"
+                  size={styles.iconsLensSize.width}
+                  color="#fff"
+                />
                 <PVText style={styles.buyTextButton}>MAS INFORMACIÓN</PVText>
               </Pressable>
             </View>

@@ -4,19 +4,29 @@ import Background from "../../components/Background";
 import ContinueButton from "../../components/ContinueButton";
 import { summary3 } from "../../text/introduction";
 import PVText from "../../components/PVText";
+import AN from "../../text/animationValues";
 import labels from "../../text/labels";
 import styles from "./styles";
 
 export default function Final({ navigation }: { navigation: any; route: any }) {
   const sectionColor = labels.defaultBackColor;
   const [fadeAnim] = useState(new Animated.Value(0));
+  const [fadeAnim2] = useState(new Animated.Value(0));
 
   useEffect(() => {
-    Animated.timing(fadeAnim, {
-      toValue: 1,
-      duration: 1000,
-      useNativeDriver: true,
-    }).start();
+    Animated.sequence([
+      Animated.timing(fadeAnim, {
+        toValue: 1,
+        duration: AN.durationQuick,
+        useNativeDriver: true,
+      }),
+      Animated.delay(AN.duration),
+      Animated.timing(fadeAnim2, {
+        toValue: 1,
+        duration: AN.durationQuick,
+        useNativeDriver: true,
+      }),
+    ]).start();
   }, []);
 
   return (
@@ -27,13 +37,13 @@ export default function Final({ navigation }: { navigation: any; route: any }) {
             {summary3}
           </PVText>
         </Animated.View>
-        <View style={styles.bottom}>
+        <Animated.View style={[styles.bottom, { opacity: fadeAnim2 }]}>
           <ContinueButton
             sectionColor={sectionColor}
             label="COMENZAR"
             onPress={() => navigation.navigate("TabNavigator")}
           />
-        </View>
+        </Animated.View>
       </View>
     </Background>
   );

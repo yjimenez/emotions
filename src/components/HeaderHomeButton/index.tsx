@@ -13,10 +13,16 @@ export default function HeaderHomeButton(props: Props) {
   const { onPress, label } = props;
 
   return (
-    <View>
-      <Pressable onPress={onPress} style={[styles.backButton]}>
-        <Ionicons name="home-outline" size={30} color="#fff" />
-      </Pressable>
-    </View>
+    <Pressable onPress={onPress} style={[styles.backButton]}>
+      {label ? (
+        <PVText fontType={"normalText"}>{label}</PVText>
+      ) : (
+        <Ionicons
+          name="home-outline"
+          size={styles.backIcon.height}
+          color="#fff"
+        />
+      )}
+    </Pressable>
   );
 }

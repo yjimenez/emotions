@@ -13,11 +13,13 @@ export default function HeaderBackButton(props: Props) {
   const { onPress, label } = props;
 
   return (
-    <View>
-      <Pressable onPress={onPress} style={[styles.backButton]}>
-        <Ionicons name="arrow-back-outline" size={32} color="#fff" />
-        <PVText fontType={"headlineH3"}>{label}</PVText>
-      </Pressable>
-    </View>
+    <Pressable onPress={onPress} style={[styles.backButton]}>
+      <Ionicons
+        name="arrow-back-outline"
+        size={styles.backIcon.height}
+        color="#fff"
+      />
+      <PVText fontType={"headlineH3"}>{label}</PVText>
+    </Pressable>
   );
 }

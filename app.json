@@ -1,18 +1,31 @@
 {
   "expo": {
-    "name": "emotions",
+    "name": "INO Emociones",
     "slug": "emotions",
     "privacy": "unlisted",
     "owner": "yair_jb",
-    "version": "1.1.0",
+    "version": "1.3.1",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
-      "resizeMode": "contain",
+      "resizeMode": "cover",
       "backgroundColor": "#EFEAD7"
     },
+    "plugins": [
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "enableProguardInReleaseBuilds": true,
+            "compileSdkVersion": 33,
+            "targetSdkVersion": 33,
+            "buildToolsVersion": "33.0.0"
+          }
+        }
+      ]
+    ],
     "updates": {
       "fallbackToCacheTimeout": 0,
       "url": "https://u.expo.dev/b6d6ddf6-ab30-42b8-96c5-3410e51a4651"
@@ -21,14 +34,24 @@
     "ios": {
       "bundleIdentifier": "com.emotions.test",
       "supportsTablet": true,
-      "buildNumber": "2"
+      "buildNumber": "1",
+      "splash": {
+        "image": "./assets/splash.png",
+        "resizeMode": "cover",
+        "backgroundColor": "#EFEAD7",
+        "tabletImage": "./assets/splashIpad.png"
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.emotions.test"
+      "package": "com.emotions.test",
+      "versionCode": 3
+    },
+    "androidStatusBar": {
+      "translucent": true
     },
     "web": {
       "favicon": "./assets/favicon.png"

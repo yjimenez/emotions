@@ -31,11 +31,19 @@ export default function App() {
         console.warn(e);
       } finally {
         setAppIsReady(true);
-        SplashScreen.hideAsync();
       }
     }
     loadResourcesAndDataAsync();
   }, []);
+
+  useEffect(() => {
+    async function loadResourcesAndDataAsync() {
+      if (appIsReady) {
+        await SplashScreen.hideAsync();
+      }
+    }
+    loadResourcesAndDataAsync();
+  }, [appIsReady]);
 
   if (!appIsReady) {
     return null;

@@ -1,4 +1,4 @@
-export const initialTitle = `APP EMOCIONES`;
+export const initialTitle = `INO EMOCIONES`;
 export const initialSubTitle = `Te damos la bienvenida`;
 export const screen1Title = `Esta app ha sido creada para ti`;
 export const screen2Title = `Ponle Nombre a lo Que Sientes`;
@@ -12,12 +12,12 @@ export const summary1 = {
 export const summary2 = {
   parraph1: `El objetivo de ponerle nombre a lo que sientes, es buscar la mejor forma de gestionar tu emoción.`,
   parraph2: `Estar instalados en nuestro verdadero sentir, nos permite ser asertivos en nuestras actitudes.`,
-  parraph3: `Una vez que somos asertivos en nuestra forma de actuar, podemos también agradecernos a nosotros mismos la posibilidad de relacionarnos mejor, busquemos equilibrio para relacionarnos mejor.`,
+  parraph3: `Una vez que somos asertivos en nuestra forma de actuar, podemos también agradecernos la posibilidad de relacionarnos mejor y buscar un equilibrio.`,
 };
 
-export const summary3 = `Ven, continuemos, vamos a ponerle nombre a lo que te pasa`;
+export const summary3 = `Ven, continuemos, vamos a ponerle nombre a lo que te pasa.`;
 
-export const selectionHeader = `¿Que emocion estas experimentando mas intensamente en este momento?`;
+export const selectionHeader = `¿Que emoción estas experimentando más intensamente en este momento?`;
 
 export const summaryTex1 = {
   icon: "analytics-outline",

@@ -1,5 +1,4 @@
 import { StyleSheet, Dimensions } from "react-native";
-import { headlineH1 } from "../../utils/styles";
 const { width, height: screenHeight } = Dimensions.get("window");
 
 const styles = StyleSheet.create({

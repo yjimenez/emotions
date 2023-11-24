@@ -33,8 +33,5 @@
       }
     },
     "production": {}
-  },
-  "submit": {
-    "production": {}
   }
 }

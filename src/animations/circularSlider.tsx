@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { View } from "react-native";
 import Svg, { Circle, Path } from "react-native-svg";
 
@@ -76,6 +75,7 @@ export default function CircularSlider(props: any) {
             cy={centerY - (Math.sin(angle) * (size - thumbWidth * 2)) / 2}
             r={thumbWidth}
             fill={props.thumbColor === undefined ? "black" : props.thumbColor}
+            stroke="#FFFFFF"
           />
         </Svg>
       </Svg>

@@ -45,9 +45,22 @@ const styles = StyleSheet.create({
     margin: screenWidth * 0.01,
   },
   contentScroll: {
+    overflow: "scroll",
     justifyContent: "center",
     paddingRight: screenWidth * 0.06,
     paddingLeft: screenWidth * 0.06,
+  },
+  modalHeaderParraph: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    textAlign: "center",
+  },
+  modalBodyParraph: {
+    flex: 5,
+    justifyContent: "center",
+    alignItems: "center",
+    textAlign: "center",
   },
   modalParraph: {
     textAlign: "center",

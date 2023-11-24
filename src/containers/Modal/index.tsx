@@ -80,11 +80,18 @@ export default function EmotionsModal({
       ? styles.modalContentMedium
       : styles.modalContentLarge;
 
+  const modalBody =
+    size === labels.small
+      ? styles.modalBodySmall
+      : size === labels.medium
+      ? styles.modalBodyMedium
+      : styles.modalBodyLarge;
+
   const modalFontSize =
     fontSize === labels.small
-      ? "headlineH3"
+      ? "headlineH4"
       : fontSize === labels.medium
-      ? "headlineH2"
+      ? "headlineH3"
       : "headlineH1";
 
   return (
@@ -106,34 +113,33 @@ export default function EmotionsModal({
             {showCloseHeader ? (
               <Ionicons
                 name="close-outline"
-                size={40}
+                size={styles.crossIcon.width}
                 color="#fff"
                 onPress={() => onPressClose()}
               />
             ) : null}
           </View>
 
-          <View style={styles.content}>
+          <View style={modalBody}>
             {modalCustomContent ? (
               modalCustomContent
             ) : (
-              <View style={styles.justifyCenter}>
-                <PVText fontType={modalFontSize} style={styles.modalParraph}>
-                  {modalText}
-                </PVText>
-              </View>
+              <PVText fontType={modalFontSize} style={styles.modalParraph}>
+                {modalText}
+              </PVText>
             )}
+          </View>
 
-            {showButton ? (
+          {showButton ? (
+            <View style={styles.bottom}>
               <ContinueButton
                 sectionColor={emotion}
                 label={buttonLabel || "CONTINUAR"}
                 onPress={async () => onPressContinue()}
-                customStyle={styles.customStyle}
                 pressEffect={null}
               />
-            ) : null}
-          </View>
+            </View>
+          ) : null}
         </LinearGradient>
       </View>
     </Modal>

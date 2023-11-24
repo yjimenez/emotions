@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { View, Platform, Animated, Easing } from "react-native";
+import { View, Animated, Easing } from "react-native";
 import Background from "../../components/Background";
 import ContinueButton from "../../components/ContinueButton";
 import { summary2, screen2Title } from "../../text/introduction";
@@ -15,11 +15,11 @@ export default function Screen2({
   route: any;
 }) {
   const sectionColor = labels.defaultBackColor;
-  const isAndroid = Platform.OS === "android";
 
-  const animated = new Animated.Value(-500);
-  const animated2 = new Animated.Value(-500);
-  const animated3 = new Animated.Value(-500);
+  const animated = new Animated.Value(-1000);
+  const animated2 = new Animated.Value(-1000);
+  const animated3 = new Animated.Value(-1000);
+  const animated4 = new Animated.Value(0);
 
   useEffect(() => {
     Animated.sequence([
@@ -43,18 +43,24 @@ export default function Screen2({
         useNativeDriver: true,
         easing: Easing.linear,
       }),
+      Animated.delay(AN.delayDuration),
+      Animated.timing(animated4, {
+        toValue: 1,
+        duration: AN.durationQuick,
+        useNativeDriver: true,
+      }),
     ]).start();
   }, []);
 
   return (
     <Background gradientName={sectionColor}>
       <View style={styles.wrapper}>
-        <View style={isAndroid ? styles.headerAndroid : styles.header}>
+        <View style={styles.header}>
           <PVText style={styles.headerTextAlign} fontType={"headlineH2"}>
             {screen2Title}
           </PVText>
         </View>
-        <View style={styles.bodySpaceAround}>
+        <View style={styles.body}>
           <Animated.View
             style={[
               styles.bodyTextAlign,
@@ -86,13 +92,13 @@ export default function Screen2({
             </PVText>
           </Animated.View>
         </View>
-        <View style={styles.bottom}>
+        <Animated.View style={[styles.bottom, { opacity: animated4 }]}>
           <ContinueButton
             sectionColor={sectionColor}
             label={"SIGUIENTE"}
             onPress={() => navigation.navigate("Final")}
           />
-        </View>
+        </Animated.View>
       </View>
     </Background>
   );

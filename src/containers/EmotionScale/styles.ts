@@ -6,18 +6,26 @@ const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
     flexDirection: "column",
-    alignContent: "center",
-    justifyContent: "space-between",
     alignItems: "center",
     width: "100%",
-    height: "100%",
   },
-  content: {
+  header: {
+    flex: 1.5,
     justifyContent: "center",
+    width: "100%",
+    alignItems: "center",
+  },
+  body: {
+    flex: 5,
+    justifyContent: "center",
+    width: "100%",
+    alignItems: "center",
+  },
+  bottom: {
     flex: 1,
     width: "100%",
-    height: "100%",
-    paddingTop: screenHeight * 0.05,
+    alignItems: "center",
+    justifyContent: "center",
   },
   headlineH1,
   headlineH2,
@@ -57,13 +65,6 @@ const styles = StyleSheet.create({
     height: screenHeight * 0.16,
     justifyContent: "flex-end",
   },
-  bottom: {
-    width: "100%",
-    alignItems: "center",
-    paddingTop: screenHeight * 0.03,
-    paddingBottom: screenHeight * 0.03,
-  },
-  circularRotation: {},
 });
 
 export default styles;

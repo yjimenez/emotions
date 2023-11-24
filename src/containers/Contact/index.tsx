@@ -56,21 +56,47 @@ export default function Contact({ navigation }: { navigation: any }) {
 
   const modalCustomContent = (
     <View style={styles.INOModalBody}>
-      <View style={styles.INOModalRow}>
-        <PVText style={styles.modalTextTitle}>{`Título:`}</PVText>
-        <PVText style={styles.modalText}>{`${INOModal.titulo}`}</PVText>
-      </View>
-      <View style={styles.INOModalRow}>
-        <PVText style={styles.modalTextTitle}>{`No. Registro:`}</PVText>
-        <PVText style={styles.modalText}>{`${INOModal.noRegistro}`}</PVText>
-      </View>
-      <View style={styles.INOModalRow}>
-        <PVText style={styles.modalTextTitle}>{`Autor:`}</PVText>
-        <PVText style={styles.modalText}>{`${INOModal.autor}`}</PVText>
-      </View>
-      <View style={styles.INOModalRow}>
-        <PVText style={styles.modalTextTitle}>{`Tipo de Tramite:`}</PVText>
-        <PVText style={styles.modalText}>{`${INOModal.tipoTramite}`}</PVText>
+      <View style={styles.INOModalText}>
+        <View style={styles.INOModalRow}>
+          <PVText
+            style={styles.modalTextTitle}
+            fontType="headlineH4"
+          >{`Título:`}</PVText>
+          <PVText
+            style={styles.modalText}
+            fontType="normalText"
+          >{`${INOModal.titulo}`}</PVText>
+        </View>
+        <View style={styles.INOModalRow}>
+          <PVText
+            style={styles.modalTextTitle}
+            fontType="headlineH4"
+          >{`No. Registro:`}</PVText>
+          <PVText
+            style={styles.modalText}
+            fontType="normalText"
+          >{`${INOModal.noRegistro}`}</PVText>
+        </View>
+        <View style={styles.INOModalRow}>
+          <PVText
+            style={styles.modalTextTitle}
+            fontType="headlineH4"
+          >{`Autor:`}</PVText>
+          <PVText
+            style={styles.modalText}
+            fontType="normalText"
+          >{`${INOModal.autor}`}</PVText>
+        </View>
+        <View style={styles.INOModalRow}>
+          <PVText
+            style={styles.modalTextTitle}
+            fontType="headlineH4"
+          >{`Tipo de Tramite:`}</PVText>
+          <PVText
+            style={styles.modalText}
+            fontType="normalText"
+          >{`${INOModal.tipoTramite}`}</PVText>
+        </View>
       </View>
       <View style={styles.INOModalLogos}>
         <View style={styles.INOModalLogo}>
@@ -86,14 +112,18 @@ export default function Contact({ navigation }: { navigation: any }) {
   const infoRow = (icon: string, text: string, link: string) => (
     <View style={styles.bodyInfoRow}>
       <View style={styles.bodyInfoIcon}>
-        <Ionicons name={icon} size={32} color="#fff" />
+        <Ionicons
+          name={icon}
+          size={styles.contactIconSize.height}
+          color="#fff"
+        />
       </View>
 
       <Pressable
         onPress={() => Linking.openURL(link)}
         style={styles.bodyInfoText}
       >
-        <PVText style={styles.text1}>{text}</PVText>
+        <PVText fontType="normalText">{text}</PVText>
       </Pressable>
     </View>
   );
@@ -101,7 +131,11 @@ export default function Contact({ navigation }: { navigation: any }) {
   const iconRow = (icon: string, link: string) => (
     <View style={styles.bodyInfoIcon}>
       <Pressable onPress={() => Linking.openURL(link)}>
-        <Ionicons name={icon} size={32} color="#fff" />
+        <Ionicons
+          name={icon}
+          size={styles.contactIconSize.height}
+          color="#fff"
+        />
       </Pressable>
     </View>
   );
@@ -110,41 +144,46 @@ export default function Contact({ navigation }: { navigation: any }) {
     <Background containsBottomTab gradientName={sectionColor}>
       <View style={[styles.wrapper, { opacity: modalVisible ? 0.2 : 1 }]}>
         <View style={styles.header}>
-          <PVText style={styles.headlineH1}>Contacto</PVText>
+          <PVText fontType="headlineH1">Contacto</PVText>
         </View>
-        <View style={styles.bodyInfo}>
-          {infoRow(direction.icon, direction.text, direction.link)}
-          {infoRow(phone.icon, phone.text, phone.link)}
-          {infoRow(email.icon, email.text, email.link)}
-          <View style={styles.bodyInfoRow}>
-            {iconRow(ytINO.icon, ytINO.link)}
-            {iconRow(fbINO.icon, fbINO.link)}
-            {iconRow(igINO.icon, igINO.link)}
+        <View style={styles.body}>
+          <View style={styles.bodyInfo}>
+            {infoRow(direction.icon, direction.text, direction.link)}
+            {infoRow(phone.icon, phone.text, phone.link)}
+            {infoRow(email.icon, email.text, email.link)}
+            <View style={styles.bodyInfoRow}>
+              {iconRow(ytINO.icon, ytINO.link)}
+              {iconRow(fbINO.icon, fbINO.link)}
+              {iconRow(igINO.icon, igINO.link)}
 
-            <Pressable
-              style={styles.logoINOContainer}
-              onPress={() => setModalVisible(true)}
-            >
-              <View style={styles.logoINOBackground}>
-                <Image style={styles.logoINO} source={getImage().florINO} />
-              </View>
-            </Pressable>
-          </View>
-        </View>
-
-        <View style={styles.bodyImages}>
-          <View style={styles.imageLogo}>
-            <Image
-              style={styles.imageLogoSource}
-              source={getImage().patyLogo}
-            />
-            <View style={styles.bodyInfoRowImage}>
-              {iconRow(fbPaty.icon, fbPaty.link)}
-              {iconRow(igPaty.icon, igPaty.link)}
+              <Pressable
+                style={styles.logoINOContainer}
+                onPress={() => setModalVisible(true)}
+              >
+                <View style={styles.logoINOBackground}>
+                  <Image style={styles.logoINO} source={getImage().florINO} />
+                </View>
+              </Pressable>
             </View>
           </View>
-          <View style={styles.imageFace}>
-            <Image style={styles.imageFaceSource} source={getImage().patyCel} />
+
+          <View style={styles.bodyImages}>
+            <View style={styles.imageLogo}>
+              <Image
+                style={styles.imageLogoSource}
+                source={getImage().patyLogo}
+              />
+              <View style={styles.bodyInfoRowImage}>
+                {iconRow(fbPaty.icon, fbPaty.link)}
+                {iconRow(igPaty.icon, igPaty.link)}
+              </View>
+            </View>
+            <View style={styles.imageFace}>
+              <Image
+                style={styles.imageFaceSource}
+                source={getImage().patyCel}
+              />
+            </View>
           </View>
         </View>
       </View>

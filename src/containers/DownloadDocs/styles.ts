@@ -1,15 +1,34 @@
-import { StyleSheet, Dimensions } from "react-native";
-import { headlineH1, headlineH4, text1 } from "../../utils/styles";
+import {
+  StyleSheet,
+  Dimensions,
+  Platform,
+  PlatformIOSStatic,
+  PixelRatio,
+} from "react-native";
 const { width: screenWidth, height: screenHeight } = Dimensions.get("window");
+
+const platformIOS = Platform as PlatformIOSStatic;
+const isIpad = platformIOS.isPad;
 
 const styles = StyleSheet.create({
   wrapper: {
+    flex: 1,
     flexDirection: "column",
     alignItems: "center",
     width: "100%",
-    height: screenHeight * 0.8,
   },
-  header: {},
+  header: {
+    flex: 1,
+    justifyContent: "center",
+    width: "100%",
+    alignItems: "center",
+  },
+  body: {
+    flex: 5,
+    justifyContent: "center",
+    width: "100%",
+    alignItems: "center",
+  },
   bodyInfo: {
     width: "100%",
     borderRadius: 10,
@@ -32,27 +51,26 @@ const styles = StyleSheet.create({
     borderColor: "#fff",
   },
   accordeonTitle: {
-    ...headlineH4,
     marginTop: screenHeight * 0.01,
     marginBottom: screenHeight * 0.01,
     paddingLeft: screenWidth * 0.02,
     width: screenWidth * 0.78,
   },
   accordeonBody: {
-    ...text1,
-    fontSize: screenWidth * 0.04,
     padding: 10,
   },
   accordeonLinkBody: {
-    ...headlineH4,
-    fontSize: screenWidth * 0.04,
     padding: 10,
   },
   accordeonLinkWrapper: {
     flexDirection: "row",
     alignItems: "center",
   },
-  headlineH1,
+  chevronRightSize: {
+    width: isIpad
+      ? PixelRatio.getPixelSizeForLayoutSize(25)
+      : PixelRatio.getPixelSizeForLayoutSize(10),
+  },
 });
 
 export default styles;

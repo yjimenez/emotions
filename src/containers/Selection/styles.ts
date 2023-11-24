@@ -5,56 +5,57 @@ const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
     flexDirection: "column",
-    justifyContent: "space-between",
     alignItems: "center",
     width: "100%",
-    height: "100%",
   },
   header: {
+    flex: 1.2,
     justifyContent: "center",
     width: "100%",
     alignItems: "center",
-    paddingTop: screenHeight * 0.05,
+  },
+  body: {
+    flex: 5,
+    justifyContent: "center",
+    width: "100%",
+    alignItems: "center",
+  },
+  bottom: {
+    flex: 1,
+    width: "100%",
+    alignItems: "center",
+    justifyContent: "center",
   },
   headerSelector: {
     justifyContent: "center",
     width: "100%",
     alignItems: "center",
   },
-  body: {
-    marginTop: -screenHeight * 0.1,
-    height: screenHeight * 0.5,
-    alignContent: "center",
-    justifyContent: "center",
-    width: "100%",
-    alignItems: "center",
-  },
-  imagePrincipal: {
+  bodySpaceAround: {
     flex: 1,
-    justifyContent: "center",
+    height: "100%",
     alignContent: "center",
-    alignItems: "center",
-    width: "100%",
-    height: screenHeight * 0.1,
-    resizeMode: "stretch",
-  },
-  bodySummary: {
+    justifyContent: "space-around",
     width: "100%",
     alignItems: "center",
     paddingTop: screenHeight * 0.04,
+    paddingBottom: screenHeight * 0.04,
+    borderWidth: 1,
+    borderColor: "red",
+  },
+
+  bodySummary: {
+    width: "100%",
+    alignItems: "center",
+    paddingTop: screenHeight * 0.02,
   },
   cardsBody: {
     flex: 1,
     width: "100%",
     alignItems: "center",
-    paddingTop: screenHeight * 0.04,
-  },
-  bottom: {
-    width: "100%",
-    alignItems: "center",
     paddingTop: screenHeight * 0.03,
-    paddingBottom: screenHeight * 0.03,
   },
+
   headerTextAlign: {
     textAlign: "center",
     paddingLeft: screenWidth * 0.1,
@@ -64,19 +65,29 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   bodyTextAlign: {
+    padding: screenWidth * 0.05,
+    width: "100%",
+  },
+  bodyTextCenterAlign: {
     paddingLeft: screenWidth * 0.01,
     paddingRight: screenWidth * 0.01,
-    lineHeight: screenWidth * 0.07,
+    textAlign: "center",
   },
   bodyBoxTextAlign: {
     paddingLeft: screenWidth * 0.025,
     paddingRight: screenWidth * 0.05,
     width: screenWidth * 0.7,
-    paddingTop: screenWidth * 0.05,
-    paddingBottom: screenWidth * 0.05,
+    paddingTop: screenWidth * 0.04,
+    paddingBottom: screenWidth * 0.04,
+  },
+  bodyBoxTextAlignAndroid: {
+    flex: 1,
+    width: screenWidth * 0.7,
+    paddingTop: screenWidth * 0.01,
+    paddingBottom: screenWidth * 0.01,
   },
   bodyTextBox: {
-    width: screenWidth * 0.9,
+    width: screenWidth * 0.87,
     justifyContent: "space-around",
     alignItems: "center",
     flexDirection: "row",
@@ -105,25 +116,24 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
     width: "100%",
     alignItems: "center",
-    margin: 10,
   },
   selectionElement: {
-    borderWidth: 1,
-    borderColor: "#fff",
-    backgroundColor: "#887BF8",
-    width: 150,
-    height: screenHeight * 0.12,
-    justifyContent: "center",
-    alignItems: "center",
-    alignContent: "center",
-    paddingTop: screenHeight * 0.0,
+    width: "50%",
   },
   emotionFace: {
     flex: 1,
-    width: screenWidth * 0.3,
+    width: "100%",
+    resizeMode: "contain",
+    borderRadius: 100,
   },
   tinyText: {
     fontSize: screenWidth * 0.03,
+  },
+  parraph: {
+    lineHeight: screenHeight * 0.03,
+  },
+  contentBody: {
+    position: "absolute",
   },
 });
 

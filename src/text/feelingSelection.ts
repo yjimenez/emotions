@@ -10,7 +10,7 @@ export const modalHeader = (emotion: string, oppositeEmotion: string) =>
   `${emotion.toUpperCase()} / ${oppositeEmotion.toUpperCase()}`;
 
 export const modalFooter = (oppositeEmotion: string) =>
-  `Cuando has sentido ${oppositeEmotion.toUpperCase()}?`;
+  `¿Cuándo has sentido ${oppositeEmotion.toUpperCase()}?`;
 
 export const validateEmotionName = (emotion: string) => {
   if (emotion === "sorpresaPositivo" || emotion === "sorpresaNegativo") {

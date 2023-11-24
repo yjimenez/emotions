@@ -23,7 +23,7 @@ export default function FeelingQuestions({
 
   const onPressAnswer = async () => {
     swipeRight();
-    await delay(500);
+    await delay(200);
     const count = questionsCount + 1;
     if (count === questions.length) {
       navigation.navigate("Breath", {
@@ -38,8 +38,8 @@ export default function FeelingQuestions({
     swipeLeft();
   };
 
-  const animated = new Animated.Value(-500);
-  const duration = 500;
+  const animated = new Animated.Value(-1000);
+  const duration = 1000;
 
   const swipeLeft = () => {
     Animated.sequence([
@@ -55,7 +55,7 @@ export default function FeelingQuestions({
   const swipeRight = () => {
     Animated.sequence([
       Animated.timing(animated, {
-        toValue: 500,
+        toValue: 1000,
         duration: duration,
         useNativeDriver: true,
         easing: Easing.linear,
@@ -70,14 +70,14 @@ export default function FeelingQuestions({
   useEffect(() => {
     Animated.sequence([
       Animated.timing(animated, {
-        toValue: -500,
+        toValue: -1000,
         duration: duration,
         useNativeDriver: true,
         easing: Easing.linear,
       }),
     ]).start();
     const swipe = async () => {
-      await delay(500);
+      await delay(200);
       swipeLeft();
     };
     swipe();

@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Dimensions, View } from "react-native";
+import {
+  Dimensions,
+  View,
+  Platform,
+  PlatformIOSStatic,
+  PixelRatio,
+} from "react-native";
 import CircularSlider from "../../animations/circularSlider";
 import * as background from "../../utils/backgroundColors";
 import Slider from "@react-native-community/slider";
@@ -11,13 +17,14 @@ import {
   emotionSecondScale,
   moreNegativeScale,
   lessPositiveScale,
+  selectEmotionScale,
 } from "../../text/mainFlow";
 import { feelingSelection } from "../../text/feelingSelection";
 import styles from "./styles";
 import EmotionsModal from "../Modal";
 import labels from "../../text/labels";
 
-const { width: screenWidth } = Dimensions.get("window");
+const { width: screenWidth, height: screenHeight } = Dimensions.get("window");
 
 export default function EmotionScale({
   navigation,
@@ -29,12 +36,26 @@ export default function EmotionScale({
   const { emotion, feeling, section, scaleValue } = route.params;
   const sectionColor = emotion;
   const secondPosition = section === "second";
+
+  const platformIOS = Platform as PlatformIOSStatic;
+  const isIpad = platformIOS.isPad;
+
+  const circleSize = isIpad
+    ? PixelRatio.roundToNearestPixel(600)
+    : PixelRatio.roundToNearestPixel(280);
+  const circleWidth = isIpad
+    ? PixelRatio.roundToNearestPixel(25)
+    : PixelRatio.roundToNearestPixel(12);
+
   const [currentScaleValue, setValue] = useState(0);
   const [modalVisible, setModalVisible] = useState(false);
   const [modalProps, setModalProps] = useState({
     modalSize: "",
     modalFontSize: "",
     modalText: "",
+    modalOnPress: () => {},
+    modalButtonLabel: "CONTINUAR",
+    showCloseHeader: true,
   });
   const feelingType = feelingSelection(emotion).type;
   const emotionLabel = feelingSelection(emotion).emotion;
@@ -51,6 +72,25 @@ export default function EmotionScale({
     }
   }, [scaleValue]);
 
+  const firstAnswers = (scaleValue: number) => {
+    if (scaleValue === 0) {
+      setModalProps({
+        modalSize: labels.small,
+        modalFontSize: labels.medium,
+        modalText: selectEmotionScale,
+        modalOnPress: () => setModalVisible(false),
+        modalButtonLabel: "REGRESAR",
+        showCloseHeader: false,
+      });
+      setModalVisible(true);
+      return;
+    }
+    navigation.navigate("StartImage", {
+      emotion,
+      scaleValue,
+    });
+  };
+
   const secondAnswered = () => {
     if (feelingType === labels.positive) {
       if (currentScaleValue <= scaleValue) {
@@ -58,6 +98,14 @@ export default function EmotionScale({
           modalSize: labels.medium,
           modalFontSize: labels.small,
           modalText: lessPositiveScale,
+          modalOnPress: () =>
+            navigation.navigate("Breath", {
+              emotion,
+              feeling,
+              scaleValue,
+            }),
+          modalButtonLabel: "CONTINUAR",
+          showCloseHeader: true,
         });
         setModalVisible(true);
         return;
@@ -70,6 +118,9 @@ export default function EmotionScale({
           modalSize: labels.small,
           modalFontSize: labels.medium,
           modalText: moreNegativeScale(emotionLabel.toUpperCase()),
+          modalOnPress: () => navigation.navigate("Contact"),
+          modalButtonLabel: "CONTÁCTANOS",
+          showCloseHeader: true,
         });
         setModalVisible(true);
         return;
@@ -84,12 +135,7 @@ export default function EmotionScale({
   };
 
   const onPress = (scaleValue: number) => {
-    secondPosition
-      ? secondAnswered()
-      : navigation.navigate("StartImage", {
-          emotion,
-          scaleValue,
-        });
+    secondPosition ? secondAnswered() : firstAnswers(scaleValue);
   };
 
   const numberSize =
@@ -102,12 +148,14 @@ export default function EmotionScale({
   return (
     <Background gradientName={sectionColor}>
       <View style={[styles.wrapper, { opacity: modalVisible ? 0.2 : 1 }]}>
-        <View style={styles.content}>
-          <PVText style={styles.headerText} fontType={"headlineH2"}>
+        <View style={styles.header}>
+          <PVText style={styles.headerText} fontType={"headlineH3"}>
             {secondPosition
               ? emotionSecondScale(emotionLabel.toUpperCase())
               : emotionScale(emotionLabel.toUpperCase())}
           </PVText>
+        </View>
+        <View style={styles.body}>
           <View style={styles.numberWrapper}>
             <View
               style={{
@@ -117,16 +165,16 @@ export default function EmotionScale({
               }}
             >
               {isCircular ? (
-                <View style={styles.circularRotation}>
+                <View>
                   <CircularSlider
                     onChange={setValue}
-                    size={300}
+                    size={circleSize}
                     min={0}
                     max={10}
-                    trackWidth={10}
+                    trackWidth={circleWidth}
                     trackColor={trackColor}
                     thumbColor={thumbColor}
-                    thumbWidth={15}
+                    thumbWidth={circleWidth}
                     steps={1}
                     xCenter={99}
                     value={scaleValue}
@@ -176,23 +224,15 @@ export default function EmotionScale({
         modalVisibleProp={modalVisible}
         onCloseModal={() => setModalVisible(false)}
         emotion={emotion}
-        showCloseHeader
+        showCloseHeader={modalProps.showCloseHeader}
         size={modalProps.modalSize}
         fontSize={modalProps.modalFontSize}
-        buttonLabel="CONTÁCTANOS"
-        onPressButton={
-          secondPosition
-            ? () => navigation.navigate("Contact")
-            : () =>
-                navigation.navigate("Breath", {
-                  emotion,
-                  feeling,
-                  scaleValue,
-                })
-        }
+        buttonLabel={modalProps.modalButtonLabel}
+        onPressButton={() => modalProps.modalOnPress()}
         modalText={modalProps.modalText}
         showButton
         modalCustomContent={undefined}
+        section=""
       />
     </Background>
   );

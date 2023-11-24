@@ -1,20 +1,38 @@
-import { StyleSheet, Dimensions } from "react-native";
-import { headlineH1, headlineH4, text1, text2 } from "../../utils/styles";
+import {
+  StyleSheet,
+  Dimensions,
+  Platform,
+  PlatformIOSStatic,
+  PixelRatio,
+} from "react-native";
 const { width: screenWidth, height: screenHeight } = Dimensions.get("window");
+
+const platformIOS = Platform as PlatformIOSStatic;
+const isIpad = platformIOS.isPad;
 
 const styles = StyleSheet.create({
   wrapper: {
+    flex: 1,
     flexDirection: "column",
     alignItems: "center",
     width: "100%",
-    height: screenHeight * 0.8,
   },
-  header: {},
+  header: {
+    flex: 1,
+    justifyContent: "center",
+    width: "100%",
+    alignItems: "center",
+  },
+  body: {
+    flex: 5,
+    justifyContent: "center",
+    width: "100%",
+    alignItems: "center",
+  },
   bodyInfo: {
     width: "100%",
     backgroundColor: "rgba(56, 255, 255, 0.1)",
     borderRadius: 10,
-    marginTop: screenHeight * 0.03,
     borderWidth: 1,
     borderColor: "#fff",
     padding: screenHeight * 0.01,
@@ -45,6 +63,7 @@ const styles = StyleSheet.create({
     width: "100%",
     flexDirection: "row",
     marginTop: screenHeight * 0.03,
+    marginBottom: screenHeight * 0.01,
   },
   imageLogo: {
     flex: 1,
@@ -69,14 +88,13 @@ const styles = StyleSheet.create({
   },
   imageFace: {
     flex: 1,
-    justifyContent: "flex-end",
+    justifyContent: "center",
     alignItems: "center",
     marginLeft: screenWidth * 0.05,
   },
   imageFaceSource: {
-    width: "150%",
-    height: "100%",
-    resizeMode: "contain",
+    height: isIpad ? screenHeight * 0.35 : screenHeight * 0.3,
+    aspectRatio: 1,
   },
   logoINOContainer: {
     marginLeft: screenWidth * 0.03,
@@ -99,11 +117,15 @@ const styles = StyleSheet.create({
     height: "100%",
     resizeMode: "contain",
   },
-  headlineH1,
-  text1,
+  contactIconSize: {
+    height: isIpad ? screenHeight * 0.05 : screenHeight * 0.04,
+  },
   INOModalBody: {
     flex: 1,
-    width: "90%",
+    width: "100%",
+    paddingBottom: screenHeight * 0.01,
+    paddingLeft: screenWidth * 0.05,
+    paddingRight: screenWidth * 0.05,
   },
   INOModalRow: {
     width: "100%",
@@ -111,12 +133,11 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     alignContent: "center",
-    marginBottom: screenWidth * 0.04,
+    marginBottom: screenHeight * 0.02,
   },
   modalTextTitle: {
     paddingRight: screenWidth * 0.03,
     width: screenWidth * 0.27,
-    ...headlineH4,
   },
   modalText: {
     flex: 1,
@@ -124,12 +145,14 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignContent: "center",
     alignItems: "center",
-    ...text2,
+  },
+  INOModalText: {
+    flex: 2,
+    alignItems: "center",
+    justifyContent: "center",
   },
   INOModalLogos: {
-    height: "50%",
-    width: "100%",
-    display: "flex",
+    flex: 1,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
