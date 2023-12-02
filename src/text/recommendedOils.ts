@@ -10,7 +10,7 @@ export const recommendedOils = {
       description:
         "Impresión en el ánimo que alguien o algo causa a una persona, especialmente por alguna cualidad extraordinaria o por ser inesperado.",
       oils: "Hierba limonera, Lavanda, Semilla de Apio, Citronela, Cúrcuma, Limón, Magnolia, Manuka, Mirto de Limón, Easy Air, Metapwr.",
-      titleColor: "155D27",
+      titleColor: "#155D27",
     },
     imprudencia: {
       description:
@@ -253,7 +253,7 @@ export const recommendedOils = {
     preocupación: {
       description:
         "Estado de desasosiego, inquietud o temor producido ante una situación difícil o un problema previo a la ocupación.",
-      oils: "Cilantro, Menta y Naranja, Mandarina Verde, Mirto de Limón, Tanaceto Azúl, Semilla de Apio, Eucalipto Limón, Albahaca Sagrada, Davana, Anís Estrella, Copaiba, Cilantro, Hinojo Dulce, Lima, Limón, Litsea, Magnolia, Menta, Mirto Limón, Orégano, Rosa, Salvia Esclarea, Toronja, Ylang Ylang, Vainilla de Madagascar, Balance, Salvia Española, Metapwr.",
+      oils: "Cilantro, Menta y Naranja, Mandarina Verde, Tanaceto Azúl, Semilla de Apio, Eucalipto Limón, Albahaca Sagrada, Davana, Anís Estrella, Copaiba, Cilantro, Hinojo Dulce, Lima, Limón, Litsea, Magnolia, Menta, Rosa, Salvia Esclarea, Toronja, Ylang Ylang, Vainilla de Madagascar, Balance, Salvia Española, Metapwr.",
       titleColor: "#9D4EDD",
     },
     inquietud: {

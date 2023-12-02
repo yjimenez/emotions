@@ -98,13 +98,8 @@ export default function EmotionScale({
           modalSize: labels.medium,
           modalFontSize: labels.small,
           modalText: lessPositiveScale,
-          modalOnPress: () =>
-            navigation.navigate("Breath", {
-              emotion,
-              feeling,
-              scaleValue,
-            }),
-          modalButtonLabel: "CONTINUAR",
+          modalOnPress: () => navigation.navigate("Contact"),
+          modalButtonLabel: "CONTÁCTANOS",
           showCloseHeader: true,
         });
         setModalVisible(true);

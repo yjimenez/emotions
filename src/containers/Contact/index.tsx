@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Image, View, Pressable, Linking, Platform } from "react-native";
+import Constants from "expo-constants";
 import Background from "../../components/Background";
 import PVText from "../../components/PVText";
 import EmotionsModal from "../Modal";
@@ -49,6 +50,8 @@ const igPaty = {
   icon: "logo-instagram",
   link: "https://instagram.com/patyquiroz_conectando?igshid=YmMyMTA2M2Y=",
 };
+
+const version = Constants?.expoConfig?.version;
 
 export default function Contact({ navigation }: { navigation: any }) {
   const sectionColor = "miedo";
@@ -120,7 +123,11 @@ export default function Contact({ navigation }: { navigation: any }) {
       </View>
 
       <Pressable
-        onPress={() => Linking.openURL(link)}
+        onPress={() =>
+          Linking.openURL(link).catch(() =>
+            console.error(`Don't know how to open this link`)
+          )
+        }
         style={styles.bodyInfoText}
       >
         <PVText fontType="normalText">{text}</PVText>
@@ -130,7 +137,13 @@ export default function Contact({ navigation }: { navigation: any }) {
 
   const iconRow = (icon: string, link: string) => (
     <View style={styles.bodyInfoIcon}>
-      <Pressable onPress={() => Linking.openURL(link)}>
+      <Pressable
+        onPress={() =>
+          Linking.openURL(link).catch(() =>
+            console.error(`Don't know how to open this link`)
+          )
+        }
+      >
         <Ionicons
           name={icon}
           size={styles.contactIconSize.height}
@@ -183,6 +196,7 @@ export default function Contact({ navigation }: { navigation: any }) {
                 style={styles.imageFaceSource}
                 source={getImage().patyCel}
               />
+              <PVText fontType="normalText">version {version}</PVText>
             </View>
           </View>
         </View>
