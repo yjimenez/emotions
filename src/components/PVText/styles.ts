@@ -3,65 +3,44 @@ import {
   Dimensions,
   Platform,
   PlatformIOSStatic,
-  PixelRatio,
 } from "react-native";
+import { scalingFactor } from "../../utils/scalingFactor";
 
 const { width: screenWidth, height: screenHeight } = Dimensions.get("window");
-const fontScale = PixelRatio.getFontScale();
-const getFontSize = (size: number) => size / fontScale;
+const getFontSize = (size: number) => (screenWidth / size) * scalingFactor;
 const platformIOS = Platform as PlatformIOSStatic;
-const isIpad = platformIOS.isPad;
 const isAndroid = Platform.OS === "android";
-
-const IOSReduce = screenHeight < 760;
 
 const styles = StyleSheet.create({
   headlineH1: {
     fontFamily: "montserrat-semibold",
     color: "#fff",
-    fontSize: isAndroid
-      ? getFontSize(28)
-      : isIpad
-      ? getFontSize(60)
-      : getFontSize(30),
+    fontSize: isAndroid ? getFontSize(18) : getFontSize(14),
   },
   headlineH2: {
     fontFamily: "montserrat-semibold",
     color: "#fff",
-    fontSize: isAndroid
-      ? getFontSize(23)
-      : isIpad
-      ? getFontSize(50)
-      : getFontSize(26),
+    fontSize: isAndroid ? getFontSize(20) : getFontSize(16),
   },
   headlineH3: {
     fontFamily: "montserrat-semibold",
     color: "#fff",
-    fontSize: isAndroid
-      ? getFontSize(21)
-      : isIpad
-      ? getFontSize(43)
-      : getFontSize(24),
+    fontSize: isAndroid ? getFontSize(23) : getFontSize(19),
   },
   headlineH4: {
     fontFamily: "montserrat-semibold",
     color: "#fff",
-    fontSize: isAndroid
-      ? getFontSize(18)
-      : isIpad
-      ? getFontSize(36)
-      : getFontSize(20),
+    fontSize: isAndroid ? getFontSize(24) : getFontSize(20),
   },
   normalText: {
     fontFamily: "montserrat-regular",
     color: "#fff",
-    fontSize: isAndroid
-      ? getFontSize(16)
-      : isIpad
-      ? getFontSize(32)
-      : IOSReduce
-      ? getFontSize(18)
-      : getFontSize(20),
+    fontSize: isAndroid ? getFontSize(25) : getFontSize(21),
+  },
+  tinyText: {
+    fontFamily: "montserrat-regular",
+    color: "#fff",
+    fontSize: isAndroid ? getFontSize(34) : getFontSize(30),
   },
   defaultInputStyle: {
     width: screenWidth * 0.8,
@@ -71,11 +50,7 @@ const styles = StyleSheet.create({
     fontFamily: "montserrat-regular",
     fontWeight: "normal",
     textDecorationLine: "none",
-    fontSize: isAndroid
-      ? getFontSize(18)
-      : isIpad
-      ? getFontSize(30)
-      : getFontSize(20),
+    fontSize: isAndroid ? getFontSize(18) : getFontSize(20),
   },
   defaultDeleteButtonStyle: {
     width: screenHeight * 0.06,

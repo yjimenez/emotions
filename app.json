@@ -4,7 +4,7 @@
     "slug": "emotions",
     "privacy": "unlisted",
     "owner": "yair_jb",
-    "version": "1.3.1",
+    "version": "1.3.2",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -48,7 +48,7 @@
         "backgroundColor": "#FFFFFF"
       },
       "package": "com.emotions.test",
-      "versionCode": 4
+      "versionCode": 5
     },
     "androidStatusBar": {
       "translucent": true

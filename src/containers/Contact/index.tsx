@@ -196,7 +196,7 @@ export default function Contact({ navigation }: { navigation: any }) {
                 style={styles.imageFaceSource}
                 source={getImage().patyCel}
               />
-              <PVText fontType="normalText">version {version}</PVText>
+              <PVText fontType="tinyText">version {version}</PVText>
             </View>
           </View>
         </View>
